@@ -1,0 +1,258 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'VineryTech - Contacto | Consulta Gratuita de Automatización | ROI en 15 min',
+  description: 'Contacta VineryTech para una consulta gratuita. En 15 minutos evaluamos tu proceso más tedioso y calculamos el ROI de automatizarlo. Sin compromiso.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText 
+    tagline="Consulta Gratuita" 
+    title="¿Listo para Automatizar y Ahorrar Miles de Horas?"
+    subtitle="En 15 minutos identificamos tu proceso más costoso y calculamos exactamente cuánto ahorrarías automatizándolo. Sin compromiso, sin letra chica."
+  />
+
+  <!-- Testimonials & Trust Signals Section -->
+  
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">¿Por qué 45+ Empresas Confían en Mi?</h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400">Resultados reales, testimonios verificables</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8 mb-12">
+      <!-- Testimonio 1 -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+            CM
+          </div>
+          <div class="ml-3">
+            <p class="font-semibold">Carlos Mendoza</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">CFO, TechCorp</p>
+          </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          "En 28 días automatizó nuestros reportes financieros. Lo que nos tomaba 40 horas semanales ahora son 10 minutos. ROI de 380% en el primer año."
+        </p>
+        <div class="flex items-center">
+          <div class="flex text-yellow-400">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <span class="ml-2 text-sm text-gray-500">Proyecto: $8,500</span>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold">
+            AM
+          </div>
+          <div class="ml-3">
+            <p class="font-semibold">Ana Martínez</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">CEO, DataFlow</p>
+          </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          "Su bot de web scraping nos ahorra $15,000 mensuales en análisis de competencia. Se pagó solo en 3 semanas. Comunicación perfecta durante todo el proyecto."
+        </p>
+        <div class="flex items-center">
+          <div class="flex text-yellow-400">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <span class="ml-2 text-sm text-gray-500">Proyecto: $4,200</span>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+            LR
+          </div>
+          <div class="ml-3">
+            <p class="font-semibold">Luis Rodríguez</p>
+            <p class="text-sm text-gray-600 dark:text-gray-400">CTO, InnovaTech</p>
+          </div>
+        </div>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">
+          "Integró 5 sistemas legacy que nadie había podido conectar en 10 años. Su solución procesa 50,000 transacciones diarias sin errores. Genio puro."
+        </p>
+        <div class="flex items-center">
+          <div class="flex text-yellow-400">
+            ⭐⭐⭐⭐⭐
+          </div>
+          <span class="ml-2 text-sm text-gray-500">Proyecto: $12,800</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Garantías y Badges -->
+    <div class="bg-gradient-to-r from-blue-50 to-green-50 dark:from-blue-900/20 dark:to-green-900/20 rounded-lg p-8">
+      <h3 class="text-2xl font-bold text-center mb-6">Mis Garantías y Compromisos</h3>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <span class="text-white text-2xl">💰</span>
+          </div>
+          <h4 class="font-semibold mb-2">ROI Garantizado</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Si no ves ROI positivo en 90 días, trabajo gratis hasta lograrlo o devuelvo tu dinero</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <span class="text-white text-2xl">⚡</span>
+          </div>
+          <h4 class="font-semibold mb-2">Respuesta < 2 Horas</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Respuesta garantizada en menos de 2 horas durante horario laboral EST</p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
+            <span class="text-white text-2xl">🛡️</span>
+          </div>
+          <h4 class="font-semibold mb-2">Código Limpio</h4>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Código bien documentado, escalable y mantenible. Tu empresa nunca dependerá solo de VineryTech</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ContactUs
+    id="form"
+    title="Agenda tu Consulta de Automatización (100% Gratis)"
+    subtitle="Cuéntame sobre tu proceso más tedioso. Te muestro cómo automatizarlo y cuánto ahorrarías. Si los números no convencen, no hay compromiso."
+    inputs={[
+      {
+        type: 'text',
+        name: 'name',
+        label: 'Nombre Completo *',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email Empresarial *',
+      },
+      {
+        type: 'text',
+        name: 'company',
+        label: 'Empresa',
+      },
+      {
+        type: 'tel',
+        name: 'phone',
+        label: 'WhatsApp / Teléfono',
+      },
+      {
+        type: 'select',
+        name: 'project_type',
+        label: 'Tipo de Automatización *',
+        options: [
+          'Procesamiento de datos/reportes',
+          'Integración entre sistemas',
+          'Web scraping/extracción de datos',
+          'Automatización de emails/comunicaciones',
+          'Chatbot/atención al cliente',
+          'Procesamiento de documentos/facturas',
+          'Marketing automation',
+          'Otro (especificar en mensaje)'
+        ]
+      },
+      {
+        type: 'select',
+        name: 'timeline',
+        label: 'Cuándo necesitas la automatización',
+        options: [
+          'Lo antes posible (1-2 semanas)',
+          'En el próximo mes',
+          'En 2-3 meses',
+          'Solo explorando opciones'
+        ]
+      },
+      {
+        type: 'select',
+        name: 'budget',
+        label: 'Presupuesto aproximado',
+        options: [
+          'Menos de $2,500',
+          '$2,500 - $5,000',
+          '$5,000 - $10,000',
+          '$10,000 - $20,000',
+          'Más de $20,000',
+          'Depende del ROI'
+        ]
+      }
+    ]}
+    textarea={{
+      label: 'Describe el proceso que quieres automatizar *',
+      placeholder: 'Ejemplo: "Cada día perdemos 3 horas copiando datos de emails a Excel, luego los subimos manualmente a nuestro CRM. Son ~300 registros diarios y cometemos errores que nos cuestan clientes..."'
+    }}
+    disclaimer={{
+      label:
+        'Al enviar este formulario, acepto recibir comunicaciones sobre servicios de automatización. Puedo cancelar en cualquier momento.',
+    }}
+    description="⚡ Respuesta garantizada en menos de 2 horas (horario laboral EST). Para emergencias: WhatsApp +1 (555) 123-4567"
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Múltiples Formas de Conectar"
+    subtitle="Elige la opción que te resulte más cómoda. Todas llegan directamente a mí."
+    items={[
+      {
+        title: 'Consulta Express (Recomendado)',
+        description: `Rellena el formulario arriba con detalles de tu proceso. Te respondo en < 2 horas con una propuesta inicial y calendario para videollamada de 15 min.`,
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'WhatsApp Directo',
+        description:
+          '¿Necesitas respuesta inmediata? Envíame un mensaje describiendo tu problema. Perfecto para consultas rápidas y emergencias.',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        title: 'Videollamada Inmediata',
+        description:
+          'Si prefieres hablar directamente, agenda un slot en mi calendario. Disponible Lun-Vie 9 AM - 6 PM EST. Fines de semana para emergencias.',
+        icon: 'tabler:video',
+      },
+      {
+        title: 'WhatsApp Business',
+        description: '+1 (555) 123-4567',
+        icon: 'tabler:brand-whatsapp',
+      },
+      {
+        title: 'Email',
+        description: 'contacto@vinerytech.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Ubicación & Zona Horaria',
+        description: 'Remoto desde Miami, FL (EST) | Clientes en toda Latinoamérica y EEUU',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'LinkedIn',
+        description: 'Sígueme para tips de automatización y casos de éxito',
+        icon: 'tabler:brand-linkedin',
+      },
+      {
+        title: 'Calendly',
+        description: 'Agenda directamente un slot de 15 o 30 min según tu necesidad',
+        icon: 'tabler:calendar',
+      },
+      {
+        title: 'Slack/Teams',
+        description: 'Para clientes con retainer mensual. Canal dedicado con respuesta < 30 min.',
+        icon: 'tabler:brand-slack',
+      },
+    ]}
+  />
+</Layout>

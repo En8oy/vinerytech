@@ -1,0 +1,447 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { freelancerData } from '~/data/freelancer-data';
+
+const metadata = {
+  title: 'VineryTech - Portafolio | Casos de Éxito en Automatización | 150+ Procesos Optimizados',
+  description: 'Descubre cómo VineryTech ha automatizado procesos para 45+ empresas, ahorrando 100,000+ horas y generando millones en ROI. Casos reales con métricas verificables.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Casos de Éxito Reales"
+    title="150+ Procesos Automatizados, 100,000+ Horas Ahorradas"
+    subtitle="Descubre cómo he transformado operaciones de empresas reales. Cada proyecto incluye métricas verificables, tecnologías usadas y ROI alcanzado."
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Resultados en Números"
+    stats={[
+      { title: 'Proyectos Completados', amount: '150+' },
+      { title: 'Horas Automatizadas', amount: '100K+' },
+      { title: 'ROI Promedio', amount: '320%' },
+      { title: 'Clientes Satisfechos', amount: '45+' },
+      { title: 'Sistemas Integrados', amount: '500+' },
+      { title: 'Uptime Promedio', amount: '99.9%' },
+    ]}
+  />
+
+  <!-- Featured Projects Section ****************** -->
+  
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Proyectos Destacados</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-400">Casos reales con impacto medible y tecnología de punta</p>
+    </div>
+
+    <!-- Project 1: E-Commerce Automation -->
+    <div class="mb-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+            E-COMMERCE • AUTOMATIZACIÓN RPA
+          </div>
+          <h3 class="text-3xl font-bold mb-4">DataSync Pro</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+            Plataforma de sincronización automática que conecta Shopify, Amazon, eBay y el warehouse físico en tiempo real. 
+            Procesa 5,000+ productos hourly sin intervención humana.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+              <h4 class="font-semibold mb-2">🎯 Problema Resuelto</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Actualización manual de inventario en 3 plataformas tomaba 25 horas semanales y generaba errores costosos</p>
+            </div>
+            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
+              <h4 class="font-semibold mb-2">💰 ROI Alcanzado</h4>
+              <p class="text-sm text-green-700 dark:text-green-400">$125,000 ahorrados anualmente • ROI 450% en 8 meses</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Python</span>
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Shopify API</span>
+            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Amazon MWS</span>
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">PostgreSQL</span>
+            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Redis</span>
+          </div>
+
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <p><strong>Cliente:</strong> MegaStore Inc. (E-commerce con $50M+ en ventas anuales)</p>
+            <p><strong>Duración:</strong> 6 semanas • <strong>Inversión:</strong> $18,500</p>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-8">
+          <div class="mb-6">
+            <h4 class="font-semibold mb-4 text-center">Métricas de Impacto</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-blue-600">0</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Errores de inventario</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-600">5,000+</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">SKUs sincronizados/hora</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-purple-600">99.9%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Uptime</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-orange-600">< 30seg</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Tiempo de sync</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4">
+            <h5 class="font-semibold mb-2">💬 Testimonio del Cliente</h5>
+            <p class="text-sm italic text-gray-600 dark:text-gray-400">
+              "Pasamos de 25 horas semanales de trabajo manual a cero. La automatización se pagó sola en 4 meses y ahora procesamos 3x más órdenes sin errores."
+            </p>
+            <p class="text-xs text-gray-500 mt-2">- Sarah Johnson, COO MegaStore Inc.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 2: Financial Automation -->
+    <div class="mb-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl p-8 order-2 lg:order-1">
+          <div class="mb-6">
+            <h4 class="font-semibold mb-4 text-center">Automatización Financiera</h4>
+            <div class="grid grid-cols-2 gap-4 mb-4">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-600">10,000+</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Transacciones/día</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-blue-600">5 min</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">vs 8 horas antes</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4 mb-4">
+            <h5 class="font-semibold mb-2">🔄 Proceso Automatizado</h5>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+              <li>• Reconciliación bancaria automática</li>
+              <li>• Detección de anomalías con ML</li>
+              <li>• Generación de reportes regulatorios</li>
+              <li>• Alertas en tiempo real</li>
+            </ul>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4">
+            <h5 class="font-semibold mb-2">📊 Impacto Medible</h5>
+            <p class="text-sm text-gray-600 dark:text-gray-400">
+              Reducción de 95% en tiempo de reconciliación. Ahorro de $200,000 anuales en costos operativos.
+            </p>
+          </div>
+        </div>
+        
+        <div class="order-1 lg:order-2">
+          <div class="inline-block bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+            FINTECH • INTELIGENCIA ARTIFICIAL
+          </div>
+          <h3 class="text-3xl font-bold mb-4">RoboAuditor</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+            Sistema de reconciliación bancaria inteligente que procesa 10,000+ transacciones diarias, 
+            detecta anomalías automáticamente y genera reportes de compliance sin intervención humana.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+              <h4 class="font-semibold mb-2">🎯 Desafío</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Reconciliación manual de cuentas tomaba 8 horas diarias y era propensa a errores críticos</p>
+            </div>
+            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4">
+              <h4 class="font-semibold mb-2">🚀 Resultado</h4>
+              <p class="text-sm text-green-700 dark:text-green-400">Proceso completo en 5 minutos • 99.98% precisión • $200K ahorrados</p>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Python</span>
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Pandas</span>
+            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Scikit-learn</span>
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">PostgreSQL</span>
+            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">AWS Lambda</span>
+          </div>
+
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <p><strong>Cliente:</strong> FinanceFlow (Fintech con $500M+ en transacciones mensuales)</p>
+            <p><strong>Duración:</strong> 8 semanas • <strong>Inversión:</strong> $32,000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 3: AI Customer Service -->
+    <div class="mb-20">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="inline-block bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 px-3 py-1 rounded-full text-sm font-semibold mb-4">
+            SaaS • GPT-4 INTEGRATION
+          </div>
+          <h3 class="text-3xl font-bold mb-4">SmartSupport AI</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+            Chatbot inteligente que maneja 80% de consultas de soporte automaticamente, 
+            integrado con GPT-4 y entrenado con la base de conocimiento específica de la empresa.
+          </p>
+          
+          <div class="grid md:grid-cols-2 gap-4 mb-6">
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+              <h4 class="font-semibold mb-2">📞 Antes</h4>
+              <p class="text-sm text-gray-600 dark:text-gray-400">500+ tickets diarios, tiempo de respuesta 4-8 horas, equipo sobrecargado</p>
+            </div>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-4">
+              <h4 class="font-semibold mb-2">🤖 Después</h4>
+              <p class="text-sm text-purple-700 dark:text-purple-400">80% resuelto instantáneamente • Satisfacción 94% • $150K ahorrados</p>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-purple-50 to-blue-50 dark:from-purple-900/20 dark:to-blue-900/20 rounded-lg p-4 mb-6">
+            <h4 class="font-semibold mb-2">🧠 Capacidades de IA</h4>
+            <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+              <li>• Comprende consultas complejas en lenguaje natural</li>
+              <li>• Acceso en tiempo real a base de conocimiento</li>
+              <li>• Escalación inteligente a humanos cuando es necesario</li>
+              <li>• Aprendizaje continuo de nuevas interacciones</li>
+            </ul>
+          </div>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">OpenAI GPT-4</span>
+            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">LangChain</span>
+            <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">Pinecone</span>
+            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">FastAPI</span>
+            <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">React</span>
+          </div>
+
+          <div class="text-sm text-gray-600 dark:text-gray-400">
+            <p><strong>Cliente:</strong> TechSupport Pro (SaaS con 50,000+ usuarios)</p>
+            <p><strong>Duración:</strong> 5 semanas • <strong>Inversión:</strong> $24,500</p>
+          </div>
+        </div>
+        
+        <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-8">
+          <div class="mb-6">
+            <h4 class="font-semibold mb-4 text-center">Performance Metrics</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="text-center">
+                <div class="text-2xl font-bold text-purple-600">80%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Tickets auto-resueltos</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-green-600">< 5seg</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Tiempo de respuesta</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-blue-600">94%</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Satisfacción usuario</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold text-orange-600">24/7</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">Disponibilidad</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4 mb-4">
+            <h5 class="font-semibold mb-2">💬 Lo que Dicen los Usuarios</h5>
+            <div class="space-y-2">
+              <p class="text-sm text-gray-600 dark:text-gray-400">"Respuestas más rápidas y precisas que el soporte anterior" ⭐⭐⭐⭐⭐</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">"Increíble cómo entiende mis preguntas técnicas" ⭐⭐⭐⭐⭐</p>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-lg p-4">
+            <h5 class="font-semibold mb-2">🎯 ROI Achieved</h5>
+            <p class="text-sm text-green-700 dark:text-green-400 font-semibold">$150,000 ahorro anual</p>
+            <p class="text-xs text-gray-600 dark:text-gray-400">Reducción 70% en costos de soporte</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- More Projects Grid ************** -->
+
+  <Features3
+    title="Más Proyectos de Automatización"
+    subtitle="Cada industria tiene desafíos únicos que requieren soluciones personalizadas"
+    columns={3}
+    items={[
+      {
+        title: 'Marketing Automation Hub',
+        description: 'Plataforma que automatiza campañas multi-canal, lead scoring y nurturing. Aumentó conversión 250% para agencia digital.',
+        icon: 'tabler:chart-line',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '#marketing'
+        }
+      },
+      {
+        title: 'Supply Chain Optimizer',
+        description: 'Sistema que predice demanda, optimiza inventario y automatiza pedidos. Redujo stockouts 90% para retailer.',
+        icon: 'tabler:truck-delivery',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '#supply'
+        }
+      },
+      {
+        title: 'Document Processing Bot',
+        description: 'IA que extrae datos de facturas, contratos y documentos legales. Procesa 1000+ docs/día con 99.5% precisión.',
+        icon: 'tabler:file-text',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '#documents'
+        }
+      },
+      {
+        title: 'Social Media Manager',
+        description: 'Bot que programa posts, responde mensajes y analiza engagement en 8 plataformas. Ahorra 25 horas semanales.',
+        icon: 'tabler:brand-twitter',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '#social'
+        }
+      },
+      {
+        title: 'Price Intelligence Engine',
+        description: 'Web scraper que monitorea precios de competencia en tiempo real y ajusta pricing automáticamente.',
+        icon: 'tabler:currency-dollar',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '#pricing'
+        }
+      },
+      {
+        title: 'HR Recruitment Bot',
+        description: 'Automatización que filtra CVs, programa entrevistas y hace seguimiento. Redujo tiempo de hiring 60%.',
+        icon: 'tabler:users',
+        callToAction: {
+          text: 'Ver caso completo',
+          href: '#hr'
+        }
+      },
+    ]}
+    classes={{ container: 'max-w-7xl' }}
+  />
+
+  <!-- Technologies Used Section -->
+  
+  <div class="bg-gray-50 dark:bg-gray-900 py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Stack Tecnológico en Mis Proyectos</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Tecnologías probadas en producción con resultados medibles</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="font-semibold mb-4 text-center">Automatización</h3>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded text-sm">Python</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">Selenium</span>
+            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm">UiPath</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm">Zapier</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4 text-center">Inteligencia Artificial</h3>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded text-sm">OpenAI GPT-4</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">LangChain</span>
+            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm">Pinecone</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm">TensorFlow</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4 text-center">Backend & APIs</h3>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded text-sm">Node.js</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">FastAPI</span>
+            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm">PostgreSQL</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm">Redis</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-4 text-center">Cloud & DevOps</h3>
+          <div class="flex flex-wrap gap-2 justify-center">
+            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded text-sm">AWS Lambda</span>
+            <span class="bg-green-100 text-green-800 px-3 py-1 rounded text-sm">Docker</span>
+            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded text-sm">Vercel</span>
+            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded text-sm">GitHub Actions</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Client Results Section -->
+  
+  <div class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Resultados por Industria</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400">Impacto medible en diferentes sectores económicos</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700 text-center">
+          <div class="text-3xl mb-2">🛒</div>
+          <h3 class="font-semibold mb-2">E-Commerce</h3>
+          <div class="text-2xl font-bold text-green-600 mb-1">$2.5M+</div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Ahorrado en costos operativos</p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700 text-center">
+          <div class="text-3xl mb-2">🏦</div>
+          <h3 class="font-semibold mb-2">Finanzas</h3>
+          <div class="text-2xl font-bold text-blue-600 mb-1">95%</div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Reducción en errores de proceso</p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700 text-center">
+          <div class="text-3xl mb-2">👥</div>
+          <h3 class="font-semibold mb-2">Recursos Humanos</h3>
+          <div class="text-2xl font-bold text-purple-600 mb-1">60%</div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Reducción tiempo de hiring</p>
+        </div>
+        <div class="bg-white dark:bg-gray-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700 text-center">
+          <div class="text-3xl mb-2">📊</div>
+          <h3 class="font-semibold mb-2">Marketing</h3>
+          <div class="text-2xl font-bold text-orange-600 mb-1">3x</div>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Aumento en conversión de leads</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="¿Listo para Tu Próximo Caso de Éxito?"
+    subtitle="Únete a 45+ empresas que ya transformaron sus operaciones con automatización inteligente. Consulta gratuita incluida."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Ver Mi Proceso Específico',
+        href: '/contact',
+      },
+    ]}
+  />
+</Layout>

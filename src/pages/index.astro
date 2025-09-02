@@ -1,0 +1,405 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'VineryTech - Automatización Inteligente | Ahorra 70% en Costos Operativos | RPA y Desarrollo',
+  ignoreTitleTemplate: true,
+  description: 'VineryTech transforma procesos manuales en sistemas automatizados. Especialistas en RPA, integraciones API, web scraping y desarrollo de software que reduce costos hasta un 70%.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Calcular Mi ROI',
+        href: '#roi-calculator',
+        icon: 'tabler:calculator',
+      },
+      { text: 'Ver Casos de Éxito', href: '#portfolio' },
+    ]}
+    image={{ src: '~/assets/images/automation-hero.png', alt: 'Automatización de Procesos' }}
+  >
+    <Fragment slot="title">
+      <span class="text-4xl md:text-6xl font-bold">
+        Deja de Perder <span class="text-accent">$50,000+</span> al Año
+      </span>
+      <span class="block text-3xl md:text-5xl mt-2">
+        en Tareas Repetitivas
+      </span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="text-xl md:text-2xl block mb-4">
+        Automatizo procesos que <span class="font-bold text-blue-600">ahorran 20+ horas semanales</span> a tu equipo
+      </span>
+      <span class="text-lg opacity-90">
+        Especialista en RPA, Integraciones API, Web Scraping y Soluciones con IA.<br/>
+        <span class="font-semibold">ROI garantizado en 90 días</span> o devuelvo tu inversión.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <!-- Note Widget ******************* -->
+
+  <Note 
+    title="🚀 Resultados Comprobados:" 
+    description="Mis clientes han automatizado +100,000 horas de trabajo manual, ahorrando millones en costos operativos" 
+  />
+
+  <!-- Features Widget *************** -->
+
+  <Features
+    id="features"
+    tagline="Soluciones que Transforman"
+    title="Automatización que Multiplica tu Productividad"
+    subtitle="No más copy-paste infinito. No más errores humanos. No más horas extras. Solo resultados medibles y un equipo enfocado en lo que realmente importa."
+    items={[
+      {
+        title: 'Automatización RPA',
+        description:
+          'Bots que trabajan 24/7 sin descanso. Procesan facturas, actualizan CRMs, generan reportes y ejecutan cualquier tarea repetitiva con 99.9% de precisión.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Integraciones Sin Límites',
+        description:
+          'Conecto CUALQUIER sistema, tenga o no API. Sincronizo datos entre Excel, SAP, Salesforce, bases de datos legacy y más. Todo en tiempo real.',
+        icon: 'tabler:api',
+      },
+      {
+        title: 'Web Scraping Inteligente',
+        description:
+          'Extraigo datos de cualquier sitio web automáticamente. Monitoreo de precios, leads de LinkedIn, análisis de competencia. Legal y eficiente.',
+        icon: 'tabler:world-search',
+      },
+      {
+        title: 'IA que Entiende tu Negocio',
+        description:
+          'Chatbots que resuelven tickets, IA que categoriza documentos, sistemas que predicen tendencias. Tecnología GPT-4 aplicada a tus procesos.',
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Dashboards en Tiempo Real',
+        description:
+          'Visualiza KPIs críticos al instante. Alertas automáticas cuando algo requiere atención. Toma decisiones basadas en datos, no en intuición.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'ROI Garantizado',
+        description:
+          'Si no recuperas tu inversión en 90 días, te devuelvo el 100% del dinero. Mis automatizaciones típicamente pagan por sí mismas en 30-45 días.',
+        icon: 'tabler:moneybag',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline="Casos de Éxito"
+    title="Transformé la Operación de TechCorp en 30 Días"
+    items={[
+      {
+        title: 'Antes: 40 horas semanales en reportes',
+        description:
+          'El equipo de finanzas perdía 8 horas diarias consolidando datos de 15 fuentes diferentes en Excel.',
+      },
+      {
+        title: 'Solución: Automatización completa con Python + APIs',
+        description:
+          'Implementé un sistema que extrae, procesa y genera reportes automáticamente cada mañana a las 6 AM.',
+      },
+      {
+        title: 'Resultado: $180,000 ahorrados al año',
+        description:
+          'Reducción del 95% en tiempo de procesamiento. El equipo ahora se enfoca en análisis estratégico.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Dashboard automatizado',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">ROI en 28 días</h3>
+      "La automatización no solo nos ahorró dinero, transformó completamente cómo trabajamos" - Carlos Mendoza, CFO TechCorp
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'E-commerce: DataSync Pro',
+        description: `Automatización de sincronización de inventario entre Shopify, Amazon y warehouse físico. 5,000+ productos actualizados cada hora sin intervención humana.`,
+      },
+      {
+        title: 'Fintech: RoboAuditor',
+        description:
+          'Bot que reconcilia 10,000+ transacciones diarias, detecta anomalías y genera reportes de compliance automáticamente. 0% errores desde implementación.',
+      },
+      {
+        title: 'RRHH: TalentFlow',
+        description:
+          'Sistema que procesa 500+ CVs diarios, programa entrevistas automáticamente y gestiona onboarding digital. Reducción 70% en tiempo de contratación.',
+      },
+      {
+        title: 'Marketing: LeadMachine',
+        description:
+          'Captura leads de 8 fuentes, los califica con IA, y distribuye automáticamente al vendedor correcto. 3x aumento en conversión de leads.',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
+      alt: 'Automatización de procesos',
+    }}
+  >
+    <Fragment slot="content">Proyectos reales con resultados medibles y verificables</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    items={[
+      {
+        title: 'Integración con +1000 herramientas',
+        description:
+          'Conecto cualquier sistema: Salesforce, SAP, HubSpot, Monday, Slack, Gmail, Excel, bases de datos legacy, APIs custom y más.',
+      },
+      {
+        title: 'Monitoreo 24/7 con alertas inteligentes',
+        description:
+          'Sistema de monitoreo que detecta y resuelve problemas antes de que impacten. Uptime garantizado del 99.9%.',
+      },
+      {
+        title: 'Escalabilidad infinita en la nube',
+        description:
+          'Arquitectura serverless que crece con tu negocio. Desde 100 hasta 1 millón de operaciones sin cambiar código.',
+      },
+      {
+        title: 'Soporte y optimización continua',
+        description: `No te dejo solo después del deploy. Incluyo 3 meses de soporte, optimización y nuevas automatizaciones según surjan necesidades.`,
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Integraciones y APIs',
+    }}
+  >
+    <Fragment slot="content">Tecnología que evoluciona con tu negocio</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Tu Automatización Funcionando en 4 Semanas"
+    items={[
+      {
+        title: 'Semana 1: <span class="font-medium">Auditoría Gratuita</span>',
+        description:
+          "Analizo tus procesos actuales, identifico cuellos de botella y calculo el ROI exacto de cada automatización. Recibirás un reporte detallado con prioridades y ahorros proyectados.",
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Semana 2-3: <span class="font-medium">Desarrollo y Testing</span>',
+        description:
+          "Construyo las automatizaciones en ambiente de prueba. Tu equipo puede ver avances diarios y dar feedback. Incluye documentación completa y videos de capacitación.",
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Semana 4: <span class="font-medium">Deploy y Capacitación</span>',
+        description:
+          'Implementación gradual sin interrumpir operaciones. Capacito a tu equipo y configuro monitoreo 24/7. Incluye 30 días de soporte ilimitado post-lanzamiento.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: '¡Automatizado!',
+        icon: 'tabler:circle-check',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Proceso de implementación',
+    }}
+  />
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Tecnologías que Domino"
+    subtitle="Stack completo para automatizar cualquier proceso, sin importar qué tan complejo sea"
+    tagline="Tech Stack"
+    items={[
+      {
+        title: 'Python + Selenium',
+        description: "Automatizo cualquier tarea web: extracción de datos, testing, formularios, navegación compleja. Si un humano puede hacerlo, Python puede automatizarlo.",
+        icon: 'tabler:brand-python',
+      },
+      {
+        title: 'APIs REST + GraphQL',
+        description:
+          "Conecto sistemas que nunca fueron diseñados para hablar entre sí. Creo puentes de datos en tiempo real entre cualquier plataforma.",
+        icon: 'tabler:api',
+      },
+      {
+        title: 'RPA con UiPath',
+        description:
+          'Bots empresariales que interactúan con sistemas legacy, mainframes y aplicaciones desktop antiguas. Perfecto para bancos y corporaciones.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'IA con OpenAI + LangChain',
+        description:
+          "Implemento GPT-4 en tus procesos: chatbots inteligentes, análisis de documentos, generación de contenido, clasificación automática.",
+        icon: 'tabler:brain',
+      },
+      {
+        title: 'Cloud: AWS + Serverless',
+        description:
+          'Arquitecturas que escalan automáticamente. Pagas solo por lo que usas. Desde 0 hasta millones de ejecuciones sin cambios.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Zapier + Make + n8n',
+        description: 'Integraciones rápidas sin código para procesos simples. Perfecto para startups y PYMEs que necesitan resultados inmediatos.',
+        icon: 'tabler:circuit-cell-plus',
+      },
+      {
+        title: 'Monitoreo con Grafana',
+        description: 'Dashboards en tiempo real que muestran el estado de todas tus automatizaciones. Métricas, alertas y logs en un solo lugar.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Base de Datos',
+        description:
+          'PostgreSQL, MongoDB, Redis. Gestiono cualquier tipo de datos a cualquier escala. Migraciones y backups automatizados incluidos.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Seguridad End-to-End',
+        description: "Encriptación, autenticación OAuth, audit logs, compliance GDPR. Tus automatizaciones son más seguras que procesos manuales.",
+        icon: 'tabler:lock',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Artículos sobre Automatización y Tecnología"
+    information={`Comparto casos prácticos, tutoriales y las últimas tendencias en automatización.
+                        Aprende cómo empresas reales están ahorrando millones con RPA, APIs e IA.
+                        Nuevos artículos cada semana con ejemplos de código y resultados medibles.
+                `}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas Frecuentes sobre Automatización"
+    subtitle="Todo lo que necesitas saber antes de automatizar tus procesos y empezar a ahorrar miles de horas"
+    tagline="FAQs"
+    classes={{ container: 'max-w-6xl' }}
+    items={[
+      {
+        title: '¿Cuánto tiempo toma implementar una automatización?',
+        description:
+          "Depende de la complejidad. Una automatización simple (como sincronizar datos entre dos sistemas) puede estar lista en 2-3 días. Un proyecto completo de RPA empresarial toma 3-4 semanas. Siempre entrego un timeline detallado antes de empezar.",
+      },
+      {
+        title: '¿Qué pasa si mis sistemas son muy antiguos o no tienen API?',
+        description:
+          'No hay problema. Uso técnicas de RPA y screen scraping para automatizar CUALQUIER sistema, sin importar su antigüedad. He trabajado con mainframes de los 80s, sistemas AS400, y aplicaciones desktop legacy. Si un humano puede usarlo, puedo automatizarlo.',
+      },
+      {
+        title: '¿La automatización reemplazará a mis empleados?',
+        description:
+          "No, la automatización POTENCIA a tu equipo. Elimina las tareas repetitivas y aburridas para que puedan enfocarse en trabajo estratégico y creativo. En mis 5+ años automatizando, nunca he visto que se despida a alguien por automatización; al contrario, los empleados están más felices y productivos.",
+      },
+      {
+        title: '¿Cómo sé que recuperaré mi inversión?',
+        description:
+          "Antes de empezar, te entrego un análisis de ROI detallado con números exactos: horas ahorradas, reducción de errores, aumento de productividad. El 95% de mis clientes recuperan la inversión en menos de 45 días. Además, ofrezco garantía: si no ves ROI en 90 días, te devuelvo el 100%.",
+      },
+      {
+        title: '¿Qué tan seguras son las automatizaciones?',
+        description:
+          "Muy seguras. Implemento múltiples capas de seguridad: encriptación AES-256, autenticación OAuth 2.0, logs de auditoría completos, y cumplimiento con GDPR/SOC2. Las automatizaciones son más seguras que procesos manuales donde los errores humanos y fugas de datos son comunes.",
+      },
+      {
+        title: '¿Puedo empezar con algo pequeño para probar?',
+        description:
+          "Por supuesto! Ofrezco un 'Pilot de Automatización' desde $500 donde automatizamos un proceso simple para que veas el valor real antes de escalar. El 95% de los pilots se convierten en proyectos completos porque los resultados hablan por sí solos. Es la mejor forma de empezar sin riesgo.",
+      },
+    ]}
+  />
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    stats={[
+      { title: 'Horas Automatizadas', amount: '100K+' },
+      { title: 'Procesos Optimizados', amount: '150+' },
+      { title: 'ROI Promedio', amount: '320%' },
+      { title: 'Clientes Activos', amount: '45+' },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Agenda Tu Consulta Gratuita',
+        href: '/contact',
+        icon: 'tabler:calendar',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      ¿Listo para&nbsp;<span class="text-accent">Automatizar</span>&nbsp;<br class="block sm:hidden" /><span class="sm:whitespace-nowrap">y Ahorrar Miles de Horas?</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      En 15 minutos te muestro cómo automatizar tu proceso más tedioso. <br class="hidden md:inline" />
+      Sin compromiso. ROI garantizado o devolución del 100%.
+    </Fragment>
+  </CallToAction>
+</Layout>

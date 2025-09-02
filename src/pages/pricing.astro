@@ -1,0 +1,416 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Prices from '~/components/widgets/Pricing.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'VineryTech - Precios de Automatización | Inversión que se Paga Sola | ROI Garantizado',
+  description: 'VineryTech ofrece planes transparentes desde $75/hora o proyectos desde $2,500. ROI garantizado en 90 días. Consulta gratuita incluida.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Inversión Inteligente"
+    title="Precios Transparentes, ROI Garantizado"
+    subtitle="Cada dólar invertido en automatización te ahorra $3-5 en costos operativos. Elige el plan que mejor se adapte a tu negocio."
+  />
+
+  <!-- Pricing Widget ******************* -->
+
+  <Prices
+    title="Opciones de Inversión"
+    subtitle="Sin costos ocultos. Sin sorpresas. Solo resultados medibles."
+    prices={[
+      {
+        title: 'Por Hora',
+        subtitle: 'Ideal para consultoría y proyectos pequeños',
+        price: 75,
+        period: 'USD/hora',
+        items: [
+          {
+            description: '✓ Consultoría técnica especializada',
+          },
+          {
+            description: '✓ Corrección de bugs y optimizaciones',
+          },
+          {
+            description: '✓ Integraciones rápidas (< 8 horas)',
+          },
+          {
+            description: '✓ Code review y auditoría',
+          },
+          {
+            description: '✓ Soporte y mantenimiento',
+          },
+          {
+            description: '✓ Capacitación a tu equipo',
+          },
+          {
+            description: '· Mínimo: 2 horas',
+          },
+          {
+            description: '· Facturación semanal',
+          },
+        ],
+        callToAction: {
+          text: 'Agendar Consulta',
+          href: '/contact',
+        },
+      },
+      {
+        title: 'Por Proyecto',
+        subtitle: 'La opción más popular para automatizaciones',
+        price: '2,500-15,000',
+        period: 'USD precio fijo',
+        items: [
+          {
+            description: '✓ Alcance y timeline definidos',
+          },
+          {
+            description: '✓ Automatización RPA completa',
+          },
+          {
+            description: '✓ Integraciones API complejas',
+          },
+          {
+            description: '✓ Desarrollo de bots y scrapers',
+          },
+          {
+            description: '✓ Dashboards y reportes automatizados',
+          },
+          {
+            description: '✓ Documentación y capacitación incluida',
+          },
+          {
+            description: '✓ 30 días de soporte post-lanzamiento',
+          },
+          {
+            description: '✓ Garantía de ROI en 90 días',
+          },
+          {
+            description: '· 50% inicial, 50% al completar',
+          },
+        ],
+        callToAction: {
+          text: 'Calcular Mi Proyecto',
+          href: '/contact',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Más Popular',
+      },
+      {
+        title: 'Retainer Mensual',
+        subtitle: 'Para empresas que necesitan soporte continuo',
+        price: '5,000+',
+        period: 'USD/mes',
+        items: [
+          {
+            description: '✓ 40-80 horas mensuales dedicadas',
+          },
+          {
+            description: '✓ Prioridad en todas las solicitudes',
+          },
+          {
+            description: '✓ Desarrollo continuo de automatizaciones',
+          },
+          {
+            description: '✓ Mantenimiento y optimización proactiva',
+          },
+          {
+            description: '✓ Monitoreo 24/7 de sistemas',
+          },
+          {
+            description: '✓ Respuesta en < 2 horas (horario laboral)',
+          },
+          {
+            description: '✓ Llamadas semanales de seguimiento',
+          },
+          {
+            description: '✓ Consultoría estratégica incluida',
+          },
+          {
+            description: '· Contrato mínimo: 3 meses',
+          },
+        ],
+        callToAction: {
+          text: 'Hablar con Ventas',
+          href: '/contact',
+        },
+      },
+    ]}
+  />
+
+  <!-- Pricing Examples Section ************** -->
+  
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Ejemplos de Proyectos y Precios Reales</h2>
+      <p class="text-xl text-muted">Casos típicos de automatización con inversión y retorno esperado</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Automatización Simple -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-blue-600 font-semibold mb-2">AUTOMATIZACIÓN SIMPLE</div>
+        <h3 class="text-xl font-bold mb-3">Sincronización de Inventario</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$2,500</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Conectar Excel con sistema ERP</li>
+          <li>• Actualización cada hora</li>
+          <li>• Alertas de stock bajo</li>
+          <li>• 5-7 días de desarrollo</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 3 meses</p>
+          <p class="text-xs text-green-600 dark:text-green-500">Ahorra 15 horas/semana</p>
+        </div>
+      </div>
+
+      <!-- Automatización Media -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-blue-600 font-semibold mb-2">AUTOMATIZACIÓN MEDIA</div>
+        <h3 class="text-xl font-bold mb-3">Bot de Procesamiento de Facturas</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$5,500</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Extrae datos de PDFs/emails</li>
+          <li>• Valida con base de datos</li>
+          <li>• Ingresa a sistema contable</li>
+          <li>• 10-14 días de desarrollo</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 2 meses</p>
+          <p class="text-xs text-green-600 dark:text-green-500">Ahorra 30 horas/semana</p>
+        </div>
+      </div>
+
+      <!-- Automatización Compleja -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-blue-600 font-semibold mb-2">AUTOMATIZACIÓN COMPLEJA</div>
+        <h3 class="text-xl font-bold mb-3">Sistema CRM + Marketing Automation</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$12,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Lead scoring con IA</li>
+          <li>• Email campaigns automatizados</li>
+          <li>• Integración multi-canal</li>
+          <li>• 20-30 días de desarrollo</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 45 días</p>
+          <p class="text-xs text-green-600 dark:text-green-500">3x conversión de leads</p>
+        </div>
+      </div>
+
+      <!-- Web Scraping -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-purple-600 font-semibold mb-2">WEB SCRAPING</div>
+        <h3 class="text-xl font-bold mb-3">Monitor de Precios Competencia</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$3,500</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Rastrea 10+ sitios web</li>
+          <li>• Dashboard en tiempo real</li>
+          <li>• Alertas de cambios de precio</li>
+          <li>• 7-10 días de desarrollo</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 1 mes</p>
+          <p class="text-xs text-green-600 dark:text-green-500">Optimiza pricing +15%</p>
+        </div>
+      </div>
+
+      <!-- Integración API -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-purple-600 font-semibold mb-2">INTEGRACIÓN API</div>
+        <h3 class="text-xl font-bold mb-3">Conectar 5 Sistemas Legacy</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$8,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Middleware personalizado</li>
+          <li>• Sincronización bidireccional</li>
+          <li>• Manejo de errores robusto</li>
+          <li>• 15-20 días de desarrollo</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 2.5 meses</p>
+          <p class="text-xs text-green-600 dark:text-green-500">Elimina silos de datos</p>
+        </div>
+      </div>
+
+      <!-- Chatbot IA -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+        <div class="text-sm text-purple-600 font-semibold mb-2">INTELIGENCIA ARTIFICIAL</div>
+        <h3 class="text-xl font-bold mb-3">Chatbot Atención Cliente 24/7</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$6,500</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• GPT-4 entrenado en tu FAQ</li>
+          <li>• Maneja 80% consultas</li>
+          <li>• Escalación inteligente</li>
+          <li>• 10-15 días de desarrollo</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 2 meses</p>
+          <p class="text-xs text-green-600 dark:text-green-500">Reduce tickets 70%</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
+      <p class="text-lg font-semibold mb-2">💡 ¿No ves tu caso específico?</p>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        Cada negocio es único. Agendemos una llamada de 15 minutos y te doy un estimado personalizado.
+      </p>
+      <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+        Obtener Cotización Personalizada →
+      </a>
+    </div>
+  </div>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="¿Por qué mis precios generan ROI positivo?"
+    subtitle="Transparencia total y resultados garantizados"
+    columns={2}
+    items={[
+      {
+        title: 'Sin Costos Ocultos',
+        description: 'Precio fijo acordado por proyecto o tarifa por hora clara. Sin sorpresas, sin extras no autorizados, sin "scope creep".',
+        icon: 'tabler:receipt',
+      },
+      {
+        title: 'ROI Calculado Previamente',
+        description: 'Antes de empezar, te muestro exactamente cuánto ahorrarás. Si los números no cuadran, no seguimos.',
+        icon: 'tabler:calculator',
+      },
+      {
+        title: 'Pago Seguro y Flexible',
+        description: 'Acepto transferencias, PayPal, Wise, crypto. Facturas formales. Opción de pago en hitos para proyectos grandes.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Inicio Inmediato',
+        description: 'Una vez acordado, empiezo en 24-48 horas. No pierdes tiempo en largos procesos de onboarding.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Escalabilidad Incluida',
+        description: 'Todos mis desarrollos están diseñados para crecer. Lo que construyo hoy, escala mañana sin reconstruir.',
+        icon: 'tabler:trending-up',
+      },
+      {
+        title: 'Soporte Real 24/7',
+        description: 'WhatsApp, Slack, email. Respondo en < 2 horas en horario laboral, < 12 horas fuera de horario.',
+        icon: 'tabler:messages',
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    title="Cómo Empezamos a Trabajar Juntos"
+    tagline="Proceso Simple y Transparente"
+    isReversed={true}
+    items={[
+      {
+        title: 'Consulta Gratuita (15-30 min)',
+        description: 'Videollamada para entender tu problema y evaluar si puedo ayudarte.',
+        icon: 'tabler:phone',
+      },
+      {
+        title: 'Análisis y Propuesta (24-48h)',
+        description: 'Te envío un documento con alcance, timeline, precio fijo y ROI esperado.',
+        icon: 'tabler:file-text',
+      },
+      {
+        title: 'Acuerdo y Pago Inicial',
+        description: 'Firmamos contrato simple. Pagas 50% para proyectos o retainer mensual.',
+        icon: 'tabler:writing-sign',
+      },
+      {
+        title: 'Kick-off y Accesos',
+        description: 'Me das accesos necesarios. Configuramos Slack/comunicación.',
+        icon: 'tabler:key',
+      },
+      {
+        title: 'Desarrollo con Updates Diarios',
+        description: 'Trabajo con transparencia total. Ves avances cada día.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Testing y Ajustes',
+        description: 'Pruebas exhaustivas. Tu feedback implementado rápidamente.',
+        icon: 'tabler:test-pipe',
+      },
+      {
+        title: 'Deploy y Capacitación',
+        description: 'Pongo todo en producción. Entreno a tu equipo. Entrego documentación.',
+        icon: 'tabler:rocket',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+      alt: 'Proceso de trabajo',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Preguntas Frecuentes sobre Precios"
+    subtitle="Transparencia total en costos. Si tienes dudas sobre inversión y ROI, aquí están las respuestas."
+    columns={1}
+    items={[
+      {
+        title: '¿Cómo sé que tu tarifa de $75/hora vale la pena?',
+        description:
+          'Mi tarifa refleja 5+ años de experiencia y resultados comprobados. Una automatización de 10 horas ($750) típicamente ahorra 20+ horas semanales a tu equipo. En un mes ya recuperaste la inversión. Además, trabajo 3x más rápido que un junior que cobra $25/hora.',
+      },
+      {
+        title: '¿Ofrecen descuentos para proyectos grandes o startups?',
+        description:
+          "Sí. Para proyectos > $10,000 ofrezco 10-15% descuento. Para startups con funding < $500k, tengo tarifas especiales. Para ONGs, 30% descuento. También ofrezco 'Pilot Projects' desde $500 para que pruebes sin gran inversión.",
+      },
+      {
+        title: '¿Qué incluye exactamente el precio del proyecto?',
+        description:
+          'TODO: Análisis inicial, desarrollo, testing, documentación, capacitación, deploy, y 30 días de soporte post-lanzamiento. Lo único no incluido: costos de hosting/servidores (generalmente $20-100/mes) y licencias de terceros si las necesitas.',
+      },
+      {
+        title: '¿Cómo funcionan los pagos y qué garantías ofrecen?',
+        description:
+          'Proyectos < $5,000: 50% inicial, 50% al completar. Proyectos > $5,000: 40% inicial, 30% en milestone medio, 30% al finalizar. Garantía: Si no ves ROI en 90 días, trabajo gratis hasta lograrlo o devuelvo el dinero.',
+      },
+      {
+        title: '¿Qué pasa si el proyecto toma más tiempo del estimado?',
+        description:
+          'Si el retraso es mío, lo asumo sin costo extra. Si es por cambios en el alcance, te aviso inmediatamente con el impacto en tiempo y costo. Nunca continúo sin tu aprobación. Mi precisión en estimados es del 92%.',
+      },
+      {
+        title: '¿Puedo pausar o cancelar el retainer mensual?',
+        description:
+          'Sí. El retainer requiere 30 días de aviso para cancelar. Puedes pausarlo hasta 2 meses al año (vacaciones, etc.) sin perder tu tarifa preferencial. Las horas no usadas se acumulan hasta 1 mes.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    title="¿Listo para Automatizar y Ahorrar Miles?"
+    subtitle="Únete a 45+ empresas que ya recuperaron su inversión en menos de 60 días. Consulta gratuita sin compromiso."
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Calcular Mi ROI Gratis',
+        href: '/contact',
+      },
+    ]}
+  />
+</Layout>
