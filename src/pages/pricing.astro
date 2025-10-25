@@ -8,8 +8,9 @@ import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'VineryTech - Precios de Automatización | Inversión que se Paga Sola | ROI Garantizado',
-  description: 'VineryTech ofrece planes transparentes desde $75/hora o proyectos desde $2,500. ROI garantizado en 90 días. Consulta gratuita incluida.',
+  title: 'Precios - Desarrollo Web, Automatización & Cloud | VineryTech',
+  description:
+    'Precios transparentes para desarrollo web, automatizaciones, infraestructura cloud y marketing digital. Desde $60/hora o proyectos desde $1,500. Consulta gratuita incluida.',
 };
 ---
 
@@ -18,88 +19,85 @@ const metadata = {
 
   <HeroText
     tagline="Inversión Inteligente"
-    title="Precios Transparentes, ROI Garantizado"
-    subtitle="Cada dólar invertido en automatización te ahorra $3-5 en costos operativos. Elige el plan que mejor se adapte a tu negocio."
+    title="Precios Transparentes, Resultados Medibles"
+    subtitle="Elige el modelo que mejor se adapte a tu negocio: por hora, por proyecto o retainer mensual. Sin costos ocultos, sin sorpresas."
   />
 
   <!-- Pricing Widget ******************* -->
 
   <Prices
-    title="Opciones de Inversión"
-    subtitle="Sin costos ocultos. Sin sorpresas. Solo resultados medibles."
+    title="Opciones de Contratación"
+    subtitle="Flexibilidad total para adaptarnos a las necesidades de tu negocio"
     prices={[
       {
         title: 'Por Hora',
         subtitle: 'Ideal para consultoría y proyectos pequeños',
-        price: 75,
-        period: 'USD/hora',
+        price: 60,
+        period: 'por hora',
         items: [
           {
-            description: '✓ Consultoría técnica especializada',
+            description: 'Tarifa estándar: $60-80/hora',
           },
           {
-            description: '✓ Corrección de bugs y optimizaciones',
+            description: 'Tarifa senior: $90-120/hora',
           },
           {
-            description: '✓ Integraciones rápidas (< 8 horas)',
+            description: 'Consultoría técnica especializada',
           },
           {
-            description: '✓ Code review y auditoría',
+            description: 'Code review y auditorías',
           },
           {
-            description: '✓ Soporte y mantenimiento',
+            description: 'Soporte y mantenimiento',
           },
           {
-            description: '✓ Capacitación a tu equipo',
+            description: 'Capacitación de equipos',
           },
           {
-            description: '· Mínimo: 2 horas',
+            description: 'Facturación mensual detallada',
           },
           {
-            description: '· Facturación semanal',
+            description: 'Sin compromisos a largo plazo',
           },
         ],
         callToAction: {
-          text: 'Agendar Consulta',
+          text: 'Contratar por Horas',
           href: '/contact',
         },
       },
       {
         title: 'Por Proyecto',
-        subtitle: 'La opción más popular para automatizaciones',
-        price: '2,500-15,000',
-        period: 'USD precio fijo',
+        subtitle: 'Alcance fijo, entregables claros',
+        price: 5000,
+        period: 'desde',
         items: [
           {
-            description: '✓ Alcance y timeline definidos',
+            description: 'Landing page: $1,500-$3,000',
           },
           {
-            description: '✓ Automatización RPA completa',
+            description: 'E-commerce: $8,000-$25,000',
           },
           {
-            description: '✓ Integraciones API complejas',
+            description: 'Plataforma SaaS: $25,000-$100,000+',
           },
           {
-            description: '✓ Desarrollo de bots y scrapers',
+            description: '30-90 días garantía incluida',
           },
           {
-            description: '✓ Dashboards y reportes automatizados',
+            description: 'Documentación completa',
           },
           {
-            description: '✓ Documentación y capacitación incluida',
+            description: 'Capacitación del equipo',
           },
           {
-            description: '✓ 30 días de soporte post-lanzamiento',
+            description: 'Deploy en producción',
           },
           {
-            description: '✓ Garantía de ROI en 90 días',
-          },
-          {
-            description: '· 50% inicial, 50% al completar',
+            description: 'Código fuente 100% tuyo',
           },
         ],
         callToAction: {
-          text: 'Calcular Mi Proyecto',
+          text: 'Solicitar Cotización',
           href: '/contact',
         },
         hasRibbon: true,
@@ -107,40 +105,37 @@ const metadata = {
       },
       {
         title: 'Retainer Mensual',
-        subtitle: 'Para empresas que necesitan soporte continuo',
-        price: '5,000+',
-        period: 'USD/mes',
+        subtitle: 'Soporte continuo y mejoras',
+        price: 2500,
+        period: 'por mes',
         items: [
           {
-            description: '✓ 40-80 horas mensuales dedicadas',
+            description: '40-160 horas dedicadas mensuales',
           },
           {
-            description: '✓ Prioridad en todas las solicitudes',
+            description: 'Soporte prioritario',
           },
           {
-            description: '✓ Desarrollo continuo de automatizaciones',
+            description: 'Monitoreo 24/7',
           },
           {
-            description: '✓ Mantenimiento y optimización proactiva',
+            description: 'Updates de seguridad',
           },
           {
-            description: '✓ Monitoreo 24/7 de sistemas',
+            description: 'Mejoras incrementales',
           },
           {
-            description: '✓ Respuesta en < 2 horas (horario laboral)',
+            description: 'Descuento 15-25% vs por hora',
           },
           {
-            description: '✓ Llamadas semanales de seguimiento',
+            description: 'Acceso preferencial',
           },
           {
-            description: '✓ Consultoría estratégica incluida',
-          },
-          {
-            description: '· Contrato mínimo: 3 meses',
+            description: 'Llamadas semanales de seguimiento',
           },
         ],
         callToAction: {
-          text: 'Hablar con Ventas',
+          text: 'Contratar Retainer',
           href: '/contact',
         },
       },
@@ -148,123 +143,337 @@ const metadata = {
   />
 
   <!-- Pricing Examples Section ************** -->
-  
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
     <div class="text-center mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">Ejemplos de Proyectos y Precios Reales</h2>
-      <p class="text-xl text-muted">Casos típicos de automatización con inversión y retorno esperado</p>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Precios por Tipo de Servicio</h2>
+      <p class="text-xl text-muted">Ejemplos de proyectos reales con inversión estimada</p>
     </div>
-    
+
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Automatización Simple -->
-      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-blue-600 font-semibold mb-2">AUTOMATIZACIÓN SIMPLE</div>
-        <h3 class="text-xl font-bold mb-3">Sincronización de Inventario</h3>
-        <div class="text-3xl font-bold text-green-600 mb-4">$2,500</div>
+      <!-- Desarrollo Web -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-blue-200 dark:border-blue-800">
+        <div class="text-sm text-blue-600 font-semibold mb-2">DESARROLLO WEB</div>
+        <h3 class="text-xl font-bold mb-3">Landing Page Profesional</h3>
+        <div class="text-3xl font-bold text-blue-600 mb-4">$1,500-$3,000</div>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-          <li>• Conectar Excel con sistema ERP</li>
-          <li>• Actualización cada hora</li>
-          <li>• Alertas de stock bajo</li>
-          <li>• 5-7 días de desarrollo</li>
+          <li>• Diseño responsive moderno</li>
+          <li>• Optimización SEO completa</li>
+          <li>• Formularios de contacto</li>
+          <li>• Analytics integrado</li>
+          <li>• 2-3 semanas entrega</li>
         </ul>
-        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
-          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 3 meses</p>
-          <p class="text-xs text-green-600 dark:text-green-500">Ahorra 15 horas/semana</p>
+        <div class="bg-blue-50 dark:bg-blue-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-blue-700 dark:text-blue-400">Stack: Astro + Tailwind</p>
+          <p class="text-xs text-blue-600 dark:text-blue-500">99/100 PageSpeed Score</p>
         </div>
       </div>
 
-      <!-- Automatización Media -->
-      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-blue-600 font-semibold mb-2">AUTOMATIZACIÓN MEDIA</div>
-        <h3 class="text-xl font-bold mb-3">Bot de Procesamiento de Facturas</h3>
-        <div class="text-3xl font-bold text-green-600 mb-4">$5,500</div>
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-blue-200 dark:border-blue-800">
+        <div class="text-sm text-blue-600 font-semibold mb-2">DESARROLLO WEB</div>
+        <h3 class="text-xl font-bold mb-3">E-commerce Completo</h3>
+        <div class="text-3xl font-bold text-blue-600 mb-4">$8,000-$25,000</div>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-          <li>• Extrae datos de PDFs/emails</li>
-          <li>• Valida con base de datos</li>
-          <li>• Ingresa a sistema contable</li>
-          <li>• 10-14 días de desarrollo</li>
+          <li>• Catálogo de productos</li>
+          <li>• Carrito y checkout</li>
+          <li>• Pagos Stripe/MercadoPago</li>
+          <li>• Panel de administración</li>
+          <li>• 8-12 semanas entrega</li>
         </ul>
-        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
-          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 2 meses</p>
-          <p class="text-xs text-green-600 dark:text-green-500">Ahorra 30 horas/semana</p>
+        <div class="bg-blue-50 dark:bg-blue-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-blue-700 dark:text-blue-400">Stack: React + Laravel</p>
+          <p class="text-xs text-blue-600 dark:text-blue-500">Escalable a millones</p>
         </div>
       </div>
 
-      <!-- Automatización Compleja -->
-      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-blue-600 font-semibold mb-2">AUTOMATIZACIÓN COMPLEJA</div>
-        <h3 class="text-xl font-bold mb-3">Sistema CRM + Marketing Automation</h3>
-        <div class="text-3xl font-bold text-green-600 mb-4">$12,000</div>
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-blue-200 dark:border-blue-800">
+        <div class="text-sm text-blue-600 font-semibold mb-2">DESARROLLO WEB</div>
+        <h3 class="text-xl font-bold mb-3">Plataforma SaaS</h3>
+        <div class="text-3xl font-bold text-blue-600 mb-4">$25,000-$100,000+</div>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-          <li>• Lead scoring con IA</li>
-          <li>• Email campaigns automatizados</li>
-          <li>• Integración multi-canal</li>
-          <li>• 20-30 días de desarrollo</li>
+          <li>• Multi-tenant completo</li>
+          <li>• Suscripciones y billing</li>
+          <li>• Dashboard analytics</li>
+          <li>• API REST documentada</li>
+          <li>• 3-6 meses desarrollo</li>
         </ul>
-        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
-          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 45 días</p>
-          <p class="text-xs text-green-600 dark:text-green-500">3x conversión de leads</p>
+        <div class="bg-blue-50 dark:bg-blue-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-blue-700 dark:text-blue-400">Stack: Vue + Node.js</p>
+          <p class="text-xs text-blue-600 dark:text-blue-500">Production-ready</p>
         </div>
       </div>
 
-      <!-- Web Scraping -->
-      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-purple-600 font-semibold mb-2">WEB SCRAPING</div>
-        <h3 class="text-xl font-bold mb-3">Monitor de Precios Competencia</h3>
-        <div class="text-3xl font-bold text-green-600 mb-4">$3,500</div>
+      <!-- Automatizaciones -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-purple-200 dark:border-purple-800">
+        <div class="text-sm text-purple-600 font-semibold mb-2">AUTOMATIZACIÓN</div>
+        <h3 class="text-xl font-bold mb-3">Automatización Simple</h3>
+        <div class="text-3xl font-bold text-purple-600 mb-4">$500-$1,500</div>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-          <li>• Rastrea 10+ sitios web</li>
-          <li>• Dashboard en tiempo real</li>
-          <li>• Alertas de cambios de precio</li>
-          <li>• 7-10 días de desarrollo</li>
+          <li>• 3-5 pasos de workflow</li>
+          <li>• Zapier o Make</li>
+          <li>• Notificaciones automáticas</li>
+          <li>• Sincronización básica</li>
+          <li>• 1-2 semanas setup</li>
         </ul>
-        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
-          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 1 mes</p>
-          <p class="text-xs text-green-600 dark:text-green-500">Optimiza pricing +15%</p>
+        <div class="bg-purple-50 dark:bg-purple-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-purple-700 dark:text-purple-400">ROI: 2-3 meses</p>
+          <p class="text-xs text-purple-600 dark:text-purple-500">Ahorra 10+ hrs/semana</p>
         </div>
       </div>
 
-      <!-- Integración API -->
-      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-purple-600 font-semibold mb-2">INTEGRACIÓN API</div>
-        <h3 class="text-xl font-bold mb-3">Conectar 5 Sistemas Legacy</h3>
-        <div class="text-3xl font-bold text-green-600 mb-4">$8,000</div>
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-purple-200 dark:border-purple-800">
+        <div class="text-sm text-purple-600 font-semibold mb-2">AUTOMATIZACIÓN</div>
+        <h3 class="text-xl font-bold mb-3">Automatización Compleja</h3>
+        <div class="text-3xl font-bold text-purple-600 mb-4">$2,000-$8,000</div>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-          <li>• Middleware personalizado</li>
-          <li>• Sincronización bidireccional</li>
+          <li>• Workflows multi-paso</li>
+          <li>• N8N self-hosted</li>
+          <li>• Lógica condicional avanzada</li>
+          <li>• Integración múltiple sistemas</li>
+          <li>• 3-6 semanas desarrollo</li>
+        </ul>
+        <div class="bg-purple-50 dark:bg-purple-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-purple-700 dark:text-purple-400">ROI: 1-2 meses</p>
+          <p class="text-xs text-purple-600 dark:text-purple-500">Ahorra 30+ hrs/semana</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-purple-200 dark:border-purple-800">
+        <div class="text-sm text-purple-600 font-semibold mb-2">AUTOMATIZACIÓN</div>
+        <h3 class="text-xl font-bold mb-3">Integración de Sistemas</h3>
+        <div class="text-3xl font-bold text-purple-600 mb-4">$3,000-$15,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Conectar 5+ sistemas</li>
+          <li>• APIs custom desarrolladas</li>
+          <li>• Sincronización en tiempo real</li>
           <li>• Manejo de errores robusto</li>
-          <li>• 15-20 días de desarrollo</li>
+          <li>• 4-8 semanas desarrollo</li>
         </ul>
-        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
-          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 2.5 meses</p>
-          <p class="text-xs text-green-600 dark:text-green-500">Elimina silos de datos</p>
+        <div class="bg-purple-50 dark:bg-purple-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-purple-700 dark:text-purple-400">ROI: 2-4 meses</p>
+          <p class="text-xs text-purple-600 dark:text-purple-500">Elimina silos de datos</p>
         </div>
       </div>
 
-      <!-- Chatbot IA -->
-      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
-        <div class="text-sm text-purple-600 font-semibold mb-2">INTELIGENCIA ARTIFICIAL</div>
-        <h3 class="text-xl font-bold mb-3">Chatbot Atención Cliente 24/7</h3>
-        <div class="text-3xl font-bold text-green-600 mb-4">$6,500</div>
+      <!-- Infraestructura Cloud -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-orange-200 dark:border-orange-800">
+        <div class="text-sm text-orange-600 font-semibold mb-2">INFRAESTRUCTURA</div>
+        <h3 class="text-xl font-bold mb-3">Setup Servidor + Deploy</h3>
+        <div class="text-3xl font-bold text-orange-600 mb-4">$800-$2,000</div>
         <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-          <li>• GPT-4 entrenado en tu FAQ</li>
-          <li>• Maneja 80% consultas</li>
-          <li>• Escalación inteligente</li>
-          <li>• 10-15 días de desarrollo</li>
+          <li>• Configuración Linux server</li>
+          <li>• Nginx/Apache setup</li>
+          <li>• SSL/TLS certificados</li>
+          <li>• CI/CD básico</li>
+          <li>• 3-5 días setup</li>
+        </ul>
+        <div class="bg-orange-50 dark:bg-orange-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-orange-700 dark:text-orange-400">Cloud: AWS/DigitalOcean</p>
+          <p class="text-xs text-orange-600 dark:text-orange-500">99.9% uptime SLA</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-orange-200 dark:border-orange-800">
+        <div class="text-sm text-orange-600 font-semibold mb-2">INFRAESTRUCTURA</div>
+        <h3 class="text-xl font-bold mb-3">Migración Cloud</h3>
+        <div class="text-3xl font-bold text-orange-600 mb-4">$2,000-$10,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Migración de legacy</li>
+          <li>• Docker containerización</li>
+          <li>• Load balancers</li>
+          <li>• Backups automáticos</li>
+          <li>• 2-4 semanas migración</li>
+        </ul>
+        <div class="bg-orange-50 dark:bg-orange-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-orange-700 dark:text-orange-400">Zero downtime</p>
+          <p class="text-xs text-orange-600 dark:text-orange-500">Rollback plan incluido</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-orange-200 dark:border-orange-800">
+        <div class="text-sm text-orange-600 font-semibold mb-2">INFRAESTRUCTURA</div>
+        <h3 class="text-xl font-bold mb-3">Arquitectura Microservicios</h3>
+        <div class="text-3xl font-bold text-orange-600 mb-4">$15,000+</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Kubernetes cluster</li>
+          <li>• Service mesh</li>
+          <li>• Monitoreo Prometheus/Grafana</li>
+          <li>• Auto-scaling completo</li>
+          <li>• 2-3 meses implementación</li>
+        </ul>
+        <div class="bg-orange-50 dark:bg-orange-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-orange-700 dark:text-orange-400">Enterprise-grade</p>
+          <p class="text-xs text-orange-600 dark:text-orange-500">Escala a millones</p>
+        </div>
+      </div>
+
+      <!-- Marketing Digital -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-green-200 dark:border-green-800">
+        <div class="text-sm text-green-600 font-semibold mb-2">MARKETING DIGITAL</div>
+        <h3 class="text-xl font-bold mb-3">Gestión de Redes (Mensual)</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$800-$2,500</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Gestión 2-4 plataformas</li>
+          <li>• 15-30 posts mensuales</li>
+          <li>• Diseño de contenido</li>
+          <li>• Community management</li>
+          <li>• Reportes mensuales</li>
         </ul>
         <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
-          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI: 2 meses</p>
-          <p class="text-xs text-green-600 dark:text-green-500">Reduce tickets 70%</p>
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">Crecimiento orgánico</p>
+          <p class="text-xs text-green-600 dark:text-green-500">Engagement medible</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-green-200 dark:border-green-800">
+        <div class="text-sm text-green-600 font-semibold mb-2">MARKETING DIGITAL</div>
+        <h3 class="text-xl font-bold mb-3">Campaña Publicitaria</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$1,200-$5,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Setup completo Meta/Google Ads</li>
+          <li>• Estrategia de campañas</li>
+          <li>• A/B testing</li>
+          <li>• Optimización continua</li>
+          <li>• Setup + 1 mes gestión</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">ROI medible</p>
+          <p class="text-xs text-green-600 dark:text-green-500">+ Budget de ads</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-green-200 dark:border-green-800">
+        <div class="text-sm text-green-600 font-semibold mb-2">MARKETING DIGITAL</div>
+        <h3 class="text-xl font-bold mb-3">Estrategia Digital Completa</h3>
+        <div class="text-3xl font-bold text-green-600 mb-4">$3,000+</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Auditoría digital completa</li>
+          <li>• Plan de contenidos 90 días</li>
+          <li>• SEO + SEM strategy</li>
+          <li>• Email marketing setup</li>
+          <li>• 4-6 semanas implementación</li>
+        </ul>
+        <div class="bg-green-50 dark:bg-green-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-green-700 dark:text-green-400">Full funnel</p>
+          <p class="text-xs text-green-600 dark:text-green-500">Awareness → Conversión</p>
+        </div>
+      </div>
+
+      <!-- Diseño -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-pink-200 dark:border-pink-800">
+        <div class="text-sm text-pink-600 font-semibold mb-2">DISEÑO</div>
+        <h3 class="text-xl font-bold mb-3">Identidad de Marca</h3>
+        <div class="text-3xl font-bold text-pink-600 mb-4">$1,500-$5,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Diseño de logotipo</li>
+          <li>• Manual de marca</li>
+          <li>• Paleta de colores</li>
+          <li>• Tipografías corporativas</li>
+          <li>• 2-4 semanas entrega</li>
+        </ul>
+        <div class="bg-pink-50 dark:bg-pink-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-pink-700 dark:text-pink-400">Identidad única</p>
+          <p class="text-xs text-pink-600 dark:text-pink-500">Archivos editables</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-pink-200 dark:border-pink-800">
+        <div class="text-sm text-pink-600 font-semibold mb-2">DISEÑO</div>
+        <h3 class="text-xl font-bold mb-3">Sesión Fotográfica Producto</h3>
+        <div class="text-3xl font-bold text-pink-600 mb-4">$500-$2,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• 30-100 productos fotografiados</li>
+          <li>• Fondo blanco para e-commerce</li>
+          <li>• Edición y retoque profesional</li>
+          <li>• Formatos optimizados web</li>
+          <li>• 1-2 días de sesión</li>
+        </ul>
+        <div class="bg-pink-50 dark:bg-pink-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-pink-700 dark:text-pink-400">Calidad profesional</p>
+          <p class="text-xs text-pink-600 dark:text-pink-500">Aumenta conversión 35%</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-pink-200 dark:border-pink-800">
+        <div class="text-sm text-pink-600 font-semibold mb-2">DISEÑO</div>
+        <h3 class="text-xl font-bold mb-3">Diseño Web UI/UX</h3>
+        <div class="text-3xl font-bold text-pink-600 mb-4">$2,000-$8,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Wireframes + mockups Figma</li>
+          <li>• Diseño responsive mobile-first</li>
+          <li>• Design system completo</li>
+          <li>• Prototipos interactivos</li>
+          <li>• 3-6 semanas diseño</li>
+        </ul>
+        <div class="bg-pink-50 dark:bg-pink-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-pink-700 dark:text-pink-400">UX optimizado</p>
+          <p class="text-xs text-pink-600 dark:text-pink-500">Conversion-focused</p>
+        </div>
+      </div>
+
+      <!-- Seguridad -->
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-red-200 dark:border-red-800">
+        <div class="text-sm text-red-600 font-semibold mb-2">SEGURIDAD</div>
+        <h3 class="text-xl font-bold mb-3">Auditoría de Seguridad</h3>
+        <div class="text-3xl font-bold text-red-600 mb-4">$2,000-$8,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Análisis OWASP Top 10</li>
+          <li>• Penetration testing</li>
+          <li>• Code review de seguridad</li>
+          <li>• Reporte detallado</li>
+          <li>• 1-2 semanas análisis</li>
+        </ul>
+        <div class="bg-red-50 dark:bg-red-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-red-700 dark:text-red-400">Protección real</p>
+          <p class="text-xs text-red-600 dark:text-red-500">Vulnerabilidades críticas</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-red-200 dark:border-red-800">
+        <div class="text-sm text-red-600 font-semibold mb-2">SEGURIDAD</div>
+        <h3 class="text-xl font-bold mb-3">Implementación de Medidas</h3>
+        <div class="text-3xl font-bold text-red-600 mb-4">$1,500-$10,000</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• WAF implementation</li>
+          <li>• DDoS protection</li>
+          <li>• SSL/TLS certificates</li>
+          <li>• MFA/2FA setup</li>
+          <li>• 2-4 semanas implementación</li>
+        </ul>
+        <div class="bg-red-50 dark:bg-red-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-red-700 dark:text-red-400">Seguridad activa</p>
+          <p class="text-xs text-red-600 dark:text-red-500">24/7 protection</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 rounded-lg p-6 border-2 border-red-200 dark:border-red-800">
+        <div class="text-sm text-red-600 font-semibold mb-2">SEGURIDAD</div>
+        <h3 class="text-xl font-bold mb-3">Compliance (PCI-DSS/GDPR)</h3>
+        <div class="text-3xl font-bold text-red-600 mb-4">$5,000+</div>
+        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
+          <li>• Documentación compliance</li>
+          <li>• Implementación de controles</li>
+          <li>• Políticas de seguridad</li>
+          <li>• Preparación para auditoría</li>
+          <li>• 1-3 meses proceso</li>
+        </ul>
+        <div class="bg-red-50 dark:bg-red-900/20 rounded p-3">
+          <p class="text-sm font-semibold text-red-700 dark:text-red-400">Certificación</p>
+          <p class="text-xs text-red-600 dark:text-red-500">Cumplimiento normativo</p>
         </div>
       </div>
     </div>
 
-    <div class="mt-12 text-center bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6">
-      <p class="text-lg font-semibold mb-2">💡 ¿No ves tu caso específico?</p>
-      <p class="text-gray-600 dark:text-gray-400 mb-4">
-        Cada negocio es único. Agendemos una llamada de 15 minutos y te doy un estimado personalizado.
+    <div class="mt-12 text-center bg-blue-50 dark:bg-blue-900/20 rounded-lg p-8">
+      <p class="text-2xl font-bold mb-3">💡 ¿No encuentras tu proyecto específico?</p>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        Cada negocio es único. Agendemos una consulta gratuita de 45-60 minutos y te doy una cotización personalizada
+        con timeline y alcance detallado.
       </p>
-      <a href="/contact" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition"
+      >
         Obtener Cotización Personalizada →
       </a>
     </div>
@@ -273,39 +482,45 @@ const metadata = {
   <!-- Features3 Widget ************** -->
 
   <Features3
-    title="¿Por qué mis precios generan ROI positivo?"
-    subtitle="Transparencia total y resultados garantizados"
+    title="Por Qué Nuestros Precios son Justos y Transparentes"
+    subtitle="Sin costos ocultos, sin sorpresas"
     columns={2}
     items={[
       {
-        title: 'Sin Costos Ocultos',
-        description: 'Precio fijo acordado por proyecto o tarifa por hora clara. Sin sorpresas, sin extras no autorizados, sin "scope creep".',
+        title: 'Precio Fijo por Proyecto',
+        description:
+          'Alcance definido, precio acordado. Sin extras sorpresa. Si hay cambios en el scope, te avisamos antes con impacto en costo y timeline.',
         icon: 'tabler:receipt',
       },
       {
-        title: 'ROI Calculado Previamente',
-        description: 'Antes de empezar, te muestro exactamente cuánto ahorrarás. Si los números no cuadran, no seguimos.',
-        icon: 'tabler:calculator',
+        title: 'Pago en Hitos',
+        description:
+          'Proyectos grandes se dividen en etapas. Pagas conforme avanzamos y entregas se completan. Máxima transparencia.',
+        icon: 'tabler:timeline',
       },
       {
-        title: 'Pago Seguro y Flexible',
-        description: 'Acepto transferencias, PayPal, Wise, crypto. Facturas formales. Opción de pago en hitos para proyectos grandes.',
+        title: 'Código 100% Tuyo',
+        description:
+          'Al finalizar el proyecto, todo el código fuente es tuyo. Sin licencias perpetuas, sin dependencias. Libertad total.',
+        icon: 'tabler:code',
+      },
+      {
+        title: 'Garantía Incluida',
+        description:
+          '30-90 días de garantía post-lanzamiento. Bugs y errores corregidos sin costo. Performance según especificaciones acordadas.',
         icon: 'tabler:shield-check',
       },
       {
-        title: 'Inicio Inmediato',
-        description: 'Una vez acordado, empiezo en 24-48 horas. No pierdes tiempo en largos procesos de onboarding.',
-        icon: 'tabler:rocket',
+        title: 'Métodos de Pago Flexibles',
+        description:
+          'Transferencia bancaria, Stripe, PayPal, Wise. Facturas formales. Opción de pago internacional sin complicaciones.',
+        icon: 'tabler:credit-card',
       },
       {
-        title: 'Escalabilidad Incluida',
-        description: 'Todos mis desarrollos están diseñados para crecer. Lo que construyo hoy, escala mañana sin reconstruir.',
-        icon: 'tabler:trending-up',
-      },
-      {
-        title: 'Soporte Real 24/7',
-        description: 'WhatsApp, Slack, email. Respondo en < 2 horas en horario laboral, < 12 horas fuera de horario.',
-        icon: 'tabler:messages',
+        title: 'Soporte Post-Lanzamiento',
+        description:
+          'Incluido en todos los proyectos. No te dejamos solo después del deploy. Disponibles para resolver dudas y ajustes menores.',
+        icon: 'tabler:headset',
       },
     ]}
     classes={{ container: 'max-w-5xl' }}
@@ -314,44 +529,42 @@ const metadata = {
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="Cómo Empezamos a Trabajar Juntos"
-    tagline="Proceso Simple y Transparente"
+    title="Proceso de Contratación Simple"
+    tagline="De la Consulta al Lanzamiento"
     isReversed={true}
     items={[
       {
-        title: 'Consulta Gratuita (15-30 min)',
-        description: 'Videollamada para entender tu problema y evaluar si puedo ayudarte.',
+        title: 'Paso 1: Consulta Gratuita',
+        description: 'Videollamada de 45-60 min para entender tu proyecto, objetivos y presupuesto. Sin compromiso.',
         icon: 'tabler:phone',
       },
       {
-        title: 'Análisis y Propuesta (24-48h)',
-        description: 'Te envío un documento con alcance, timeline, precio fijo y ROI esperado.',
+        title: 'Paso 2: Propuesta Detallada',
+        description:
+          'En 3-5 días te envío propuesta con alcance, stack tecnológico, timeline, hitos y cotización detallada.',
         icon: 'tabler:file-text',
       },
       {
-        title: 'Acuerdo y Pago Inicial',
-        description: 'Firmamos contrato simple. Pagas 50% para proyectos o retainer mensual.',
+        title: 'Paso 3: Ajustes y Aprobación',
+        description:
+          'Sesión de feedback, ajustamos según necesidades, firmamos contrato. Proceso transparente y profesional.',
         icon: 'tabler:writing-sign',
       },
       {
-        title: 'Kick-off y Accesos',
-        description: 'Me das accesos necesarios. Configuramos Slack/comunicación.',
-        icon: 'tabler:key',
+        title: 'Paso 4: Pago de Adelanto',
+        description: 'Pago inicial según plan acordado (30-50% para proyectos). Método de pago de tu preferencia.',
+        icon: 'tabler:wallet',
       },
       {
-        title: 'Desarrollo con Updates Diarios',
-        description: 'Trabajo con transparencia total. Ves avances cada día.',
-        icon: 'tabler:code',
-      },
-      {
-        title: 'Testing y Ajustes',
-        description: 'Pruebas exhaustivas. Tu feedback implementado rápidamente.',
-        icon: 'tabler:test-pipe',
-      },
-      {
-        title: 'Deploy y Capacitación',
-        description: 'Pongo todo en producción. Entreno a tu equipo. Entrego documentación.',
+        title: 'Paso 5: Kickoff y Desarrollo',
+        description:
+          'Reunión de inicio, accesos a herramientas, primer sprint planning. Desarrollo transparente con updates frecuentes.',
         icon: 'tabler:rocket',
+      },
+      {
+        title: 'Paso 6: Entrega y Soporte',
+        description: 'Deploy a producción, capacitación, documentación completa. Periodo de garantía incluido.',
+        icon: 'tabler:circle-check',
       },
     ]}
     image={{
@@ -364,38 +577,48 @@ const metadata = {
 
   <FAQs
     title="Preguntas Frecuentes sobre Precios"
-    subtitle="Transparencia total en costos. Si tienes dudas sobre inversión y ROI, aquí están las respuestas."
+    subtitle="Transparencia total. Todas tus dudas sobre inversión y costos respondidas."
     columns={1}
     items={[
       {
-        title: '¿Cómo sé que tu tarifa de $75/hora vale la pena?',
+        title: '¿Cuánto cuesta desarrollar una aplicación web?',
         description:
-          'Mi tarifa refleja 5+ años de experiencia y resultados comprobados. Una automatización de 10 horas ($750) típicamente ahorra 20+ horas semanales a tu equipo. En un mes ya recuperaste la inversión. Además, trabajo 3x más rápido que un junior que cobra $25/hora.',
+          'Depende del alcance. Una landing page: $1,500-$3,000. Sitio corporativo: $3,000-$8,000. E-commerce: $8,000-$25,000. Plataforma SaaS: $25,000-$100,000+. En la consulta gratuita te doy cotización exacta basada en tus requerimientos específicos.',
       },
       {
-        title: '¿Ofrecen descuentos para proyectos grandes o startups?',
+        title: '¿Ofrecen descuentos para startups o proyectos grandes?',
         description:
-          "Sí. Para proyectos > $10,000 ofrezco 10-15% descuento. Para startups con funding < $500k, tengo tarifas especiales. Para ONGs, 30% descuento. También ofrezco 'Pilot Projects' desde $500 para que pruebes sin gran inversión.",
+          "Sí. Para startups pre-seed o con funding < $500K ofrezco planes especiales. Para proyectos > $50K hay descuento de 10-15%. Para ONGs, descuento del 30%. También tenemos programa de 'Equity for Work' para startups prometedoras.",
       },
       {
         title: '¿Qué incluye exactamente el precio del proyecto?',
         description:
-          'TODO: Análisis inicial, desarrollo, testing, documentación, capacitación, deploy, y 30 días de soporte post-lanzamiento. Lo único no incluido: costos de hosting/servidores (generalmente $20-100/mes) y licencias de terceros si las necesitas.',
+          'TODO: análisis de requerimientos, diseño de arquitectura, desarrollo completo, testing y QA, deploy en producción, documentación técnica y de usuario, capacitación del equipo, y 30-90 días de garantía. No incluido: costos de hosting (típicamente $20-200/mes) y licencias de terceros si aplica.',
       },
       {
-        title: '¿Cómo funcionan los pagos y qué garantías ofrecen?',
+        title: '¿Cómo funcionan los pagos?',
         description:
-          'Proyectos < $5,000: 50% inicial, 50% al completar. Proyectos > $5,000: 40% inicial, 30% en milestone medio, 30% al finalizar. Garantía: Si no ves ROI en 90 días, trabajo gratis hasta lograrlo o devuelvo el dinero.',
+          'Proyectos < $5,000: 50% inicial, 50% al completar. Proyectos $5,000-$20,000: 40% inicial, 30% en milestone medio, 30% al finalizar. Proyectos > $20,000: pago en hitos acordados. Retainers: pago mensual al inicio de cada mes. Métodos: transferencia, Stripe, PayPal, Wise.',
       },
       {
-        title: '¿Qué pasa si el proyecto toma más tiempo del estimado?',
+        title: '¿Qué pasa si el proyecto toma más tiempo?',
         description:
-          'Si el retraso es mío, lo asumo sin costo extra. Si es por cambios en el alcance, te aviso inmediatamente con el impacto en tiempo y costo. Nunca continúo sin tu aprobación. Mi precisión en estimados es del 92%.',
+          'Si el retraso es por mi lado, lo asumo sin costo extra. Si es por cambios en el alcance (scope creep), te aviso inmediatamente con impacto en tiempo y costo para tu aprobación. Mi tasa de precisión en estimados es del 94%. Comunicación transparente siempre.',
       },
       {
-        title: '¿Puedo pausar o cancelar el retainer mensual?',
+        title: '¿Puedo ver ejemplos de código antes de contratar?',
         description:
-          'Sí. El retainer requiere 30 días de aviso para cancelar. Puedes pausarlo hasta 2 meses al año (vacaciones, etc.) sin perder tu tarifa preferencial. Las horas no usadas se acumulan hasta 1 mes.',
+          'Por confidencialidad no muestro código de clientes actuales, pero puedo mostrarte repositories públicos de proyectos demo o hacer code review en vivo. También tenemos casos de estudio detallados en /portfolio con stack tecnológico y arquitecturas usadas.',
+      },
+      {
+        title: '¿Ofrecen mantenimiento después del lanzamiento?',
+        description:
+          'Sí. Todos los proyectos incluyen 30-90 días de garantía (bugs corregidos gratis). Para mantenimiento continuo ofrecemos retainers desde $2,500/mes que incluyen: updates de seguridad, nuevas features, optimizaciones, monitoreo 24/7 y soporte prioritario con descuento 15-25% vs tarifa por hora.',
+      },
+      {
+        title: '¿Trabajan con equipos de desarrollo internos?',
+        description:
+          'Absolutamente. Podemos integrarnos a tu equipo actual, hacer pair programming, seguir tus coding standards, usar tus herramientas (Jira, Linear, etc.), participar en dailys/sprints. Somos un refuerzo técnico senior, no un reemplazo de tu equipo.',
       },
     ]}
   />
@@ -403,13 +626,14 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="¿Listo para Automatizar y Ahorrar Miles?"
-    subtitle="Únete a 45+ empresas que ya recuperaron su inversión en menos de 60 días. Consulta gratuita sin compromiso."
+    title="¿Listo para Transformar tu Negocio Digitalmente?"
+    subtitle="Consulta gratuita de 45-60 minutos. Analizamos tu proyecto, te recomendamos stack tecnológico y te damos estimación de costo y timeline. Sin compromiso."
     actions={[
       {
         variant: 'primary',
-        text: 'Calcular Mi ROI Gratis',
+        text: 'Agendar Consulta Gratuita',
         href: '/contact',
+        icon: 'tabler:calendar',
       },
     ]}
   />

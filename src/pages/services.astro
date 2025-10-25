@@ -2,12 +2,16 @@
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features2 from '~/components/widgets/Features2.astro';
+import Features from '~/components/widgets/Features.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Testimonials from '~/components/widgets/Testimonials.astro';
+import Pricing from '~/components/widgets/Pricing.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'Services',
+  title: 'Servicios - Desarrollo Web, Automatización, Cloud & Marketing | VineryTech',
+  description:
+    'Servicios tecnológicos completos: desarrollo web full-stack, automatizaciones, infraestructura cloud, marketing digital, diseño gráfico y seguridad informática. Todo en un solo lugar.',
 };
 ---
 
@@ -15,195 +19,579 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="Services"
-    title="Elevate your projects with our stunning templates"
-    subtitle="Explore our meticulously crafted templates tailored to various industries and purposes. From captivating presentations to functional website designs, we offer the tools you need to succeed."
-    actions={[{ variant: 'primary', target: '_blank', text: 'Start exploring', href: '/' }]}
+    tagline="Servicios Integrales"
+    title="Todo lo que tu Negocio Digital Necesita"
+    subtitle="Un solo socio tecnológico para desarrollo web, automatizaciones, infraestructura cloud, marketing digital y seguridad. Desde MVPs hasta plataformas enterprise escalables."
+    actions={[
+      { variant: 'primary', text: 'Consulta Gratuita', href: '/contact', icon: 'tabler:calendar' },
+      { text: 'Ver Precios', href: '#pricing' },
+    ]}
     image={{
       src: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'AstroWind Hero Image',
+      alt: 'Servicios VineryTech',
     }}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Features Widget *************** -->
 
-  <Features2
-    title="Explore our diverse templates"
-    subtitle="Discover our selection below to streamline and elevate your projects."
+  <Features
+    id="servicios-principales"
+    title="Nuestros Servicios Principales"
+    subtitle="Soluciones tecnológicas completas para cada etapa de tu negocio digital"
     columns={3}
     items={[
       {
-        title: 'Educational',
+        title: 'Desarrollo de Sistemas Web',
         description:
-          'By harmonizing instructional design and visual appeal, templates streamline content creation for varied materials, expediting development and cultivating engaging educational spaces.',
-        icon: 'tabler:school',
+          'Aplicaciones web modernas con React, Vue, Angular. APIs robustas con Laravel, Express, Flask. E-commerce, SaaS, CRM, ERP personalizados con código limpio y escalable.',
+        icon: 'tabler:code',
       },
       {
-        title: 'Interior Design',
+        title: 'Automatizaciones e Integraciones',
         description:
-          'Crafting functional, visually appealing spaces for residential and commercial use. Templates emphasize layout, colors, and furniture setups, offering a versatile toolkit for your design vision.',
-        icon: 'tabler:home-star',
+          'N8N, Make, Zapier, GoHighLevel. Conectamos sistemas, automatizamos procesos repetitivos, eliminamos tareas manuales. Workflows que ahorran cientos de horas mensuales.',
+        icon: 'tabler:robot',
       },
       {
-        title: 'Photography',
-        description: `Empowering photographers, our templates facilitate captivating storytelling. With a keen focus on layout, galleries, and typography, they cater to both professionals and enthusiasts.`,
-        icon: 'tabler:photo',
-      },
-      {
-        title: 'E-commerce',
+        title: 'Infraestructura Cloud & DevOps',
         description:
-          'Developing engaging online stores, our E-commerce templates ensure a dynamic presence to effectively showcase products. Ideal for startups or revamps.',
-        icon: 'tabler:shopping-cart',
+          'AWS, Google Cloud, DigitalOcean. Configuración de servidores, CI/CD, Docker, Kubernetes. Monitoreo 24/7 con 99.9% uptime garantizado. Escalabilidad automática.',
+        icon: 'tabler:cloud',
       },
       {
-        title: 'Blog',
+        title: 'Integración de Pasarelas de Pago',
         description:
-          'With attention to typography, these templates empower effective content presentation for writers at any stage, ensuring visually engaging and user-friendly blogs.',
-        icon: 'tabler:article',
+          'Stripe, PayPal, Mercado Pago. Checkout optimizado, suscripciones recurrentes, split payments. PCI compliance, 3D Secure, webhooks sincronizados en tiempo real.',
+        icon: 'tabler:credit-card',
       },
       {
-        title: 'Business',
+        title: 'Marketing Digital Completo',
         description:
-          'Providing polished options for effective visual communication, these templates empower both startups and established companies for a professional brand presence.',
-        icon: 'tabler:building-store',
+          'Meta Ads, Google Ads, LinkedIn Ads. Gestión de redes sociales, email marketing, SEO. Estrategias basadas en datos con ROI medible. Campañas que convierten.',
+        icon: 'tabler:chart-line',
       },
       {
-        title: 'Branding',
+        title: 'Diseño Gráfico & Fotografía',
         description:
-          'Offering pre-designed elements for a consistent brand identity, including logos and marketing materials. Ideal for new ventures or revamps.',
-        icon: 'tabler:arrow-big-up-lines',
+          'Identidad de marca, diseño UI/UX en Figma, fotografía de producto profesional. Todo lo visual que necesitas para destacar y convertir visitas en clientes.',
+        icon: 'tabler:palette',
       },
       {
-        title: 'Medical',
-        description: `From presentations to patient forms, these tools enhance communication effectiveness for healthcare professionals. Ideal for medical practices and research pursuits.`,
-        icon: 'tabler:vaccine',
-      },
-      {
-        title: 'Fashion Design',
+        title: 'Infraestructura y Servidores',
         description:
-          'With attention to detail, customization, and contemporary design, they empower designers to showcase ideas cohesively. Ideal for all levels of designers.',
-        icon: 'tabler:tie',
+          'Linux administration (Ubuntu, Debian, CentOS). Nginx, Apache, PHP-FPM, Node.js. Backups automáticos, disaster recovery, optimización de performance.',
+        icon: 'tabler:server',
+      },
+      {
+        title: 'Seguridad Informática',
+        description:
+          'Auditorías OWASP Top 10, penetration testing, implementación WAF. Certificados SSL, OAuth 2.0, cumplimiento GDPR/PCI-DSS. Protección real contra amenazas.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Redes Empresariales',
+        description:
+          'VPN site-to-site, configuración DNS, CDN setup. Segmentación de redes, firewalls, IDS/IPS. Infraestructura de red segura y escalable para tu empresa.',
+        icon: 'tabler:network',
       },
     ]}
   />
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget - Desarrollo Web **************** -->
 
   <Content
+    id="desarrollo-web"
     isReversed
+    tagline="Desarrollo Web Full-Stack"
+    title="Aplicaciones Web que Escalan con tu Negocio"
     items={[
       {
-        title: 'High-Quality Designs',
+        title: 'Frontend Moderno',
         description:
-          'Our templates feature top-tier designs that ensure a professional and polished appearance for your projects.',
-        icon: 'tabler:wand',
+          'React, Vue.js, Angular, Astro. Next.js para SSR, Nuxt para Vue. TypeScript para type-safety. Tailwind CSS, diseño responsive. SPAs, PWAs, SSG. Lo mejor de cada tecnología.',
+        icon: 'tabler:brand-react',
       },
       {
-        title: 'Customization Tools',
+        title: 'Backend Robusto',
         description:
-          'Tailor each template to your unique needs with user-friendly customization tools that let you personalize colors, fonts, and content.',
-        icon: 'tabler:settings',
+          'Laravel (PHP) para sistemas enterprise. Express/NestJS (Node.js) para APIs escalables. Flask/FastAPI (Python) para ML/AI. APIs REST, GraphQL, WebSockets en tiempo real.',
+        icon: 'tabler:server',
       },
       {
-        title: 'Pre-Designed Elements',
+        title: 'Bases de Datos Optimizadas',
         description:
-          'Save time and effort with our ready-to-use elements, including graphics, icons, and layouts that enhance the visual appeal of your creations.',
-        icon: 'tabler:presentation',
+          'MySQL, PostgreSQL para datos relacionales. MongoDB para NoSQL. Redis para caché y sessions. Diseño de schemas óptimos. Migraciones versionadas. Queries optimizados.',
+        icon: 'tabler:database',
       },
       {
-        title: 'Preview and Mockup Views',
+        title: 'Casos de Uso',
         description:
-          'Visualize the final outcome before making any changes using our preview and mockup views, ensuring your projects meet your expectations.',
-        icon: 'tabler:carousel-horizontal',
+          'E-commerce completos, Plataformas SaaS multi-tenant, CRM y ERP personalizados, Portales de clientes, Dashboards analytics, Marketplaces multi-vendor, Aplicaciones web progresivas (PWA).',
+        icon: 'tabler:apps',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1525909002-1b05e0c869d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80',
-      alt: 'Features Image',
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Desarrollo Web',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Main Features</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">De MVP a Enterprise</h3>
+      <p class="text-muted">
+        Desde $5,000 para startups hasta $100,000+ para plataformas enterprise. Código limpio, documentado y 100% tuyo.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
 
-  <!-- Content Widget **************** -->
+  <!-- Content Widget - Automatizaciones **************** -->
 
   <Content
     isAfterContent
+    tagline="Automatizaciones e Integraciones"
+    title="Elimina Tareas Repetitivas, Multiplica la Productividad"
     items={[
       {
-        title: 'Time Savings',
+        title: 'N8N Self-hosted',
         description:
-          'Streamline your workflow, enabling you to create stunning materials efficiently and allocate more time to your core tasks.',
+          'Workflows complejos sin costos por ejecución. Lógica condicional avanzada. Integración con 200+ servicios. Control total de tus datos. Ideal para empresas con alta frecuencia.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Make (Integromat)',
+        description:
+          'Escenarios visuales intuitivos. Manejo de datos complejos con routers y filtros. Apps infinitas. Perfecto para procesos multi-paso con transformación de datos.',
+        icon: 'tabler:puzzle',
+      },
+      {
+        title: 'Zapier & GoHighLevel',
+        description:
+          'Integraciones rápidas para startups. Zapier con 5,000+ apps. GoHighLevel para marketing/ventas con CRM integrado, funnels, SMS y email marketing automatizado.',
+        icon: 'tabler:bolt',
+      },
+      {
+        title: 'Job Queues Custom',
+        description:
+          'Laravel Queues con Horizon, Redis + Bull (Node.js), Celery (Python). Para procesamiento de archivos grandes, envío masivo de emails, generación de reportes complejos.',
         icon: 'tabler:clock',
-      },
-      {
-        title: 'Professional Appearance',
-        description:
-          'Elevate your projects with the polished and sophisticated look that our templates provide, making a lasting impression on your audience.',
-        icon: 'tabler:school',
-      },
-      {
-        title: 'Cost-Efficiency',
-        description:
-          'Benefit from cost savings by avoiding the need for custom design work, as our templates offer professional-grade designs at a fraction of the cost.',
-        icon: 'tabler:coin',
-      },
-      {
-        title: 'Instant Download',
-        description:
-          'Enjoy immediate access to your chosen templates upon purchase, enabling you to begin working on your projects without delay.',
-        icon: 'tabler:file-download',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1552664688-cf412ec27db2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-      alt: 'Benefits Image',
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
+      alt: 'Automatizaciones',
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Benefits</h3>
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Ahorra 20-40 Horas Semanales</h3>
+      <p class="text-muted">
+        Automatizaciones desde $500 (simples) hasta $15,000 (complejas). ROI típico en 2-3 meses.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
+
+  <!-- Content Widget - Infraestructura Cloud **************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    tagline="Infraestructura Cloud & DevOps"
+    title="Escalabilidad y Confiabilidad Garantizadas"
+    items={[
+      {
+        title: 'Cloud Providers',
+        description:
+          'AWS (EC2, RDS, S3, Lambda, CloudFront). Google Cloud (Compute Engine, Cloud Storage, Cloud Functions). DigitalOcean Droplets. Linode, Vultr, Hetzner para cost-efficiency.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Contenedores & Orquestación',
+        description:
+          'Docker para desarrollo y producción. Docker Compose para stacks multi-container. Kubernetes (K8s) para orquestación enterprise. Portainer para gestión visual.',
+        icon: 'tabler:container',
+      },
+      {
+        title: 'CI/CD Automatizado',
+        description:
+          'GitHub Actions, GitLab CI, Jenkins. Deploy automático en cada push a main. Testing automatizado. Zero-downtime deployments. Rollback en segundos si algo falla.',
+        icon: 'tabler:git-merge',
+      },
+      {
+        title: 'Monitoreo 24/7',
+        description:
+          'Prometheus + Grafana dashboards. New Relic, Datadog APM. Uptime monitoring con alertas PagerDuty/Slack. Logs centralizados con ELK Stack. SLA 99.9% uptime.',
+        icon: 'tabler:chart-dots',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Infraestructura Cloud',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">99.9% Uptime Garantizado</h3>
+      <p class="text-muted">
+        Setup servidor desde $800. Migración cloud desde $2,000. Arquitectura microservicios desde $15,000.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget - Marketing Digital **************** -->
+
+  <Content
+    isAfterContent
+    tagline="Marketing Digital & Identidad Web"
+    title="Convierte Visitas en Clientes, Clicks en Ventas"
+    items={[
+      {
+        title: 'Campañas Publicitarias',
+        description:
+          'Meta Ads (Facebook/Instagram): awareness, leads, conversiones, retargeting. Google Ads: search, display, shopping. LinkedIn Ads para B2B. A/B testing sistemático. Píxeles de seguimiento.',
+        icon: 'tabler:ad',
+      },
+      {
+        title: 'Gestión de Redes Sociales',
+        description:
+          'Facebook Business Manager completo. Instagram Shopping integrado. LinkedIn Company Pages para B2B. Programación de contenido. Respuestas automatizadas. Analytics y reportes.',
+        icon: 'tabler:brand-facebook',
+      },
+      {
+        title: 'Email Marketing',
+        description:
+          'Mailchimp, SendGrid, Klaviyo, AWS SES. Secuencias automatizadas (welcome, abandoned cart, win-back). Segmentación avanzada. A/B testing. Templates responsive diseñados.',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'SEO & Analytics',
+        description:
+          'Optimización on-page (títulos, meta, headers, schema markup). Link building estratégico. Google Analytics 4 configurado. Google Search Console. SEMrush/Ahrefs para keywords.',
+        icon: 'tabler:seo',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2194&q=80',
+      alt: 'Marketing Digital',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">ROI Medible en Cada Campaña</h3>
+      <p class="text-muted">
+        Gestión mensual desde $800. Setup completo de campaña desde $1,200. Estrategia digital integral desde $3,000.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget - Diseño **************** -->
+
+  <Content
+    isReversed
+    isAfterContent
+    tagline="Diseño Gráfico & Fotografía"
+    title="Identidad Visual que Destaca y Convierte"
+    items={[
+      {
+        title: 'Identidad de Marca Completa',
+        description:
+          'Diseño de logotipo único. Manual de marca (colores, tipografías, aplicaciones). Papelería corporativa. Templates para redes sociales. Diseño de packaging si aplica.',
+        icon: 'tabler:palette',
+      },
+      {
+        title: 'Diseño Web UI/UX',
+        description:
+          'Wireframes y mockups en Figma. Diseño responsive mobile-first. Design systems para consistencia. Prototipos interactivos. User flows optimizados para conversión.',
+        icon: 'tabler:layout',
+      },
+      {
+        title: 'Fotografía de Producto',
+        description:
+          'Fondo blanco para e-commerce. Fotografía lifestyle con modelos. Vistas 360° para productos. Edición y retoque profesional. Optimización para web (formatos WebP, lazy loading).',
+        icon: 'tabler:camera',
+      },
+      {
+        title: 'Material Digital & Impreso',
+        description:
+          'Banners para web y redes. Email templates HTML responsive. Presentaciones corporativas. Brochures digitales. Infografías. Thumbnails para YouTube. Posts para redes.',
+        icon: 'tabler:file',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80',
+      alt: 'Diseño y Fotografía',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Primera Impresión Profesional</h3>
+      <p class="text-muted">
+        Identidad de marca desde $1,500. Sesión fotográfica desde $500. Diseño UI/UX completo desde $2,000.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget - Seguridad **************** -->
+
+  <Content
+    isAfterContent
+    tagline="Seguridad Informática"
+    title="Protección Real Contra Amenazas Cibernéticas"
+    items={[
+      {
+        title: 'Auditorías de Seguridad',
+        description:
+          'Análisis de vulnerabilidades OWASP Top 10. Penetration testing manual y automatizado. Code review de seguridad. Análisis de dependencias con Snyk. Reporte detallado con prioridades.',
+        icon: 'tabler:search',
+      },
+      {
+        title: 'Protección Activa',
+        description:
+          'WAF (Web Application Firewall) con Cloudflare/AWS. DDoS protection. Rate limiting inteligente. CAPTCHA en formularios críticos. Headers de seguridad (CSP, HSTS, X-Frame-Options).',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Cumplimiento & Compliance',
+        description:
+          'GDPR para protección de datos EU. PCI-DSS para procesamiento de pagos. HIPAA basics para datos de salud. Políticas de privacidad y términos. Documentación de compliance.',
+        icon: 'tabler:checklist',
+      },
+      {
+        title: 'Gestión de Accesos',
+        description:
+          'MFA/2FA implementado. SSH keys management. VPN setup (OpenVPN, WireGuard). OAuth 2.0, JWT tokens. Principio de mínimo privilegio. Rotación de credenciales automática.',
+        icon: 'tabler:key',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Seguridad Informática',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Seguridad desde el Primer Día</h3>
+      <p class="text-muted">
+        Auditoría desde $2,000. Implementación de medidas desde $1,500. Compliance PCI-DSS/GDPR desde $5,000.
+      </p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget - Tecnologías ************** -->
+
+  <Features2
+    title="Stack Tecnológico Completo"
+    subtitle="Dominamos las herramientas y frameworks más robustos del mercado"
+    tagline="Tecnologías"
+    columns={3}
+    items={[
+      {
+        title: 'PHP',
+        description: 'Laravel, Symfony. APIs REST, admin panels, sistemas enterprise. Eloquent ORM, Queues, Events.',
+        icon: 'tabler:brand-php',
+      },
+      {
+        title: 'Python',
+        description:
+          'Flask, FastAPI, Django. Machine learning, data processing, APIs escalables. Pandas, NumPy, Celery.',
+        icon: 'tabler:brand-python',
+      },
+      {
+        title: 'JavaScript/TypeScript',
+        description: 'Node.js, Express, NestJS. React, Vue, Angular. Next.js, Nuxt. Type-safety, código mantenible.',
+        icon: 'tabler:brand-javascript',
+      },
+      {
+        title: 'Bases de Datos',
+        description:
+          'MySQL, PostgreSQL, MongoDB, Redis. Diseño de schemas. Optimización de queries. Migraciones versionadas.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Cloud & DevOps',
+        description: 'AWS, GCP, DigitalOcean. Docker, Kubernetes. GitHub Actions, GitLab CI. Terraform, Ansible.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Automatización',
+        description: 'N8N, Make, Zapier. GoHighLevel CRM. Puppeteer para scraping. Apache Airflow para data pipelines.',
+        icon: 'tabler:robot',
+      },
+      {
+        title: 'Pagos',
+        description:
+          'Stripe (tarjetas, suscripciones). PayPal, Mercado Pago. Conekta, Wompi. PCI compliance. Webhooks.',
+        icon: 'tabler:credit-card',
+      },
+      {
+        title: 'Marketing',
+        description: 'Meta Ads, Google Ads. Mailchimp, SendGrid, Klaviyo. Google Analytics 4. SEMrush, Ahrefs.',
+        icon: 'tabler:chart-line',
+      },
+      {
+        title: 'Diseño',
+        description: 'Figma UI/UX. Adobe Photoshop, Illustrator, Lightroom. Fotografía profesional. Video editing.',
+        icon: 'tabler:palette',
+      },
+    ]}
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
+
+  <!-- Pricing Widget **************** -->
+
+  <Pricing
+    id="pricing"
+    title="Opciones de Contratación Flexibles"
+    subtitle="Elige el modelo que mejor se adapte a las necesidades de tu negocio"
+    prices={[
+      {
+        title: 'Por Hora',
+        subtitle: 'Ideal para consultoría y proyectos pequeños',
+        price: 60,
+        period: 'por hora',
+        items: [
+          {
+            description: 'Tarifa estándar: $60-80/hora',
+          },
+          {
+            description: 'Tarifa senior: $90-120/hora',
+          },
+          {
+            description: 'Facturación mensual detallada',
+          },
+          {
+            description: 'Sin compromisos a largo plazo',
+          },
+          {
+            description: 'Ideal para soporte y mantenimiento',
+          },
+        ],
+        callToAction: {
+          text: 'Contratar por horas',
+          href: '/contact',
+        },
+      },
+      {
+        title: 'Por Proyecto',
+        subtitle: 'Alcance fijo, entregables claros',
+        price: 5000,
+        period: 'desde',
+        items: [
+          {
+            description: 'Landing page: $1,500-$3,000',
+          },
+          {
+            description: 'E-commerce: $8,000-$25,000',
+          },
+          {
+            description: 'Plataforma SaaS: $25,000-$100,000+',
+          },
+          {
+            description: '30-90 días garantía incluida',
+          },
+          {
+            description: 'Documentación completa',
+          },
+          {
+            description: 'Capacitación del equipo',
+          },
+        ],
+        callToAction: {
+          text: 'Solicitar cotización',
+          href: '/contact',
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Más Popular',
+      },
+      {
+        title: 'Retainer Mensual',
+        subtitle: 'Soporte continuo y mejoras',
+        price: 2500,
+        period: 'por mes',
+        items: [
+          {
+            description: '40-160 horas dedicadas mensuales',
+          },
+          {
+            description: 'Soporte prioritario',
+          },
+          {
+            description: 'Monitoreo 24/7',
+          },
+          {
+            description: 'Updates de seguridad',
+          },
+          {
+            description: 'Mejoras incrementales',
+          },
+          {
+            description: 'Descuento 15-25% vs por hora',
+          },
+        ],
+        callToAction: {
+          text: 'Contratar retainer',
+          href: '/contact',
+        },
+      },
+    ]}
+  />
 
   <!-- Testimonials Widget *********** -->
 
   <Testimonials
-    title="Words from real customers"
+    title="Lo que Dicen Nuestros Clientes"
     testimonials={[
       {
-        testimonial: `The designs are not only visually appealing but also highly professional. The templates have saved me a significant amount of time while helping me make a lasting impression on my clients.`,
-        name: 'Emily Kennedy',
-        job: 'Front-end developer',
+        testimonial: `VineryTech no solo entregó código, entregó un producto que cambió nuestro negocio. La arquitectura que diseñaron sigue soportando nuestro crecimiento. De 0 a $45K MRR en 6 meses.`,
+        name: 'Sarah Chen',
+        job: 'CEO, LearnHub (E-learning SaaS)',
         image: {
           src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80',
-          alt: 'Emily Kennedy Image',
+          alt: 'Sarah Chen',
         },
       },
       {
-        testimonial: `It beautifully showcases my work, with its clean and elegant design that lets my photographs shine. Customization was a breeze, even for a non-tech person like me. The result is a professional and immersive portfolio that's garnered numerous compliments.`,
-        name: 'Sarah Hansen',
-        job: 'Photographer',
-        image: {
-          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
-          alt: 'Sarah Hansen Image',
-        },
-      },
-      {
-        testimonial: `I discovered these templates and I'm impressed by their variety and quality. They've helped me establish a consistent brand image across my marketing and social platforms, elevating my business's overall appearance.`,
-        name: 'Mark Wilkinson',
-        job: 'Small business owner',
+        testimonial: `Las automatizaciones liberaron a mi equipo de 38 horas semanales de trabajo manual. ROI del 450% en 4 meses. Pudimos crecer de 12 a 25 clientes sin contratar personal adicional.`,
+        name: 'Carlos Rodríguez',
+        job: 'Director, Agencia Marketing Digital',
         image: {
           src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=824&q=80',
-          alt: 'Mark Wilkinson Image',
+          alt: 'Carlos Rodríguez',
+        },
+      },
+      {
+        testimonial: `Migraron nuestra infraestructura legacy a AWS con Kubernetes. Uptime mejoró de 98.2% a 99.97%. Deploy time de 4 horas a 8 minutos. Profesionalismo excepcional en cada etapa.`,
+        name: 'Ana Martínez',
+        job: 'CTO, Fintech Argentina',
+        image: {
+          src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80',
+          alt: 'Ana Martínez',
         },
       },
     ]}
     callToAction={{
-      target: '_blank',
-      text: 'More testimonials...',
-      href: 'https://github.com/arthelokyo/astrowind',
+      text: 'Ver más casos de éxito',
+      href: '/portfolio',
       icon: 'tabler:chevron-right',
     }}
   />
@@ -214,11 +602,12 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Start exploring',
-        href: '/',
+        text: 'Agenda Consulta Gratuita',
+        href: '/contact',
+        icon: 'tabler:calendar',
       },
     ]}
-    title="Dive into our template collection"
-    subtitle="Whether you're in business, design, or education, our templates are here to elevate your projects."
+    title="¿Listo para Transformar tu Negocio Digitalmente?"
+    subtitle="Consulta gratuita de 45-60 minutos. Analizamos tu proyecto, recomendamos stack tecnológico y te damos estimación de costo y timeline. Sin compromiso."
   />
 </Layout>
