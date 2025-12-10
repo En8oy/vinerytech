@@ -7,7 +7,9 @@ import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'Nosotros',
+  description:
+    'Conoce a VineryDev - Agencia de desarrollo full-stack especializada en automatización, desarrollo web, infraestructura cloud y marketing digital.',
 };
 ---
 
@@ -15,213 +17,202 @@ const metadata = {
   <!-- Hero Widget ******************* -->
 
   <Hero
-    tagline="About us"
+    tagline="Sobre Nosotros"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Equipo de desarrollo trabajando',
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Tu socio tecnológico para <br />
+      <span class="text-accent dark:text-white highlight">crecer sin límites</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      Somos una agencia de desarrollo full-stack con pasión por la tecnología y obsesión por los resultados.
+      Transformamos ideas en soluciones digitales que impulsan negocios, automatizan procesos y generan valor real.
     </Fragment>
   </Hero>
 
   <!-- Stats Widget ****************** -->
 
   <Stats
-    title="Statistics about us"
+    title="VineryDev en números"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
+      { title: 'Proyectos Completados', amount: '150+' },
+      { title: 'Clientes Satisfechos', amount: '80+' },
+      { title: 'Horas Automatizadas', amount: '100K+' },
+      { title: 'Años de Experiencia', amount: '5+' },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <!-- Features3 Widget - Servicios ************** -->
 
   <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
+    title="Lo que hacemos"
+    subtitle="Ofrecemos soluciones tecnológicas integrales para empresas que quieren crecer, optimizar y escalar."
     columns={3}
     isBeforeContent={true}
     items={[
       {
-        title: 'Educational',
+        title: 'Desarrollo Web',
         description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+          'Aplicaciones web modernas con React, Vue, Laravel, Node.js. Desde landing pages hasta plataformas enterprise.',
+        icon: 'tabler:code',
       },
       {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+        title: 'Automatización',
+        description: 'Implementamos N8N, Make y Zapier para eliminar tareas repetitivas y conectar todos tus sistemas.',
+        icon: 'tabler:robot',
       },
       {
-        title: 'Photography',
+        title: 'Infraestructura Cloud',
         description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+          'AWS, Google Cloud, DigitalOcean. Servidores seguros, escalables y con 99.9% de uptime garantizado.',
+        icon: 'tabler:cloud',
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <!-- Features3 Widget - Más servicios ************** -->
 
   <Features3
     columns={3}
     isAfterContent={true}
     items={[
       {
+        title: 'Marketing Digital',
+        description:
+          'SEO, SEM, redes sociales y email marketing. Estrategias que generan tráfico cualificado y conversiones.',
+        icon: 'tabler:chart-arrows',
+      },
+      {
         title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+        description: 'Tiendas online con Shopify, WooCommerce o desarrollo a medida. Optimizadas para vender más.',
+        icon: 'tabler:shopping-cart',
       },
       {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+        title: 'Consultoría Tech',
+        description: 'Asesoría en arquitectura de software, selección de tecnologías y transformación digital.',
+        icon: 'tabler:bulb',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Equipo de desarrollo colaborando',
     }}
   />
 
-  <!-- Steps2 Widget ****************** -->
+  <!-- Steps2 Widget - Valores ****************** -->
 
   <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
+    title="Nuestros valores"
+    subtitle="Los principios que guían cada proyecto y cada línea de código que escribimos."
     items={[
       {
-        title: 'Customer-centric approach',
+        title: 'Resultados sobre promesas',
         description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
+          'No vendemos humo. Cada proyecto tiene métricas claras y entregables definidos. Tu éxito es nuestro éxito.',
       },
       {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
+        title: 'Transparencia total',
+        description: 'Comunicación clara, precios sin sorpresas y acceso completo a tu proyecto en todo momento.',
       },
       {
-        title: 'Ethical Practices',
+        title: 'Código de calidad',
         description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+          'Seguimos las mejores prácticas de la industria. Código limpio, documentado y mantenible a largo plazo.',
+      },
+      {
+        title: 'Partnership, no proveedores',
+        description:
+          'Nos involucramos en tu negocio. Entendemos tus objetivos y proponemos soluciones que realmente impactan.',
       },
     ]}
   />
 
-  <!-- Steps2 Widget ****************** -->
+  <!-- Steps2 Widget - Por qué elegirnos ****************** -->
 
   <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
+    title="¿Por qué VineryDev?"
+    subtitle="Lo que nos diferencia de otras agencias y freelancers."
     isReversed={true}
     callToAction={{
-      text: 'See more',
-      href: '/',
+      text: 'Agenda una consulta',
+      href: '/contact',
     }}
     items={[
       {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
+        title: 'Equipo multidisciplinario',
+        description: 'Desarrolladores, diseñadores, expertos en cloud y marketing trabajando juntos en tu proyecto.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
+        title: 'Tecnología de vanguardia',
+        description: 'Usamos las herramientas más modernas y eficientes. Tu proyecto no quedará obsoleto.',
+        icon: 'tabler:rocket',
       },
       {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
+        title: 'Soporte continuo',
+        description: 'No desaparecemos después de entregar. Ofrecemos mantenimiento, soporte y mejoras continuas.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Precios justos',
+        description: 'Tarifas competitivas sin sacrificar calidad. Inversión inteligente con ROI medible.',
+        icon: 'tabler:coin',
       },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Features2 Widget - Stack tecnológico ************** -->
 
   <Features2
-    title="Our locations"
-    tagline="Find us"
+    title="Nuestro stack tecnológico"
+    tagline="Tecnologías"
     columns={4}
     items={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
+        title: 'Frontend',
+        description: 'React, Vue.js, Next.js, Astro, Tailwind CSS',
+        icon: 'tabler:brand-react',
       },
       {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
+        title: 'Backend',
+        description: 'Node.js, Laravel, Python, Express, FastAPI',
+        icon: 'tabler:server',
       },
       {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
+        title: 'Cloud & DevOps',
+        description: 'AWS, GCP, Docker, Kubernetes, CI/CD',
+        icon: 'tabler:cloud',
       },
       {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: 'Automatización',
+        description: 'N8N, Make, Zapier, APIs, Web Scraping',
+        icon: 'tabler:robot',
       },
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Features2 Widget - Contacto ************** -->
 
   <Features2
-    title="Technical Support"
-    tagline="Contact us"
+    title="¿Listo para empezar?"
+    tagline="Contáctanos"
     columns={2}
     items={[
       {
-        title: 'Chat with us',
+        title: 'Agenda una llamada',
         description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
+          'Cuéntanos tu proyecto en una videollamada de 30 minutos sin compromiso. Analizamos tu caso y te damos recomendaciones.',
+        icon: 'tabler:calendar',
       },
       {
-        title: 'Call us',
+        title: 'Escríbenos',
         description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
+          'Envíanos un mensaje con los detalles de tu proyecto. Respondemos en menos de 24 horas con una propuesta inicial.',
+        icon: 'tabler:mail',
       },
     ]}
   />

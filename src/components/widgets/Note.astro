@@ -14,10 +14,15 @@ const {
 } = Astro.props;
 ---
 
-<section class="bg-blue-50 dark:bg-slate-800 not-prose">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 text-md text-center font-medium">
-    <Icon name={icon} class="w-5 h-5 inline-block align-text-bottom font-bold" />
-    <span class="font-bold" set:html={title} />
-    <Fragment set:html={description} />
+<section class="not-prose relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10"></div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 py-4">
+    <div
+      class="glass-card rounded-xl px-6 py-3 inline-flex items-center justify-center gap-2 mx-auto w-full text-md text-center font-medium"
+    >
+      <Icon name={icon} class="w-5 h-5 inline-block align-text-bottom font-bold text-primary" />
+      <span class="font-bold gradient-text" set:html={title} />
+      <span class="text-muted" set:html={description} />
+    </div>
   </div>
 </section>

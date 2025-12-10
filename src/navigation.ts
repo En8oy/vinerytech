@@ -1,4 +1,5 @@
 import { getPermalink, getBlogPermalink } from './utils/permalinks';
+import { siteConfig } from './utils/siteConfig';
 
 export const headerData = {
   links: [
@@ -19,6 +20,10 @@ export const headerData = {
     {
       text: 'Precios',
       href: getPermalink('/pricing'),
+    },
+    {
+      text: 'Blog',
+      href: getBlogPermalink(),
     },
     {
       text: 'Contacto',
@@ -76,15 +81,15 @@ export const footerData = {
     { text: 'Política de Privacidad', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://linkedin.com/company/vinerytech' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/vinerytech' },
-    { ariaLabel: 'Twitter', icon: 'tabler:brand-x', href: 'https://twitter.com/vinerytech' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: 'https://instagram.com/vinerytech' },
-    { ariaLabel: 'Email', icon: 'tabler:mail', href: 'mailto:contacto@vinerytech.com' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: siteConfig.social.linkedin },
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: siteConfig.social.github },
+    { ariaLabel: 'Twitter', icon: 'tabler:brand-x', href: siteConfig.social.twitter },
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: siteConfig.social.instagram },
+    { ariaLabel: 'Email', icon: 'tabler:mail', href: `mailto:${siteConfig.contact.email}` },
   ],
   footNote: `
     <div class="text-sm">
-      <p class="mb-1">© ${new Date().getFullYear()} <strong>VineryTech</strong> - Agencia de Desarrollo Full-Stack</p>
+      <p class="mb-1">© ${new Date().getFullYear()} <strong>${siteConfig.name}</strong> - Agencia de Desarrollo Full-Stack</p>
       <p class="text-xs text-muted">Desarrollo Web · Automatización · Cloud · Marketing Digital · Diseño · Seguridad</p>
     </div>
   `,

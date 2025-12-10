@@ -20,7 +20,7 @@ const {
   items && items.length > 0 && (
     <div
       class={twMerge(
-        `grid mx-auto gap-8 md:gap-y-12 ${
+        `grid mx-auto gap-6 md:gap-8 ${
           columns === 4
             ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
             : columns === 3
@@ -33,13 +33,24 @@ const {
       )}
     >
       {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
-        <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-          <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
+        <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade group">
+          <div
+            class={twMerge(
+              'flex flex-row max-w-md p-5 rounded-2xl transition-all duration-300',
+              'glass-card hover:scale-[1.02] hover:glow-primary',
+              panelClass,
+              itemClasses?.panel
+            )}
+          >
             <div class="flex justify-center">
               {(icon || defaultIcon) && (
                 <Icon
                   name={icon || defaultIcon}
-                  class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                  class={twMerge(
+                    'w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2 transition-transform duration-300 group-hover:scale-110',
+                    defaultIconClass,
+                    itemClasses?.icon
+                  )}
                 />
               )}
             </div>

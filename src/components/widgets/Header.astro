@@ -50,12 +50,12 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 <header
   class:list={[
     { sticky: isSticky, relative: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-all duration-300 ease-in-out',
   ]}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
 >
-  <div class="absolute inset-0 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md"></div>
+  <div class="header-bg absolute inset-0 transition-all duration-300"></div>
   <div
     class:list={[
       'relative text-default py-3 px-3 md:px-6 mx-auto w-full',
@@ -165,3 +165,100 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
     </div>
   </div>
 </header>
+
+<style>
+  /* Estado inicial: fondo oscuro para el hero */
+  header .header-bg {
+    background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+    backdrop-filter: none;
+  }
+
+  /* Estado con scroll: glassmorphism activo */
+  header.is-scrolled .header-bg {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  :global(.dark) header.is-scrolled .header-bg {
+    background: rgba(15, 23, 42, 0.85);
+  }
+
+  /* Borde sutil cuando está scrolled */
+  header.is-scrolled {
+    border-bottom-color: rgba(0, 0, 0, 0.05);
+  }
+
+  :global(.dark) header.is-scrolled {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Texto claro cuando no hay scroll (sobre fondo oscuro del hero) - aplica en ambos modos */
+  header:not(.is-scrolled) :global(nav a),
+  header:not(.is-scrolled) :global(nav button),
+  header:not(.is-scrolled) :global(.text-muted),
+  header:not(.is-scrolled) :global(.text-default) {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  header:not(.is-scrolled) :global(nav a:hover),
+  header:not(.is-scrolled) :global(nav button:hover) {
+    color: white !important;
+  }
+
+  /* Logo texto blanco cuando no hay scroll */
+  header:not(.is-scrolled) :global(span.text-gray-900),
+  header:not(.is-scrolled) :global(span.font-bold),
+  header:not(.is-scrolled) :global(a.flex span) {
+    color: white !important;
+  }
+
+  /* Botón primario visible sobre fondo oscuro */
+  header:not(.is-scrolled) :global(.btn-primary) {
+    background: white !important;
+    color: #0f172a !important;
+    border-color: white !important;
+  }
+
+  header:not(.is-scrolled) :global(.btn-primary:hover) {
+    background: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  /* Icono del toggle theme */
+  header:not(.is-scrolled) :global(button svg),
+  header:not(.is-scrolled) :global(.toggle-theme svg) {
+    color: white !important;
+  }
+
+  /* Icono del menú móvil - líneas blancas cuando no hay scroll */
+  header:not(.is-scrolled) :global([data-aw-toggle-menu] span) {
+    background-color: white !important;
+  }
+</style>
+
+<script>
+  function initHeaderScroll() {
+    const header = document.getElementById('header');
+    if (!header) return;
+
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        header.classList.add('is-scrolled');
+      } else {
+        header.classList.remove('is-scrolled');
+      }
+    };
+
+    // Check initial scroll position
+    handleScroll();
+
+    // Listen for scroll events
+    window.addEventListener('scroll', handleScroll, { passive: true });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initHeaderScroll);
+
+  // Reinitialize after View Transitions
+  document.addEventListener('astro:page-load', initHeaderScroll);
+</script>

@@ -1,0 +1,160 @@
+---
+/**
+ * Componente para agregar JSON-LD Structured Data
+ * Mejora el SEO y la apariencia en resultados de búsqueda
+ */
+import { siteConfig } from '~/utils/siteConfig';
+
+export interface Props {
+  type?: 'organization' | 'website' | 'faq' | 'service' | 'breadcrumb' | 'article';
+  data?: Record<string, unknown>;
+}
+
+const { type = 'organization', data = {} } = Astro.props;
+
+// Datos de la organización
+const organizationData = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': `${siteConfig.url}/#organization`,
+  name: siteConfig.name,
+  url: siteConfig.url,
+  logo: {
+    '@type': 'ImageObject',
+    url: `${siteConfig.url}/favicon.svg`,
+    width: 512,
+    height: 512,
+  },
+  description:
+    'Agencia de desarrollo full-stack especializada en sistemas web, automatizaciones, infraestructura cloud, marketing digital y seguridad informática.',
+  email: siteConfig.contact.email,
+  telephone: siteConfig.contact.phone,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Ciudad de México',
+    addressCountry: 'MX',
+  },
+  sameAs: [
+    siteConfig.social.linkedin,
+    siteConfig.social.github,
+    siteConfig.social.twitter,
+    siteConfig.social.instagram,
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: siteConfig.contact.phone,
+    contactType: 'customer service',
+    email: siteConfig.contact.email,
+    availableLanguage: ['Spanish', 'English'],
+  },
+};
+
+// Datos del sitio web con búsqueda
+const websiteData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${siteConfig.url}/#website`,
+  url: siteConfig.url,
+  name: siteConfig.name,
+  description: 'Agencia de desarrollo full-stack - Desarrollo Web, Automatizaciones, Cloud, Marketing Digital',
+  publisher: {
+    '@id': `${siteConfig.url}/#organization`,
+  },
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: {
+      '@type': 'EntryPoint',
+      urlTemplate: `${siteConfig.url}/blog?q={search_term_string}`,
+    },
+    'query-input': 'required name=search_term_string',
+  },
+  inLanguage: 'es-MX',
+};
+
+// Servicios ofrecidos
+const servicesData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: [
+    {
+      '@type': 'Service',
+      position: 1,
+      name: 'Desarrollo Web Full-Stack',
+      description:
+        'Aplicaciones web modernas con React, Vue, Laravel, Node.js. Desde landing pages hasta plataformas enterprise.',
+      provider: { '@id': `${siteConfig.url}/#organization` },
+      serviceType: 'Web Development',
+      areaServed: { '@type': 'Country', name: 'Mexico' },
+    },
+    {
+      '@type': 'Service',
+      position: 2,
+      name: 'Automatización de Procesos',
+      description: 'Implementación de N8N, Make, Zapier para eliminar tareas repetitivas y conectar sistemas.',
+      provider: { '@id': `${siteConfig.url}/#organization` },
+      serviceType: 'Process Automation',
+      areaServed: { '@type': 'Country', name: 'Mexico' },
+    },
+    {
+      '@type': 'Service',
+      position: 3,
+      name: 'Infraestructura Cloud & DevOps',
+      description: 'AWS, Google Cloud, DigitalOcean. Servidores seguros, escalables con 99.9% uptime garantizado.',
+      provider: { '@id': `${siteConfig.url}/#organization` },
+      serviceType: 'Cloud Services',
+      areaServed: { '@type': 'Country', name: 'Mexico' },
+    },
+    {
+      '@type': 'Service',
+      position: 4,
+      name: 'Marketing Digital',
+      description: 'SEO, SEM, redes sociales y email marketing. Estrategias basadas en datos con ROI medible.',
+      provider: { '@id': `${siteConfig.url}/#organization` },
+      serviceType: 'Digital Marketing',
+      areaServed: { '@type': 'Country', name: 'Mexico' },
+    },
+    {
+      '@type': 'Service',
+      position: 5,
+      name: 'E-commerce',
+      description: 'Tiendas online con Shopify, WooCommerce o desarrollo a medida. Optimizadas para vender más.',
+      provider: { '@id': `${siteConfig.url}/#organization` },
+      serviceType: 'E-commerce Development',
+      areaServed: { '@type': 'Country', name: 'Mexico' },
+    },
+    {
+      '@type': 'Service',
+      position: 6,
+      name: 'Seguridad Informática',
+      description: 'Auditorías de seguridad, WAF, SSL, cumplimiento PCI-DSS/GDPR. Protección contra amenazas.',
+      provider: { '@id': `${siteConfig.url}/#organization` },
+      serviceType: 'Cybersecurity',
+      areaServed: { '@type': 'Country', name: 'Mexico' },
+    },
+  ],
+};
+
+// Seleccionar los datos según el tipo
+function getStructuredData() {
+  switch (type) {
+    case 'organization':
+      return organizationData;
+    case 'website':
+      return websiteData;
+    case 'service':
+      return servicesData;
+    case 'faq':
+      return data;
+    case 'breadcrumb':
+      return data;
+    case 'article':
+      return data;
+    default:
+      return organizationData;
+  }
+}
+
+const structuredData = getStructuredData();
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

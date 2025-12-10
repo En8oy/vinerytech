@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -12,78 +12,131 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import GranimBackground from '~/components/ui/GranimBackground.astro';
+import FAQSchema from '~/components/common/FAQSchema.astro';
+
+// FAQs para el schema
+const faqItems = [
+  {
+    question: '¿Cuánto cuesta desarrollar una aplicación web?',
+    answer:
+      'Depende del alcance. Una landing page: $1,500-$3,000. Sitio corporativo: $3,000-$8,000. E-commerce: $8,000-$25,000. Plataforma SaaS: $25,000-$100,000+. Te damos cotización exacta después del discovery call.',
+  },
+  {
+    question: '¿Trabajan con startups o solo con empresas grandes?',
+    answer:
+      'Trabajamos con ambos. Tenemos paquetes para startups (MVPs desde $5,000) y soluciones enterprise ($50K+). 60% de nuestros clientes son startups.',
+  },
+  {
+    question: '¿Puedo ver el código durante el desarrollo?',
+    answer:
+      'Absolutamente. Desde día 1 tienes acceso al repositorio en GitHub/GitLab. Puedes ver commits diarios, hacer code reviews, correr el proyecto localmente. Al finalizar, el código es 100% tuyo.',
+  },
+  {
+    question: '¿Ofrecen mantenimiento después del lanzamiento?',
+    answer:
+      'Sí. Todos los proyectos incluyen 30-90 días de garantía. Para soporte continuo, ofrecemos retainers desde $2,500/mes que incluyen actualizaciones de seguridad, nuevas features, optimizaciones y soporte prioritario.',
+  },
+  {
+    question: '¿Qué tan seguras son las aplicaciones que desarrollan?',
+    answer:
+      'Muy seguras. Seguimos OWASP Top 10, implementamos autenticación robusta (OAuth/JWT), validación de inputs, protección CSRF/XSS, SQL injection prevention. Podemos lograr compliance PCI-DSS, GDPR, HIPAA.',
+  },
+  {
+    question: '¿Cuánto tiempo toma un proyecto típico?',
+    answer:
+      'Landing page: 2-3 semanas. Sitio web completo: 4-6 semanas. E-commerce: 8-12 semanas. Plataforma SaaS: 3-6 meses. Automatización simple: 1-2 semanas.',
+  },
+];
 
 const metadata = {
-  title: 'VineryTech - Desarrollo Web, Automatización e Infraestructura | Soluciones Tecnológicas Integrales',
+  title: 'VineryDev - Desarrollo Web, Automatización e Infraestructura | Soluciones Tecnológicas Integrales',
   ignoreTitleTemplate: true,
   description:
     'Agencia de desarrollo full-stack especializada en sistemas web (React, Vue, Laravel, Python), automatizaciones, infraestructura cloud, marketing digital y seguridad informática. Tu socio tecnológico integral.',
 };
 ---
 
-<style>
-  .gradient-hero-section {
-    position: relative;
-    margin-top: -76px; /* Compensar el header para que el gradiente llegue hasta arriba */
-    padding-top: 76px; /* Mantener el espacio del header */
-  }
-  .gradient-bg-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.35;
-    z-index: 0;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 1;
-  }
-</style>
-
 <Layout metadata={metadata}>
-  <!-- Hero Widget con fondo animado que se extiende hasta arriba ******************* -->
-  <div class="gradient-hero-section">
-    <div class="gradient-bg-wrapper">
+  <!-- Hero2 Widget con fondo animado ******************* -->
+  <div class="hero-wrapper">
+    <div class="hero-bg">
       <GranimBackground />
     </div>
+    <Hero2
+      tagline="Agencia de Desarrollo Full-Stack"
+      actions={[
+        {
+          variant: 'primary',
+          text: 'Consulta Gratuita',
+          href: '/contact',
+          icon: 'tabler:rocket',
+        },
+        { variant: 'secondary', text: 'Ver Casos de Éxito', href: '#casos-exito' },
+      ]}
+      image={{ src: '~/assets/images/hero-illustration.svg', alt: 'Desarrollo de Software Profesional' }}
+    >
+      <Fragment slot="title">
+        <span class="text-white">Soluciones Tecnológicas que</span>
+        <span class="text-violet-400">Impulsan</span>
+        <br class="hidden lg:block" /><span class="text-white">tu Crecimiento Digital</span>
+      </Fragment>
 
-    <div class="hero-content">
-      <Hero
-        actions={[
-          {
-            variant: 'primary',
-            text: 'Consulta Gratuita',
-            href: '/contact',
-            icon: 'tabler:rocket',
-          },
-          { text: 'Ver Casos de Éxito', href: '#casos-exito' },
-        ]}
-        image={{ src: '~/assets/images/automation-hero.png', alt: 'Desarrollo de Software Profesional' }}
-      >
-        <Fragment slot="title">
-          <span class="text-4xl md:text-6xl font-bold">
-            Soluciones Tecnológicas que <span class="text-accent">Impulsan</span>
-          </span>
-          <span class="block text-3xl md:text-5xl mt-2"> tu Crecimiento Digital </span>
-        </Fragment>
-
-        <Fragment slot="subtitle">
-          <span class="text-xl md:text-2xl block mb-4">
-            <span class="font-bold text-blue-600"
-              >Desarrollo web full-stack, automatizaciones, infraestructura cloud</span
-            > y marketing digital
-          </span>
-          <span class="text-lg opacity-90">
-            Desde MVPs hasta plataformas enterprise. Desde tu primera landing page hasta infraestructura escalable.<br
-            />
-            <span class="font-semibold">Un solo socio tecnológico para todas tus necesidades digitales.</span>
-          </span>
-        </Fragment>
-      </Hero>
-    </div>
+      <Fragment slot="subtitle">
+        <span class="text-slate-200">
+          <span class="font-semibold text-blue-400"
+            >Desarrollo web full-stack, automatizaciones, infraestructura cloud</span
+          > y marketing digital. Desde MVPs hasta plataformas enterprise.
+          <span class="font-semibold text-white">Un solo socio tecnológico para todas tus necesidades digitales.</span>
+        </span>
+      </Fragment>
+    </Hero2>
   </div>
+
+  <style>
+    /* Wrapper del Hero con fondo oscuro */
+    .hero-wrapper {
+      position: relative;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .hero-wrapper :global(section) {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Forzar colores claros en el Hero independiente del modo */
+    .hero-wrapper :global(p.text-secondary),
+    .hero-wrapper :global(p.text-base) {
+      color: rgb(191 219 254) !important; /* blue-200 */
+    }
+    .hero-wrapper :global(h1) {
+      color: white !important;
+    }
+    .hero-wrapper :global(p.text-muted),
+    .hero-wrapper :global(p.text-xl) {
+      color: rgb(203 213 225) !important; /* slate-300 */
+    }
+
+    /* Botón secundario en el Hero - estilo glassmorphism claro */
+    .hero-wrapper :global(.btn-secondary) {
+      background: rgba(255, 255, 255, 0.15) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      color: white !important;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero-wrapper :global(.btn-secondary:hover) {
+      background: rgba(255, 255, 255, 0.25) !important;
+      border-color: rgba(255, 255, 255, 0.5) !important;
+    }
+  </style>
 
   <!-- Note Widget ******************* -->
 
@@ -98,7 +151,7 @@ const metadata = {
     id="servicios"
     tagline="Servicios Integrales"
     title="Todo lo que tu Negocio Necesita en un Solo Lugar"
-    subtitle="Desde el código hasta la nube, desde el diseño hasta las campañas. No necesitas 5 proveedores cuando VineryTech puede hacerlo todo con excelencia."
+    subtitle="Desde el código hasta la nube, desde el diseño hasta las campañas. No necesitas 5 proveedores cuando VineryDev puede hacerlo todo con excelencia."
     items={[
       {
         title: 'Desarrollo de Sistemas Web',
@@ -137,7 +190,11 @@ const metadata = {
         icon: 'tabler:shield-lock',
       },
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 gradient-mesh"></div>
+    </Fragment>
+  </Features>
 
   <!-- Content Widget **************** -->
 
@@ -170,7 +227,7 @@ const metadata = {
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">De 0 a Escalable en 4 Meses</h3>
-      "VineryTech no solo entregó código, entregó un producto que cambió nuestro negocio. La arquitectura que diseñaron sigue
+      "VineryDev no solo entregó código, entregó un producto que cambió nuestro negocio. La arquitectura que diseñaron sigue
       soportando nuestro crecimiento." - Sarah Chen, CEO LearnHub
     </Fragment>
 
@@ -376,7 +433,7 @@ const metadata = {
 
   <FAQs
     title="Preguntas Frecuentes"
-    subtitle="Todo lo que necesitas saber sobre trabajar con VineryTech"
+    subtitle="Todo lo que necesitas saber sobre trabajar con VineryDev"
     tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
@@ -421,7 +478,11 @@ const metadata = {
           'Trabajamos en sprints con demos cada 2 semanas, así no hay sorpresas al final. Si algo no va según lo acordado, lo ajustamos inmediatamente. Tenemos 98% de satisfacción porque la comunicación es constante. En casos extremos, tenemos política de reembolso proporcional.',
       },
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent"></div>
+    </Fragment>
+  </FAQs>
 
   <!-- Stats Widget ****************** -->
 
@@ -432,7 +493,11 @@ const metadata = {
       { title: 'Horas Automatizadas', amount: '100K+' },
       { title: 'Uptime Promedio', amount: '99.9%' },
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 gradient-mesh opacity-70"></div>
+    </Fragment>
+  </Stats>
 
   <!-- CallToAction Widget *********** -->
 
@@ -459,4 +524,7 @@ const metadata = {
       y te damos estimación de costo y timeline. Sin compromiso.
     </Fragment>
   </CallToAction>
+
+  <!-- FAQ Schema para SEO -->
+  <FAQSchema faqs={faqItems} />
 </Layout>

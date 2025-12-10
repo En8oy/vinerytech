@@ -1,2 +1,21 @@
+# Robots.txt para VineryDev
+# https://vinery.dev
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Sitemap
+Sitemap: https://vinery.dev/sitemap-index.xml
+
+# Bloquear rutas no necesarias para SEO
+Disallow: /api/
+Disallow: /_image/
+Disallow: /404
+Disallow: /*.json$
+
+# Crawl-delay para bots agresivos
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

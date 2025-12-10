@@ -1,10 +1,10 @@
-# VineryTech - Soluciones Tecnológicas Integrales
+# VineryDev - Soluciones Tecnológicas Integrales
 
 ## 1. Descripción del Negocio
 
-**VineryTech** es una agencia de desarrollo y servicios tecnológicos especializados que ofrece soluciones integrales para empresas que buscan transformar su presencia digital, optimizar operaciones y escalar su infraestructura tecnológica.
+**VineryDev** es una agencia de desarrollo y servicios tecnológicos especializados que ofrece soluciones integrales para empresas que buscan transformar su presencia digital, optimizar operaciones y escalar su infraestructura tecnológica.
 
-Desde el desarrollo de aplicaciones web complejas hasta la gestión completa de infraestructura, marketing digital y seguridad informática, VineryTech es el socio tecnológico que las empresas necesitan para competir en la era digital.
+Desde el desarrollo de aplicaciones web complejas hasta la gestión completa de infraestructura, marketing digital y seguridad informática, VineryDev es el socio tecnológico que las empresas necesitan para competir en la era digital.
 
 ### Misión
 
@@ -1156,11 +1156,11 @@ En retainers enterprise sí. En proyectos estándar, horario de oficina con opci
 
 ## Resumen Ejecutivo
 
-**VineryTech** es tu socio tecnológico integral que combina desarrollo de software de clase mundial, infraestructura robusta, automatizaciones inteligentes, marketing digital efectivo y seguridad de nivel empresarial.
+**VineryDev** es tu socio tecnológico integral que combina desarrollo de software de clase mundial, infraestructura robusta, automatizaciones inteligentes, marketing digital efectivo y seguridad de nivel empresarial.
 
-Con experiencia en más de 150 proyectos exitosos, dominio de múltiples lenguajes y frameworks modernos, y un enfoque obsesivo en resultados de negocio medibles, VineryTech transforma ideas en productos digitales escalables y rentables.
+Con experiencia en más de 150 proyectos exitosos, dominio de múltiples lenguajes y frameworks modernos, y un enfoque obsesivo en resultados de negocio medibles, VineryDev transforma ideas en productos digitales escalables y rentables.
 
-Desde el MVP de tu startup hasta la migración cloud de tu empresa establecida, desde tu primera campaña en redes hasta tu compliance PCI-DSS, VineryTech tiene la expertise, las herramientas y el compromiso para llevar tu proyecto al siguiente nivel.
+Desde el MVP de tu startup hasta la migración cloud de tu empresa establecida, desde tu primera campaña en redes hasta tu compliance PCI-DSS, VineryDev tiene la expertise, las herramientas y el compromiso para llevar tu proyecto al siguiente nivel.
 
 **¿Listo para transformar tu negocio digitalmente?**
 

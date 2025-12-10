@@ -1,6 +1,6 @@
 site:
-  name: VineryTech
-  site: 'https://vinerytech.com'
+  name: VineryDev
+  site: 'https://vinery.dev'
   base: '/'
   trailingSlash: false
 
@@ -9,26 +9,26 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: VineryTech
-    template: '%s — VineryTech'
-  description: "\U0001F680 Automatización y Desarrollo Inteligente. Especialistas en RPA, integraciones API, web scraping y soluciones que reducen costos operativos hasta un 70%."
+    default: VineryDev
+    template: '%s — VineryDev'
+  description: "Automatización y Desarrollo Inteligente. Especialistas en RPA, integraciones API, web scraping y soluciones que reducen costos operativos hasta un 70%."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: VineryTech
+    site_name: VineryDev
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
   twitter:
-    handle: '@arthelokyo'
-    site: '@arthelokyo'
+    handle: '@vinerydev'
+    site: '@vinerydev'
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: es
   textDirection: ltr
 
 apps:

@@ -1,302 +1,239 @@
-# 🚀 AstroWind
+# VineryDev
 
-<img src="https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/lighthouse-score.png" align="right"
-     alt="AstroWind Lighthouse Score" width="100" height="358">
+Sitio web corporativo de **VineryDev** - Agencia de Desarrollo Full-Stack especializada en automatización, desarrollo web, infraestructura cloud y marketing digital.
 
-🌟 _Most *starred* & *forked* Astro theme in 2022, 2023 & 2024_. 🌟
+## Tecnologías
 
-**AstroWind** is a free and open-source template to make your website using **[Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
+- **Framework:** [Astro 5.0](https://astro.build/) - Framework web moderno con renderizado estático
+- **Estilos:** [Tailwind CSS](https://tailwindcss.com/) - Framework CSS utility-first
+- **Animaciones:** [Granim.js](https://sarcadass.github.io/granim.js/) - Gradientes animados
+- **Tipografía:** Inter (UI) + DM Sans (Headings)
+- **Iconos:** [Tabler Icons](https://tabler-icons.io/)
+- **Linting:** ESLint + Prettier
+- **Commits:** Conventional Commits con Husky + Commitlint
 
-- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
-- ✅ Integration with **Tailwind CSS** supporting **Dark mode** and **_RTL_**.
-- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
-- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
-- ✅ Generation of **project sitemap** based on your routes.
-- ✅ **Open Graph tags** for social media sharing.
-- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
+## Características
 
-<br>
+- Diseño **glassmorphism** con efectos de blur y transparencia
+- **Gradientes animados** en el hero con Granim.js
+- Soporte para **modo oscuro/claro**
+- **SEO optimizado** con Open Graph y meta tags
+- **Blog integrado** con MDX y categorías
+- **Responsive design** mobile-first
+- **Performance optimizada** - Score 90+ en Lighthouse
+- **Variables de entorno** para configuración centralizada
 
-![AstroWind Theme Screenshot](https://raw.githubusercontent.com/arthelokyo/.github/main/resources/astrowind/screenshot-astrowind-1.0.png)
+## Requisitos
 
-[![arthelokyo](https://custom-icon-badges.demolab.com/badge/made%20by%20-arthelokyo-556bf2?style=flat-square&logo=arthelokyo&logoColor=white&labelColor=101827)](https://github.com/arthelokyo)
-[![License](https://img.shields.io/github/license/arthelokyo/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/arthelokyo/astrowind/blob/main/LICENSE.md)
-[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo)
-[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/arthelokyo/astrowind#contributing)
-[![Known Vulnerabilities](https://snyk.io/test/github/arthelokyo/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/arthelokyo/astrowind)
-[![Stars](https://img.shields.io/github/stars/arthelokyo/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
-[![Forks](https://img.shields.io/github/forks/arthelokyo/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/arthelokyo/astrowind)
+- Node.js >= 18.17.1
+- npm o pnpm
 
-<br>
+## Instalación
 
-<details open>
-<summary>Table of Contents</summary>
+```bash
+# Clonar repositorio
+git clone <repository-url>
+cd vinerytech
 
-- [Demo](#demo)
-- [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
-- [TL;DR](#tldr)
-- [Getting started](#getting-started)
-  - [Project structure](#project-structure)
-  - [Commands](#commands)
-  - [Configuration](#configuration)
-  - [Deploy](#deploy)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Related Projects](#related-projects)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+# Instalar dependencias
+npm install
 
-</details>
+# Copiar variables de entorno
+cp .env.example .env
 
-<br>
-
-## Demo
-
-📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
-
-<br>
-
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
-
-We're embarking on an exciting journey with **AstroWind 2.0**, and we want you to be a part of it! We're currently taking the first steps in developing this new version and your insights are invaluable. Join the discussion and share your feedback, ideas, and suggestions to help shape the future of **AstroWind**. Let's make **AstroWind 2.0** even better, together!
-
-[Share Your Feedback in Our Discussion!](https://github.com/arthelokyo/astrowind/discussions/392)
-
-<br>
-
-## TL;DR
-
-```shell
-npm create astro@latest -- --template arthelokyo/astrowind
+# Iniciar servidor de desarrollo
+npm run dev
 ```
 
-## Getting started
+El sitio estará disponible en `http://localhost:4321`
 
-**AstroWind** tries to give you quick access to creating a website using [Astro 5.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
+## Variables de Entorno
 
-Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals.
+Crea un archivo `.env` basado en `.env.example`:
 
-In this version the template supports all the options in the `output` configuration, `static`, `hybrid` and `server`, but the blog only works with `prerender = true`. We are working on the next version and aim to make it fully compatible with SSR.
+```env
+# URL del sitio
+PUBLIC_SITE_URL=https://vinery.dev
+PUBLIC_SITE_NAME=VineryDev
 
-### Project structure
+# Contacto
+PUBLIC_CONTACT_EMAIL=contacto@vinery.dev
+PUBLIC_CONTACT_PHONE=+52 55 1234 5678
+PUBLIC_CONTACT_WHATSAPP=+5215512345678
 
-Inside **AstroWind** template, you'll see the following folders and files:
+# Redes Sociales
+PUBLIC_SOCIAL_LINKEDIN=https://linkedin.com/company/vinerydev
+PUBLIC_SOCIAL_GITHUB=https://github.com/vinerydev
+PUBLIC_SOCIAL_TWITTER=https://twitter.com/vinerydev
+PUBLIC_SOCIAL_INSTAGRAM=https://instagram.com/vinerydev
+
+# Calendly
+PUBLIC_CALENDLY_URL=https://calendly.com/vinerydev
+
+# Ubicación
+PUBLIC_LOCATION=Ciudad de México, México
+PUBLIC_TIMEZONE=UTC-6 (CST)
+```
+
+## Estructura del Proyecto
 
 ```
 /
-├── public/
-│   ├── _headers
-│   └── robots.txt
+├── public/                 # Archivos estáticos
+│   ├── robots.txt
+│   └── _headers
 ├── src/
 │   ├── assets/
-│   │   ├── favicons/
-│   │   ├── images/
+│   │   ├── images/        # Imágenes del sitio
 │   │   └── styles/
-│   │       └── tailwind.css
+│   │       └── tailwind.css  # Estilos personalizados
 │   ├── components/
-│   │   ├── blog/
-│   │   ├── common/
-│   │   ├── ui/
-│   │   ├── widgets/
-│   │   │   ├── Header.astro
-│   │   │   └── ...
-│   │   ├── CustomStyles.astro
-│   │   ├── Favicons.astro
-│   │   └── Logo.astro
-│   ├── content/
-│   │   ├── post/
-│   │   │   ├── post-slug-1.md
-│   │   │   ├── post-slug-2.mdx
-│   │   │   └── ...
-│   │   └-- config.ts
-│   ├── layouts/
-│   │   ├── Layout.astro
-│   │   ├── MarkdownLayout.astro
-│   │   └── PageLayout.astro
-│   ├── pages/
-│   │   ├── [...blog]/
-│   │   │   ├── [category]/
-│   │   │   ├── [tag]/
-│   │   │   ├── [...page].astro
-│   │   │   └── index.astro
-│   │   ├── index.astro
-│   │   ├── 404.astro
-│   │   ├-- rss.xml.ts
-│   │   └── ...
+│   │   ├── blog/          # Componentes del blog
+│   │   ├── common/        # Componentes compartidos
+│   │   ├── ui/            # UI components (Button, ItemGrid, etc.)
+│   │   │   └── GranimBackground.astro  # Gradiente animado
+│   │   └── widgets/       # Widgets (Hero, Features, etc.)
+│   ├── data/
+│   │   ├── post/          # Posts del blog (Markdown)
+│   │   └── freelancer-data.ts  # Datos de servicios
+│   ├── layouts/           # Layouts de página
+│   ├── pages/             # Rutas del sitio
+│   │   ├── index.astro    # Página principal
+│   │   ├── services.astro # Servicios
+│   │   ├── portfolio.astro # Portafolio
+│   │   ├── pricing.astro  # Precios
+│   │   ├── contact.astro  # Contacto
+│   │   ├── terms.md       # Términos y condiciones
+│   │   ├── privacy.md     # Política de privacidad
+│   │   └── [...blog]/     # Rutas del blog
 │   ├── utils/
-│   ├── config.yaml
-│   └── navigation.js
-├── package.json
-├── astro.config.ts
-└── ...
+│   │   ├── siteConfig.ts  # Configuración centralizada
+│   │   └── permalinks.ts  # Utilidades de URLs
+│   ├── config.yaml        # Configuración de Astro
+│   └── navigation.ts      # Menús de navegación
+├── .env                   # Variables de entorno (no commitear)
+├── .env.example           # Ejemplo de variables
+├── astro.config.ts        # Configuración de Astro
+├── tailwind.config.js     # Configuración de Tailwind
+└── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Comandos
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Comando                  | Descripción                                       |
+| ------------------------ | ------------------------------------------------- |
+| `npm run dev`            | Inicia servidor de desarrollo en `localhost:4321` |
+| `npm run build`          | Genera build de producción en `./dist/`           |
+| `npm run preview`        | Preview del build de producción                   |
+| `npm run check`          | Verifica errores de Astro, ESLint y Prettier      |
+| `npm run fix`            | Corrige errores de ESLint y formatea con Prettier |
+| `npm run check:astro`    | Solo verificación de Astro                        |
+| `npm run check:eslint`   | Solo verificación de ESLint                       |
+| `npm run check:prettier` | Solo verificación de Prettier                     |
 
-Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
+## Páginas Disponibles
 
-[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/arthelokyo/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/arthelokyo/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/arthelokyo/astrowind)
+| Ruta         | Descripción                                      |
+| ------------ | ------------------------------------------------ |
+| `/`          | Página principal con hero, servicios, stats, FAQ |
+| `/services`  | Detalle de servicios ofrecidos                   |
+| `/portfolio` | Portafolio de proyectos                          |
+| `/pricing`   | Planes y precios                                 |
+| `/contact`   | Formulario de contacto                           |
+| `/blog`      | Listado de artículos                             |
+| `/terms`     | Términos y condiciones                           |
+| `/privacy`   | Política de privacidad                           |
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
+## Configuración Centralizada
 
-<br>
+El archivo `src/utils/siteConfig.ts` centraliza toda la configuración del sitio usando variables de entorno:
 
-### Commands
+```typescript
+import { siteConfig } from '~/utils/siteConfig';
 
-All commands are run from the root of the project, from a terminal:
+// Acceder a la configuración
+siteConfig.url; // https://vinery.dev
+siteConfig.name; // VineryDev
+siteConfig.contact.email; // contacto@vinery.dev
+siteConfig.social.linkedin; // URL de LinkedIn
 
-| Command             | Action                                             |
-| :------------------ | :------------------------------------------------- |
-| `npm install`       | Installs dependencies                              |
-| `npm run dev`       | Starts local dev server at `localhost:4321`        |
-| `npm run build`     | Build your production site to `./dist/`            |
-| `npm run preview`   | Preview your build locally, before deploying       |
-| `npm run check`     | Check your project for errors                      |
-| `npm run fix`       | Run Eslint and format codes with Prettier          |
-| `npm run astro ...` | Run CLI commands like `astro add`, `astro preview` |
-
-<br>
-
-### Configuration
-
-Basic configuration file: `./src/config.yaml`
-
-```yaml
-site:
-  name: 'Example'
-  site: 'https://example.com'
-  base: '/' # Change this if you need to deploy to Github Pages, for example
-  trailingSlash: false # Generate permalinks with or without "/" at the end
-
-  googleSiteVerificationId: false # Or some value,
-
-# Default SEO metadata
-metadata:
-  title:
-    default: 'Example'
-    template: '%s — Example'
-  description: 'This is the default meta description of Example website'
-  robots:
-    index: true
-    follow: true
-  openGraph:
-    site_name: 'Example'
-    images:
-      - url: '~/assets/images/default.png'
-        width: 1200
-        height: 628
-    type: website
-  twitter:
-    handle: '@twitter_user'
-    site: '@twitter_user'
-    cardType: summary_large_image
-
-i18n:
-  language: en
-  textDirection: ltr
-
-apps:
-  blog:
-    isEnabled: true # If the blog will be enabled
-    postsPerPage: 6 # Number of posts per page
-
-    post:
-      isEnabled: true
-      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
-      robots:
-        index: true
-
-    list:
-      isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
-      robots:
-        index: true
-
-    category:
-      isEnabled: true
-      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
-      robots:
-        index: true
-
-    tag:
-      isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
-      robots:
-        index: false
-
-    isRelatedPostsEnabled: true # If a widget with related posts is to be displayed below each post
-    relatedPostsCount: 4 # Number of related posts to display
-
-analytics:
-  vendors:
-    googleAnalytics:
-      id: null # or "G-XXXXXXXXXX"
-
-ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+// Helpers disponibles
+getCanonicalUrl('/blog'); // https://vinery.dev/blog
+getMailtoLink('Consulta'); // mailto:contacto@vinery.dev?subject=Consulta
+getWhatsAppLink('Hola!'); // https://wa.me/5215512345678?text=Hola!
 ```
 
-<br>
+## Personalización de Estilos
 
-#### Customize Design
+### Colores y Variables CSS
 
-To customize Font families, Colors or more Elements refer to the following files:
+Editar `src/components/CustomStyles.astro`:
 
-- `src/components/CustomStyles.astro`
-- `src/assets/styles/tailwind.css`
+```css
+:root {
+  --aw-color-primary: 79 70 229; /* Indigo */
+  --aw-color-secondary: 30 58 138; /* Blue */
+  --aw-color-accent: 109 40 217; /* Violet */
+}
+```
 
-### Deploy
+### Clases de Glassmorphism
 
-#### Deploy to production (manual)
+Disponibles en `src/assets/styles/tailwind.css`:
 
-You can create an optimized production build with:
+```css
+.glass        /* Efecto glass básico */
+.glass-light  /* Glass para modo claro */
+.glass-dark   /* Glass para modo oscuro */
+.glass-card   /* Card con efecto glass */
+.glow-primary /* Efecto glow */
+```
 
-```shell
+### Gradiente Animado
+
+El componente `GranimBackground.astro` maneja el gradiente animado del hero. Colores configurables:
+
+```javascript
+gradients: [
+  ['#0f172a', '#1e3a5f', '#312e81'], // Slate → Blue → Indigo
+  ['#1e1b4b', '#1e3a8a', '#0f172a'], // Indigo → Blue → Slate
+  // ...
+];
+```
+
+## Convenciones de Commits
+
+Este proyecto usa [Conventional Commits](https://www.conventionalcommits.org/). Ver `CONTRIBUTING.md` para más detalles.
+
+```bash
+# Ejemplos válidos
+git commit -m "feat: agregar página de servicios"
+git commit -m "fix(hero): corregir gradiente en mobile"
+git commit -m "docs: actualizar README"
+```
+
+## Deploy
+
+### Build de Producción
+
+```bash
 npm run build
 ```
 
-Now, your website is ready to be deployed. All generated files are located at
-`dist` folder, which you can deploy the folder to any hosting service you
-prefer.
+Los archivos generados estarán en `./dist/`
 
-#### Deploy to Netlify
+### Vercel (Recomendado)
 
-Clone this repository on your own GitHub account and deploy it to Netlify:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vinerydev/vinerytech)
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/arthelokyo/astrowind)
+### Netlify
 
-#### Deploy to Vercel
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/vinerydev/vinerytech)
 
-Clone this repository on your own GitHub account and deploy to Vercel:
+## Licencia
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Farthelokyo%2Fastrowind)
+Este proyecto es privado y propietario de VineryDev.
 
-<br>
+---
 
-## Frequently Asked Questions
-
-- Why?
--
--
-
-<br>
-
-## Related projects
-
-- [TailNext](https://tailnext.vercel.app/) - Free template using Next.js 14 and Tailwind CSS with the new App Router.
-- [Qwind](https://qwind.pages.dev/) - Free template to make your website using Qwik + Tailwind CSS.
-
-## Contributing
-
-If you have any ideas, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
-That would be very useful for all of us and we would be happy to listen and take action.
-
-## Acknowledgements
-
-Initially created by **Arthelokyo** and maintained by a community of [contributors](https://github.com/arthelokyo/astrowind/graphs/contributors).
-
-## License
-
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+Desarrollado con Astro + Tailwind CSS | VineryDev

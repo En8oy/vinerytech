@@ -1,6 +1,6 @@
-# Guía de Contribución - VineryTech
+# Guía de Contribución - VineryDev
 
-¡Gracias por tu interés en contribuir al proyecto VineryTech! Este documento proporciona guías y mejores prácticas para contribuir al proyecto.
+¡Gracias por tu interés en contribuir al proyecto VineryDev! Este documento proporciona guías y mejores prácticas para contribuir al proyecto.
 
 ## 📋 Tabla de Contenidos
 
@@ -257,4 +257,4 @@ Si tienes preguntas o encuentras problemas, abre un issue en GitHub o contacta a
 
 ---
 
-**¡Gracias por contribuir a VineryTech!** 🚀
+**¡Gracias por contribuir a VineryDev!** 🚀

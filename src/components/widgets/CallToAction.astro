@@ -26,33 +26,43 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <div
-    class="max-w-3xl mx-auto text-center p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600"
-  >
-    <Headline
-      title={title}
-      subtitle={subtitle}
-      tagline={tagline}
-      classes={{
-        container: 'mb-0 md:mb-0',
-        title: 'text-4xl md:text-4xl font-bold tracking-tighter mb-4 font-heading',
-        subtitle: 'text-xl text-muted dark:text-slate-400',
-      }}
-    />
-    {
-      actions && (
-        <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 mt-6">
-          {Array.isArray(actions) ? (
-            actions.map((action) => (
-              <div class="flex w-full sm:w-auto">
-                <Button {...(action || {})} class="w-full sm:mb-0" />
-              </div>
-            ))
-          ) : (
-            <Fragment set:html={actions} />
-          )}
-        </div>
-      )
-    }
+  <div class="max-w-3xl mx-auto text-center p-8 md:p-12 rounded-3xl glass-card glow-primary relative overflow-hidden">
+    <!-- Gradient decoration -->
+    <div
+      class="absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br from-primary/30 to-accent/30 rounded-full blur-3xl"
+    >
+    </div>
+    <div
+      class="absolute -bottom-24 -left-24 w-48 h-48 bg-gradient-to-tr from-accent/30 to-primary/30 rounded-full blur-3xl"
+    >
+    </div>
+
+    <div class="relative z-10">
+      <Headline
+        title={title}
+        subtitle={subtitle}
+        tagline={tagline}
+        classes={{
+          container: 'mb-0 md:mb-0',
+          title: 'text-4xl md:text-4xl font-bold tracking-tighter mb-4 font-heading',
+          subtitle: 'text-xl text-muted dark:text-slate-400',
+        }}
+      />
+      {
+        actions && (
+          <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 mt-6">
+            {Array.isArray(actions) ? (
+              actions.map((action) => (
+                <div class="flex w-full sm:w-auto">
+                  <Button {...(action || {})} class="w-full sm:mb-0" />
+                </div>
+              ))
+            ) : (
+              <Fragment set:html={actions} />
+            )}
+          </div>
+        )
+      }
+    </div>
   </div>
 </WidgetWrapper>
