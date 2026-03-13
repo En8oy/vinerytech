@@ -1,0 +1,766 @@
+---
+/**
+ * HeroGsap Component
+ * Hero section épico con animaciones GSAP, diseño fullscreen y efectos visuales dramáticos.
+ * Optimizado para mobile, tablet y desktop con respeto a prefers-reduced-motion.
+ */
+
+import type { CallToAction } from '~/types';
+
+interface Props {
+  id?: string;
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  actions?: CallToAction[];
+  showScrollIndicator?: boolean;
+}
+
+const {
+  id = 'hero-gsap',
+  title = 'Creamos\nExperiencias\nDigitales',
+  subtitle = 'Diseño y desarrollo web que impulsa tu negocio al siguiente nivel',
+  tagline = 'Studio Digital',
+  actions = [
+    { text: 'Empezar Proyecto', href: '/contact', variant: 'primary' },
+    { text: 'Ver Portfolio', href: '/portfolio', variant: 'secondary' },
+  ],
+  showScrollIndicator = true,
+} = Astro.props;
+
+const titleLines = title.split('\n');
+---
+
+<section id={id} class="hero-gsap">
+  <!-- Background Elements -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="gradient-orbs">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="floating-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+    </div>
+    <div class="grid-overlay"></div>
+    <div class="noise-overlay"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="hero-content">
+    <!-- Tagline -->
+    <div class="hero-tagline-wrapper">
+      <span class="hero-tagline">{tagline}</span>
+    </div>
+
+    <!-- Title -->
+    <h1 class="hero-title">
+      {
+        titleLines.map((line, index) => (
+          <span class={`title-line ${index === 1 ? 'highlight' : ''}`} data-line={index}>
+            {line}
+          </span>
+        ))
+      }
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-subtitle">{subtitle}</p>
+
+    <!-- CTA Buttons -->
+    {
+      actions && actions.length > 0 && (
+        <div class="hero-actions">
+          {actions.map((action, index) => (
+            <a
+              href={action.href}
+              class:list={['hero-btn', index === 0 ? 'hero-btn-primary' : 'hero-btn-secondary']}
+              data-magnetic={index === 0 ? '' : undefined}
+            >
+              <span class="btn-text">{action.text}</span>
+              {index === 0 && <span class="btn-arrow">→</span>}
+              <span class="btn-bg" aria-hidden="true" />
+            </a>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <!-- Scroll Indicator -->
+  {
+    showScrollIndicator && (
+      <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel" />
+        </div>
+        <span class="scroll-text">Scroll</span>
+      </div>
+    )
+  }
+</section>
+
+<style>
+  /* ============================================
+     HERO CONTAINER
+     ============================================ */
+  .hero-gsap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow: hidden;
+    background: var(--theme-surface);
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-gsap {
+      padding: 6rem 2rem 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-gsap {
+      padding: 4rem 2rem;
+    }
+  }
+
+  /* ============================================
+     BACKGROUND EFFECTS
+     ============================================ */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  /* Gradient Orbs */
+  .gradient-orbs {
+    position: absolute;
+    inset: 0;
+    filter: blur(80px);
+    opacity: 0.5;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .orb-1 {
+    width: clamp(300px, 50vw, 600px);
+    height: clamp(300px, 50vw, 600px);
+    background: var(--theme-neon);
+    top: -20%;
+    right: -10%;
+    opacity: 0.4;
+  }
+
+  .orb-2 {
+    width: clamp(200px, 40vw, 500px);
+    height: clamp(200px, 40vw, 500px);
+    background: var(--theme-hot);
+    bottom: -10%;
+    left: -10%;
+    opacity: 0.3;
+  }
+
+  .orb-3 {
+    width: clamp(150px, 30vw, 400px);
+    height: clamp(150px, 30vw, 400px);
+    background: var(--theme-fire);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.2;
+  }
+
+  /* Floating Shapes */
+  .floating-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .shape {
+    position: absolute;
+    border: 1px solid var(--theme-neon);
+    border-radius: 50%;
+    opacity: 0.2;
+  }
+
+  .shape-1 {
+    width: clamp(100px, 20vw, 300px);
+    height: clamp(100px, 20vw, 300px);
+    top: 15%;
+    right: 10%;
+  }
+
+  .shape-2 {
+    width: clamp(80px, 15vw, 200px);
+    height: clamp(80px, 15vw, 200px);
+    bottom: 20%;
+    left: 5%;
+  }
+
+  .shape-3 {
+    width: clamp(60px, 10vw, 150px);
+    height: clamp(60px, 10vw, 150px);
+    top: 40%;
+    left: 15%;
+  }
+
+  .shape-4 {
+    width: clamp(40px, 8vw, 100px);
+    height: clamp(40px, 8vw, 100px);
+    bottom: 30%;
+    right: 20%;
+  }
+
+  /* Grid Overlay */
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: clamp(40px, 5vw, 80px) clamp(40px, 5vw, 80px);
+    opacity: 0.8;
+  }
+
+  /* Noise Overlay */
+  .noise-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* ============================================
+     HERO CONTENT
+     ============================================ */
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+
+  /* Tagline */
+  .hero-tagline-wrapper {
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hero-tagline-wrapper {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .hero-tagline {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--theme-neon);
+    padding: 0.625rem 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--theme-neon) 50%, transparent);
+    border-radius: 9999px;
+    background: color-mix(in srgb, var(--theme-neon) 5%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .hero-tagline {
+      font-size: 0.875rem;
+      padding: 0.75rem 1.5rem;
+    }
+  }
+
+  /* Title */
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hero-title {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .title-line {
+    display: block;
+    font-size: clamp(2.75rem, 10vw, 7rem);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--aw-color-text-heading);
+  }
+
+  .title-line.highlight {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    color: var(--aw-color-text-muted);
+    max-width: 650px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hero-subtitle {
+      margin-bottom: 3rem;
+    }
+  }
+
+  /* ============================================
+     CTA BUTTONS
+     ============================================ */
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .hero-actions {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+
+  .hero-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-text,
+  .btn-arrow {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .btn-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Primary Button */
+  .hero-btn-primary {
+    background: var(--theme-neon);
+    color: var(--theme-surface);
+    border: none;
+  }
+
+  .hero-btn-primary .btn-bg {
+    background: var(--theme-surface);
+  }
+
+  .hero-btn-primary:hover {
+    color: var(--theme-neon);
+    box-shadow: 0 10px 40px color-mix(in srgb, var(--theme-neon) 40%, transparent);
+  }
+
+  .hero-btn-primary:hover .btn-bg {
+    transform: scaleX(1);
+  }
+
+  .hero-btn-primary:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Secondary Button */
+  .hero-btn-secondary {
+    background: transparent;
+    color: var(--aw-color-text-default);
+    border: 1px solid var(--glass-border);
+  }
+
+  .hero-btn-secondary .btn-bg {
+    background: var(--theme-neon);
+  }
+
+  .hero-btn-secondary:hover {
+    color: var(--theme-surface);
+    border-color: var(--theme-neon);
+  }
+
+  .hero-btn-secondary:hover .btn-bg {
+    transform: scaleX(1);
+  }
+
+  /* Touch feedback */
+  @media (hover: none) {
+    .hero-btn:active {
+      transform: scale(0.97);
+    }
+
+    .hero-btn:active .btn-bg {
+      transform: scaleX(1);
+    }
+  }
+
+  /* ============================================
+     SCROLL INDICATOR
+     ============================================ */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .scroll-mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid color-mix(in srgb, var(--theme-neon) 50%, transparent);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+  }
+
+  .scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--theme-neon);
+    border-radius: 2px;
+    animation: scrollWheel 2s ease-in-out infinite;
+  }
+
+  @keyframes scrollWheel {
+    0%,
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    50% {
+      transform: translateY(8px);
+      opacity: 0.3;
+    }
+  }
+
+  .scroll-text {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--aw-color-text-muted);
+  }
+
+  @media (max-width: 767px) {
+    .scroll-indicator {
+      display: none;
+    }
+  }
+
+  /* ============================================
+     REDUCED MOTION
+     ============================================ */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-wheel {
+      animation: none;
+    }
+
+    .hero-btn,
+    .btn-bg,
+    .btn-arrow {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function initHeroAnimations() {
+    const hero = document.querySelector('.hero-gsap');
+    if (!hero) return;
+
+    // Check for reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      // Just make elements visible without animation
+      gsap.set(
+        ['.hero-tagline', '.title-line', '.hero-subtitle', '.hero-actions', '.scroll-indicator', '.shape', '.orb'],
+        { opacity: 1, y: 0, x: 0, scale: 1, rotation: 0 }
+      );
+      return;
+    }
+
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    const isTablet = window.matchMedia('(max-width: 1023px)').matches;
+
+    // Create main timeline
+    const tl = gsap.timeline({
+      defaults: { ease: 'power2.out' },
+    });
+
+    if (isMobile) {
+      // Mobile: Simpler, faster animations
+      tl.from('.hero-tagline', {
+        y: 15,
+        opacity: 0,
+        duration: 0.4,
+      })
+        .from(
+          '.title-line',
+          {
+            y: 25,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.5,
+          },
+          '-=0.2'
+        )
+        .from(
+          '.hero-subtitle',
+          {
+            y: 15,
+            opacity: 0,
+            duration: 0.4,
+          },
+          '-=0.2'
+        )
+        .from(
+          '.hero-btn',
+          {
+            y: 15,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.4,
+          },
+          '-=0.15'
+        );
+    } else {
+      // Desktop/Tablet: Smooth animations
+      tl.from('.hero-tagline', {
+        y: 20,
+        opacity: 0,
+        duration: 0.5,
+      })
+        .from(
+          '.title-line',
+          {
+            y: 40,
+            opacity: 0,
+            rotationX: isTablet ? 0 : -20,
+            transformOrigin: 'center bottom',
+            stagger: 0.1,
+            duration: 0.6,
+          },
+          '-=0.3'
+        )
+        .from(
+          '.hero-subtitle',
+          {
+            y: 25,
+            opacity: 0,
+            duration: 0.5,
+          },
+          '-=0.3'
+        )
+        .from(
+          '.hero-btn',
+          {
+            y: 20,
+            opacity: 0,
+            stagger: 0.08,
+            duration: 0.4,
+          },
+          '-=0.25'
+        )
+        .from(
+          '.scroll-indicator',
+          {
+            opacity: 0,
+            y: 10,
+            duration: 0.4,
+          },
+          '-=0.15'
+        );
+
+      // Floating shapes animation (desktop only) - more subtle
+      if (!isTablet) {
+        gsap.to('.shape-1', {
+          y: 'random(-15, 15)',
+          x: 'random(-10, 10)',
+          rotation: 'random(-5, 5)',
+          duration: 'random(6, 8)',
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+
+        gsap.to('.shape-2', {
+          y: 'random(-12, 12)',
+          x: 'random(-8, 8)',
+          rotation: 'random(-4, 4)',
+          duration: 'random(7, 9)',
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+
+        gsap.to('.shape-3', {
+          y: 'random(-10, 10)',
+          x: 'random(-6, 6)',
+          rotation: 'random(-3, 3)',
+          duration: 'random(5, 7)',
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+
+        gsap.to('.shape-4', {
+          y: 'random(-8, 8)',
+          x: 'random(-5, 5)',
+          rotation: 'random(-2, 2)',
+          duration: 'random(4, 6)',
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+
+        // Orbs subtle pulsing
+        gsap.to('.orb', {
+          scale: 'random(0.95, 1.05)',
+          duration: 'random(4, 6)',
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+          stagger: {
+            each: 0.5,
+            from: 'random',
+          },
+        });
+      }
+
+      // Magnetic button effect (desktop only)
+      if (!isTablet) {
+        const magneticBtns = document.querySelectorAll<HTMLElement>('[data-magnetic]');
+
+        magneticBtns.forEach((btn) => {
+          btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+
+            gsap.to(btn, {
+              x: x * 0.3,
+              y: y * 0.3,
+              duration: 0.3,
+              ease: 'power2.out',
+            });
+          });
+
+          btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, {
+              x: 0,
+              y: 0,
+              duration: 0.5,
+              ease: 'elastic.out(1, 0.3)',
+            });
+          });
+        });
+      }
+    }
+
+    // Parallax on mouse move (desktop only)
+    if (!isTablet) {
+      const handleMouseMove = (e: MouseEvent) => {
+        const { clientX, clientY } = e;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+
+        const moveX = (clientX - centerX) / centerX;
+        const moveY = (clientY - centerY) / centerY;
+
+        gsap.to('.orb-1', {
+          x: moveX * 30,
+          y: moveY * 30,
+          duration: 1,
+          ease: 'power2.out',
+        });
+
+        gsap.to('.orb-2', {
+          x: moveX * -20,
+          y: moveY * -20,
+          duration: 1,
+          ease: 'power2.out',
+        });
+
+        gsap.to('.orb-3', {
+          x: moveX * 15,
+          y: moveY * 15,
+          duration: 1,
+          ease: 'power2.out',
+        });
+      };
+
+      hero.addEventListener('mousemove', handleMouseMove);
+    }
+  }
+
+  function cleanupHeroAnimations() {
+    gsap.killTweensOf(['.hero-gsap *', '.shape', '.orb', '.hero-btn', '[data-magnetic]']);
+  }
+
+  // Initialize on page load (works with View Transitions)
+  document.addEventListener('astro:page-load', initHeroAnimations);
+
+  // Cleanup before navigation
+  document.addEventListener('astro:before-swap', cleanupHeroAnimations);
+
+  // Also run on DOMContentLoaded for initial load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroAnimations);
+  } else {
+    initHeroAnimations();
+  }
+</script>

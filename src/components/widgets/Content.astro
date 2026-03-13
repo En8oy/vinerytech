@@ -37,14 +37,20 @@ const {
     tagline={tagline}
     classes={{
       container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
-      title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
+      title: 'text-4xl md:text-5xl font-semibold tracking-tight mb-4 font-heading',
       subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
     }}
   />
   <div class="mx-auto max-w-7xl p-4 md:px-8">
-    <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
-      <div class="md:basis-1/2 self-center">
-        {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
+    <div
+      class={`${image ? `md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16` : 'text-center max-w-4xl mx-auto'}`}
+    >
+      <div class={image ? 'md:basis-1/2 self-center' : ''}>
+        {
+          content && (
+            <div class={`mb-12 text-lg dark:text-slate-400 ${!image ? 'max-w-3xl mx-auto' : ''}`} set:html={content} />
+          )
+        }
 
         {
           callToAction && (
@@ -59,7 +65,7 @@ const {
           columns={columns}
           defaultIcon="tabler:check"
           classes={{
-            container: `gap-y-4 md:gap-y-8`,
+            container: `gap-y-4 md:gap-y-8 ${!image ? 'max-w-3xl mx-auto text-left' : ''}`,
             panel: 'max-w-none',
             title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
             description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
@@ -68,9 +74,9 @@ const {
           }}
         />
       </div>
-      <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
-        {
-          image && (
+      {
+        image && (
+          <div aria-hidden="true" class="mt-10 md:mt-0 md:basis-1/2">
             <div class="relative m-auto max-w-4xl">
               {typeof image === 'string' ? (
                 <Fragment set:html={image} />
@@ -86,9 +92,9 @@ const {
                 />
               )}
             </div>
-          )
-        }
-      </div>
+          </div>
+        )
+      }
     </div>
   </div>
 </WidgetWrapper>

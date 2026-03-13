@@ -2,6 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero2 from '~/components/widgets/Hero2.astro';
+import TypeWriter from '~/components/ui/TypeWriter.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
@@ -64,6 +65,7 @@ const metadata = {
     </div>
     <Hero2
       tagline="Agencia de Desarrollo Full-Stack"
+      showFloatingIcons={true}
       actions={[
         {
           variant: 'primary',
@@ -73,12 +75,16 @@ const metadata = {
         },
         { variant: 'secondary', text: 'Ver Casos de Éxito', href: '#casos-exito' },
       ]}
-      image={{ src: '~/assets/images/hero-illustration.svg', alt: 'Desarrollo de Software Profesional' }}
     >
       <Fragment slot="title">
-        <span class="text-white">Soluciones Tecnológicas que</span>
-        <span class="text-violet-400">Impulsan</span>
-        <br class="hidden lg:block" /><span class="text-white">tu Crecimiento Digital</span>
+        <span class="text-white">Soluciones que </span>
+        <TypeWriter
+          phrases={['Impulsan tu Negocio', 'Automatizan Procesos', 'Escalan sin Límites', 'Generan Resultados']}
+          class="text-violet-400"
+          typingSpeed={70}
+          deletingSpeed={40}
+          pauseDuration={2500}
+        />
       </Fragment>
 
       <Fragment slot="subtitle">
@@ -200,7 +206,6 @@ const metadata = {
 
   <Content
     id="casos-exito"
-    isReversed
     tagline="Caso de Éxito: E-learning SaaS"
     title="De Idea a $45K MRR en 6 Meses"
     items={[
@@ -220,10 +225,6 @@ const metadata = {
           '500 usuarios primer mes. $45K MRR al mes 6. 99.9% uptime. Página carga en menos de 2 segundos. 0 downtime en 6 meses. Cliente expandió a 3 países.',
       },
     ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Plataforma E-learning',
-    }}
   >
     <Fragment slot="content">
       <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">De 0 a Escalable en 4 Meses</h3>
@@ -512,16 +513,12 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      ¿Listo para&nbsp;<span class="text-accent">Transformar</span>&nbsp;<br class="block sm:hidden" /><span
-        class="sm:whitespace-nowrap">tu Negocio Digitalmente?</span
-      >
+      ¿Listo para <span class="text-accent">Transformar</span> tu Negocio?
     </Fragment>
 
     <Fragment slot="subtitle">
-      Consulta gratuita de 45-60 minutos. Analizamos tu proyecto, te recomendamos stack tecnológico<br
-        class="hidden md:inline"
-      />
-      y te damos estimación de costo y timeline. Sin compromiso.
+      Agenda una consulta gratuita de 45-60 minutos. Analizamos tu proyecto, definimos el stack tecnológico ideal y te
+      entregamos una estimación detallada de costos y tiempos. Sin compromiso, solo soluciones.
     </Fragment>
   </CallToAction>
 

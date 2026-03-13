@@ -4,6 +4,7 @@
 
 <div class="granim-wrapper">
   <canvas id="granim-canvas"></canvas>
+  <div class="blur-overlay"></div>
 </div>
 
 <style>
@@ -25,6 +26,17 @@
     width: 100%;
     height: 100%;
     display: block;
+    filter: blur(120px);
+    transform: scale(1.3);
+  }
+
+  .blur-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(80px);
+    -webkit-backdrop-filter: blur(80px);
   }
 </style>
 

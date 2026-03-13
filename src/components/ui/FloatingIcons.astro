@@ -1,0 +1,145 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  class?: string;
+}
+
+const { class: className = '' } = Astro.props;
+
+const icons = [
+  { name: 'tabler:code', color: 'text-violet-400', size: 'w-8 h-8 md:w-10 md:h-10' },
+  { name: 'tabler:brand-react', color: 'text-cyan-400', size: 'w-7 h-7 md:w-9 md:h-9' },
+  { name: 'tabler:cloud', color: 'text-blue-400', size: 'w-9 h-9 md:w-11 md:h-11' },
+  { name: 'tabler:robot', color: 'text-green-400', size: 'w-7 h-7 md:w-8 md:h-8' },
+  { name: 'tabler:message-circle', color: 'text-pink-400', size: 'w-6 h-6 md:w-8 md:h-8' },
+  { name: 'tabler:database', color: 'text-orange-400', size: 'w-7 h-7 md:w-9 md:h-9' },
+  { name: 'tabler:terminal-2', color: 'text-emerald-400', size: 'w-8 h-8 md:w-10 md:h-10' },
+  { name: 'tabler:brand-github', color: 'text-slate-300', size: 'w-6 h-6 md:w-8 md:h-8' },
+];
+---
+
+<div class={`floating-icons-container ${className}`}>
+  {
+    icons.map((icon, index) => (
+      <div class={`floating-icon floating-icon-${index}`}>
+        <Icon name={icon.name} class={`${icon.size} ${icon.color} drop-shadow-lg`} />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .floating-icons-container {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    overflow: visible;
+  }
+
+  .floating-icon {
+    position: absolute;
+    opacity: 0;
+    filter: blur(0px);
+  }
+
+  /* Posiciones iniciales distribuidas */
+  .floating-icon-0 {
+    left: 10%;
+  }
+  .floating-icon-1 {
+    left: 25%;
+  }
+  .floating-icon-2 {
+    left: 40%;
+  }
+  .floating-icon-3 {
+    left: 55%;
+  }
+  .floating-icon-4 {
+    left: 70%;
+  }
+  .floating-icon-5 {
+    left: 85%;
+  }
+  .floating-icon-6 {
+    left: 17%;
+  }
+  .floating-icon-7 {
+    left: 78%;
+  }
+
+  @media (max-width: 768px) {
+    .floating-icons-container {
+      height: 60px;
+    }
+    .floating-icon-6,
+    .floating-icon-7 {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+
+  function initFloatingIcons() {
+    const icons = document.querySelectorAll('.floating-icon');
+
+    if (icons.length === 0) return;
+
+    // Animación de entrada
+    gsap.fromTo(
+      icons,
+      {
+        opacity: 0,
+        y: 30,
+        scale: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'back.out(1.7)',
+      }
+    );
+
+    // Animación flotante continua para cada icono
+    icons.forEach((icon, index) => {
+      const randomDelay = index * 0.3;
+      const randomDuration = 2.5 + Math.random() * 1.5;
+      const randomY = 8 + Math.random() * 12;
+      const randomRotation = 5 + Math.random() * 10;
+
+      gsap.to(icon, {
+        y: `-=${randomY}`,
+        rotation: randomRotation,
+        duration: randomDuration,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: randomDelay,
+      });
+
+      // Movimiento horizontal sutil
+      gsap.to(icon, {
+        x: `+=${3 + Math.random() * 5}`,
+        duration: randomDuration * 1.3,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: randomDelay + 0.5,
+      });
+    });
+  }
+
+  // Inicializar cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', initFloatingIcons);
+  document.addEventListener('astro:page-load', initFloatingIcons);
+</script>

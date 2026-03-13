@@ -1,0 +1,192 @@
+---
+/**
+ * CustomCursor Component
+ * Cursor personalizado con efectos hover para desktop.
+ * Se oculta automáticamente en dispositivos táctiles.
+ */
+---
+
+<div class="custom-cursor" aria-hidden="true">
+  <div class="cursor-ring"></div>
+</div>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<style>
+  .custom-cursor,
+  .cursor-dot {
+    display: none;
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    mix-blend-mode: difference;
+  }
+
+  /* Only show on devices with fine pointer (mouse) */
+  @media (hover: hover) and (pointer: fine) {
+    .custom-cursor,
+    .cursor-dot {
+      display: block;
+    }
+  }
+
+  .cursor-ring {
+    width: 40px;
+    height: 40px;
+    border: 1.5px solid var(--theme-neon);
+    border-radius: 50%;
+    transition:
+      width 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .custom-cursor.hovering .cursor-ring {
+    width: 60px;
+    height: 60px;
+    background: color-mix(in srgb, var(--theme-neon) 15%, transparent);
+    border-color: var(--theme-neon);
+  }
+
+  .custom-cursor.clicking .cursor-ring {
+    width: 30px;
+    height: 30px;
+    background: color-mix(in srgb, var(--theme-neon) 30%, transparent);
+  }
+
+  .cursor-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--theme-neon);
+    border-radius: 50%;
+    transition: transform 0.1s ease;
+  }
+
+  .custom-cursor.clicking + .cursor-dot {
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  /* Hide when cursor leaves window */
+  .custom-cursor.hidden,
+  .cursor-dot.hidden {
+    opacity: 0 !important;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .custom-cursor,
+    .cursor-dot {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  import { gsap } from 'gsap';
+
+  function initCustomCursor() {
+    // Check if we should show custom cursor
+    const hasFineMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!hasFineMouse || prefersReducedMotion) return;
+
+    const cursor = document.querySelector<HTMLElement>('.custom-cursor');
+    const cursorDot = document.querySelector<HTMLElement>('.cursor-dot');
+
+    if (!cursor || !cursorDot) return;
+
+    // Show cursor after delay
+    setTimeout(() => {
+      cursor.style.opacity = '1';
+      cursorDot.style.opacity = '1';
+    }, 500);
+
+    // Track mouse position with GSAP for smooth movement
+    let mouseX = 0;
+    let mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+
+      // Dot follows immediately
+      gsap.set(cursorDot, {
+        x: mouseX,
+        y: mouseY,
+      });
+
+      // Ring follows with slight delay
+      gsap.to(cursor, {
+        x: mouseX,
+        y: mouseY,
+        duration: 0.15,
+        ease: 'power2.out',
+      });
+    });
+
+    // Handle mouse enter/leave window
+    document.addEventListener('mouseleave', () => {
+      cursor.classList.add('hidden');
+      cursorDot.classList.add('hidden');
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursor.classList.remove('hidden');
+      cursorDot.classList.remove('hidden');
+    });
+
+    // Handle click
+    document.addEventListener('mousedown', () => {
+      cursor.classList.add('clicking');
+    });
+
+    document.addEventListener('mouseup', () => {
+      cursor.classList.remove('clicking');
+    });
+
+    // Handle hover on interactive elements
+    const interactiveElements = document.querySelectorAll(
+      'a, button, [data-cursor-hover], input, textarea, select, [role="button"]'
+    );
+
+    interactiveElements.forEach((el) => {
+      el.addEventListener('mouseenter', () => {
+        cursor.classList.add('hovering');
+      });
+
+      el.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hovering');
+      });
+    });
+
+    // Hide default cursor on body
+    document.body.style.cursor = 'none';
+
+    // Also hide on interactive elements
+    const style = document.createElement('style');
+    style.textContent = `
+      @media (hover: hover) and (pointer: fine) {
+        a, button, input, textarea, select, [role="button"], [data-cursor-hover] {
+          cursor: none !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Initialize on page load
+  document.addEventListener('astro:page-load', initCustomCursor);
+
+  // Also run on DOMContentLoaded
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCustomCursor);
+  } else {
+    initCustomCursor();
+  }
+</script>

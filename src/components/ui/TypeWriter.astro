@@ -1,0 +1,104 @@
+---
+export interface Props {
+  phrases: string[];
+  typingSpeed?: number;
+  deletingSpeed?: number;
+  pauseDuration?: number;
+  class?: string;
+}
+
+const { phrases, typingSpeed = 100, deletingSpeed = 60, pauseDuration = 2000, class: className = '' } = Astro.props;
+
+const id = `typewriter-${Math.random().toString(36).substr(2, 9)}`;
+---
+
+<span
+  id={id}
+  class={`typewriter-text ${className}`}
+  data-phrases={JSON.stringify(phrases)}
+  data-typing-speed={typingSpeed}
+  data-deleting-speed={deletingSpeed}
+  data-pause-duration={pauseDuration}
+>
+  <span class="typewriter-content"></span>
+  <span class="typewriter-cursor"></span>
+</span>
+
+<style>
+  .typewriter-text {
+    display: inline;
+  }
+
+  .typewriter-content {
+    border-right: 2px solid currentColor;
+    padding-right: 4px;
+    animation: blink 0.7s step-end infinite;
+  }
+
+  .typewriter-cursor {
+    display: none;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      border-color: currentColor;
+    }
+    50% {
+      border-color: transparent;
+    }
+  }
+</style>
+
+<script define:vars={{ id }}>
+  (function () {
+    const element = document.getElementById(id);
+    if (!element || element.dataset.initialized) return;
+    element.dataset.initialized = 'true';
+
+    const contentEl = element.querySelector('.typewriter-content');
+    const phrases = JSON.parse(element.dataset.phrases || '[]');
+    const typingSpeed = parseInt(element.dataset.typingSpeed || '100');
+    const deletingSpeed = parseInt(element.dataset.deletingSpeed || '60');
+    const pauseDuration = parseInt(element.dataset.pauseDuration || '2000');
+
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+      const currentPhrase = phrases[currentPhraseIndex];
+
+      if (isDeleting) {
+        currentCharIndex--;
+        contentEl.textContent = currentPhrase.substring(0, currentCharIndex);
+
+        if (currentCharIndex === 0) {
+          isDeleting = false;
+          currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+          setTimeout(type, 400);
+          return;
+        }
+
+        setTimeout(type, deletingSpeed);
+      } else {
+        currentCharIndex++;
+        contentEl.textContent = currentPhrase.substring(0, currentCharIndex);
+
+        if (currentCharIndex === currentPhrase.length) {
+          isDeleting = true;
+          setTimeout(type, pauseDuration);
+          return;
+        }
+
+        setTimeout(type, typingSpeed);
+      }
+    }
+
+    if (phrases.length > 0) {
+      // Start with first phrase already visible, then start animating
+      contentEl.textContent = '';
+      type();
+    }
+  })();
+</script>

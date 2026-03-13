@@ -1,9 +1,13 @@
 ---
 import { SITE } from 'astrowind:config';
+import logoIsotipo from '~/assets/images/logo-isotipo.png';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  {SITE?.name}
-</span>
+<div class="flex items-center">
+  <img src={logoIsotipo.src} alt="Logo" class="w-10 h-8 md:w-12 md:h-10 object-contain" />
+  <span
+    class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-semibold text-gray-900 whitespace-nowrap dark:text-white"
+  >
+    {SITE?.name}
+  </span>
+</div>
