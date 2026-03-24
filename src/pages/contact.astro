@@ -1,7 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
+import LeadForm from '~/components/forms/LeadForm.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
@@ -128,77 +128,30 @@ const metadata = {
     </div>
   </div>
 
-  <ContactUs
-    id="form"
-    title="Agenda tu Consulta de Automatización (100% Gratis)"
-    subtitle="Cuéntame sobre tu proceso más tedioso. Te muestro cómo automatizarlo y cuánto ahorrarías. Si los números no convencen, no hay compromiso."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Nombre Completo *',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email Empresarial *',
-      },
-      {
-        type: 'text',
-        name: 'company',
-        label: 'Empresa',
-      },
-      {
-        type: 'tel',
-        name: 'phone',
-        label: 'WhatsApp / Teléfono',
-      },
-      {
-        type: 'select',
-        name: 'project_type',
-        label: 'Tipo de Automatización *',
-        options: [
-          'Procesamiento de datos/reportes',
-          'Integración entre sistemas',
-          'Web scraping/extracción de datos',
-          'Automatización de emails/comunicaciones',
-          'Chatbot/atención al cliente',
-          'Procesamiento de documentos/facturas',
-          'Marketing automation',
-          'Otro (especificar en mensaje)',
-        ],
-      },
-      {
-        type: 'select',
-        name: 'timeline',
-        label: 'Cuándo necesitas la automatización',
-        options: ['Lo antes posible (1-2 semanas)', 'En el próximo mes', 'En 2-3 meses', 'Solo explorando opciones'],
-      },
-      {
-        type: 'select',
-        name: 'budget',
-        label: 'Presupuesto aproximado',
-        options: [
-          'Menos de $2,500',
-          '$2,500 - $5,000',
-          '$5,000 - $10,000',
-          '$10,000 - $20,000',
-          'Más de $20,000',
-          'Depende del ROI',
-        ],
-      },
-    ]}
-    textarea={{
-      label: 'Describe el proceso que quieres automatizar *',
-      placeholder:
-        'Ejemplo: "Cada día perdemos 3 horas copiando datos de emails a Excel, luego los subimos manualmente a nuestro CRM. Son ~300 registros diarios y cometemos errores que nos cuestan clientes..."',
-    }}
-    disclaimer={{
-      label:
-        'Al enviar este formulario, acepto recibir comunicaciones sobre servicios de automatización. Puedo cancelar en cualquier momento.',
-    }}
-    description="⚡ Respuesta garantizada en menos de 2 horas (horario laboral EST). Para emergencias: WhatsApp +1 (555) 123-4567"
-  />
+  <!-- Formulario de Lead -->
+  <section id="form" class="py-8 md:py-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Agenda tu Consulta (100% Gratis)</h2>
+        <p class="text-base text-gray-600 dark:text-gray-400">
+          Cuéntanos sobre tu proyecto. Te respondemos en menos de 2 horas.
+        </p>
+      </div>
+
+      <div
+        class="bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-5 md:p-6"
+      >
+        <LeadForm title="" subtitle="" submitText="Enviar Consulta →" />
+      </div>
+
+      <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+        ⚡ Respuesta en menos de 2 horas. Emergencias: <a
+          href="https://wa.me/5215512345678"
+          class="text-primary hover:underline">WhatsApp</a
+        >
+      </p>
+    </div>
+  </section>
 
   <!-- Features2 Widget ************** -->
 
@@ -225,12 +178,12 @@ const metadata = {
       },
       {
         title: 'WhatsApp Business',
-        description: '+1 (555) 123-4567',
+        description: import.meta.env.PUBLIC_CONTACT_PHONE || '+52 55 1234 5678',
         icon: 'tabler:brand-whatsapp',
       },
       {
         title: 'Email',
-        description: 'contacto@vinerytech.com',
+        description: import.meta.env.PUBLIC_CONTACT_EMAIL || 'vinerydev@gmail.com',
         icon: 'tabler:mail',
       },
       {

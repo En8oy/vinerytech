@@ -1,0 +1,1020 @@
+---
+/**
+ * LeadForm - Formulario de captura de leads
+ * Incluye: inputs, select, chips autocompletable, sliders
+ */
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  submitText?: string;
+}
+
+const {
+  title = 'Cuéntanos sobre tu proyecto',
+  subtitle = 'Responderemos en menos de 2 horas',
+  submitText = 'Enviar Consulta',
+} = Astro.props;
+
+// Opciones de tipo de servicio
+const serviceTypes = [
+  'Desarrollo Web / Aplicación',
+  'Automatización de Procesos',
+  'Integración de Sistemas / APIs',
+  'Infraestructura Cloud / DevOps',
+  'Marketing Digital',
+  'Diseño / Identidad de Marca',
+  'E-commerce',
+  'Consultoría Técnica',
+  'Otro',
+];
+
+// Todas las tecnologías disponibles (flat list)
+const allTechnologies = [
+  'React',
+  'Vue',
+  'Angular',
+  'Next.js',
+  'Astro',
+  'Svelte',
+  'Laravel',
+  'Node.js',
+  'Python',
+  'Express',
+  'FastAPI',
+  'Django',
+  'NestJS',
+  'MySQL',
+  'PostgreSQL',
+  'MongoDB',
+  'Redis',
+  'Firebase',
+  'Supabase',
+  'AWS',
+  'Google Cloud',
+  'DigitalOcean',
+  'Vercel',
+  'Netlify',
+  'Azure',
+  'N8N',
+  'Make',
+  'Zapier',
+  'GoHighLevel',
+  'Integromat',
+  'Stripe',
+  'MercadoPago',
+  'PayPal',
+  'Conekta',
+  'Meta Ads',
+  'Google Ads',
+  'SEO',
+  'Email Marketing',
+  'TikTok Ads',
+  'Docker',
+  'Kubernetes',
+  'Terraform',
+  'GitHub Actions',
+  'TypeScript',
+  'GraphQL',
+  'REST API',
+  'WebSockets',
+  'Tailwind CSS',
+  'SASS',
+  'Figma',
+  'Adobe XD',
+];
+
+// Timeline labels
+const timelineLabels = [
+  { short: 'Urgente', full: 'Urgente (1-2 semanas)' },
+  { short: 'Próx. mes', full: 'Próximo mes' },
+  { short: '2-3 meses', full: '2-3 meses' },
+  { short: 'Sin prisa', full: 'Sin prisa / Explorando' },
+];
+
+// Budget labels
+const budgetLabels = [
+  { short: '$1K', full: '$1,000' },
+  { short: '$2.5K', full: '$2,500' },
+  { short: '$5K', full: '$5,000' },
+  { short: '$10K', full: '$10,000' },
+  { short: '$25K', full: '$25,000' },
+  { short: '$50K+', full: '$50,000+' },
+];
+---
+
+<form id="lead-form" class="lead-form">
+  {
+    title && (
+      <div class="form-header">
+        <h3 class="form-title">{title}</h3>
+        {subtitle && <p class="form-subtitle">{subtitle}</p>}
+      </div>
+    )
+  }
+
+  <!-- Información básica -->
+  <div class="form-section">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="name" class="form-label">Nombre completo <span class="required">*</span></label>
+        <input type="text" id="name" name="name" required class="form-input" placeholder="Tu nombre" />
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label">Email <span class="required">*</span></label>
+        <input type="email" id="email" name="email" required class="form-input" placeholder="tu@email.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="company" class="form-label">Empresa</label>
+        <input type="text" id="company" name="company" class="form-input" placeholder="Nombre de tu empresa" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone" class="form-label">WhatsApp / Teléfono</label>
+        <input type="tel" id="phone" name="phone" class="form-input" placeholder="+52 55 1234 5678" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Tipo de servicio -->
+  <div class="form-section">
+    <div class="form-group">
+      <label for="service_type" class="form-label">Tipo de servicio <span class="required">*</span></label>
+      <select id="service_type" name="service_type" required class="form-input form-select">
+        <option value="">Selecciona una opción</option>
+        {serviceTypes.map((service) => <option value={service}>{service}</option>)}
+      </select>
+    </div>
+  </div>
+
+  <!-- Tecnologías (input autocompletable con chips) -->
+  <div class="form-section">
+    <label class="form-label">Tecnologías de interés</label>
+    <div class="tech-input-container">
+      <div class="selected-chips" id="selected-chips"></div>
+      <input
+        type="text"
+        id="tech-input"
+        class="tech-autocomplete-input"
+        placeholder="Escribe para buscar tecnologías..."
+        autocomplete="off"
+      />
+      <div class="autocomplete-dropdown" id="autocomplete-dropdown"></div>
+    </div>
+    <input type="hidden" id="technologies" name="technologies" value="" />
+  </div>
+
+  <!-- Sliders en 2 columnas -->
+  <div class="form-section">
+    <div class="sliders-grid">
+      <!-- Timeline slider -->
+      <div class="slider-group">
+        <label class="form-label">¿Cuándo lo necesitas?</label>
+        <div class="slider-wrapper">
+          <input type="range" id="timeline" name="timeline" min="0" max="3" value="1" step="1" class="custom-slider" />
+          <div class="slider-labels">
+            {
+              timelineLabels.map((label, i) => (
+                <span class="slider-label" data-index={i}>
+                  {label.short}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+        <div class="slider-value-display" id="timeline-display">Próximo mes</div>
+        <input type="hidden" id="timeline_text" name="timeline_text" value="Próximo mes" />
+      </div>
+
+      <!-- Budget slider -->
+      <div class="slider-group">
+        <label class="form-label">Presupuesto aproximado</label>
+        <div class="slider-wrapper">
+          <input type="range" id="budget" name="budget" min="0" max="5" value="2" step="1" class="custom-slider" />
+          <div class="slider-labels">
+            {
+              budgetLabels.map((label, i) => (
+                <span class="slider-label" data-index={i}>
+                  {label.short}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+        <div class="slider-value-display" id="budget-display">$5,000</div>
+        <input type="hidden" id="budget_text" name="budget_text" value="$5,000" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Descripción -->
+  <div class="form-section">
+    <div class="form-group">
+      <label for="description" class="form-label">Descripción del proyecto</label>
+      <textarea
+        id="description"
+        name="description"
+        rows="4"
+        class="form-input form-textarea"
+        placeholder="Cuéntanos sobre tu proyecto: ¿Qué problema quieres resolver? ¿Tienes sistemas existentes? ¿Algún requerimiento específico?"
+      ></textarea>
+    </div>
+  </div>
+
+  <!-- Submit -->
+  <div class="form-section">
+    <button type="submit" class="form-submit" id="submit-btn">
+      <span class="submit-text">{submitText}</span>
+      <span class="submit-loading hidden">
+        <svg
+          class="animate-spin"
+          width="20"
+          height="20"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path
+            class="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          ></path>
+        </svg>
+        Enviando...
+      </span>
+    </button>
+    <p class="form-disclaimer">Al enviar, aceptas recibir comunicaciones sobre tu proyecto. Sin spam, lo prometemos.</p>
+  </div>
+
+  <!-- Mensaje de éxito/error -->
+  <div id="form-message" class="form-message hidden"></div>
+</form>
+
+<!-- Data para JavaScript -->
+<script is:inline define:vars={{ allTechnologies, timelineLabels, budgetLabels }}>
+  window.__LEAD_FORM_DATA__ = {
+    technologies: allTechnologies,
+    timelineLabels: timelineLabels,
+    budgetLabels: budgetLabels,
+  };
+</script>
+
+<style>
+  .lead-form {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .form-header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-subtitle {
+    color: #64748b;
+    font-size: 0.875rem;
+  }
+
+  .form-section {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  @media (min-width: 640px) {
+    .form-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Sliders grid */
+  .sliders-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .sliders-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  .slider-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    margin-bottom: 0.375rem;
+    color: #374151;
+  }
+
+  :global(.dark) .form-label {
+    color: #e5e7eb;
+  }
+
+  .required {
+    color: #ef4444;
+  }
+
+  /* Inputs mejorados */
+  .form-input {
+    width: 100%;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    color: #1f2937;
+    transition: all 0.2s ease;
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: #9ca3af;
+  }
+
+  .form-input:hover {
+    border-color: #9ca3af;
+  }
+
+  .form-input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+
+  :global(.dark) .form-input {
+    background-color: #1e293b;
+    border-color: #475569;
+    color: #f1f5f9;
+  }
+
+  :global(.dark) .form-input::placeholder {
+    color: #64748b;
+  }
+
+  :global(.dark) .form-input:hover {
+    border-color: #64748b;
+  }
+
+  :global(.dark) .form-input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+  }
+
+  .form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    padding-right: 2.5rem;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  /* Tech autocomplete input */
+  .tech-input-container {
+    position: relative;
+    border: 2px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    padding: 0.375rem 0.5rem;
+    min-height: 42px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    align-items: center;
+    transition: all 0.2s ease;
+  }
+
+  .tech-input-container:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+
+  :global(.dark) .tech-input-container {
+    background-color: #1e293b;
+    border-color: #475569;
+  }
+
+  :global(.dark) .tech-input-container:focus-within {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2);
+  }
+
+  .selected-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #ffffff;
+    border-radius: 0.375rem;
+    animation: chipIn 0.2s ease;
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  :global(.dark) .chip {
+    background: linear-gradient(135deg, #6366f1, #a78bfa);
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(99, 102, 241, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  @keyframes chipIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .chip-remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    padding: 0;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: 0.25rem;
+  }
+
+  .chip-remove:hover {
+    background: rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+  }
+
+  .tech-autocomplete-input {
+    flex: 1;
+    min-width: 150px;
+    border: none;
+    outline: none;
+    padding: 0.375rem;
+    font-size: 0.9375rem;
+    background: transparent;
+    color: #1f2937;
+  }
+
+  .tech-autocomplete-input::placeholder {
+    color: #9ca3af;
+  }
+
+  :global(.dark) .tech-autocomplete-input {
+    color: #f1f5f9;
+  }
+
+  :global(.dark) .tech-autocomplete-input::placeholder {
+    color: #64748b;
+  }
+
+  .autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 4px;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 50;
+    display: none;
+  }
+
+  .autocomplete-dropdown.show {
+    display: block;
+  }
+
+  :global(.dark) .autocomplete-dropdown {
+    background: #1e293b;
+    border-color: #475569;
+  }
+
+  .autocomplete-item {
+    padding: 0.625rem 1rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background 0.15s;
+    color: #374151;
+  }
+
+  .autocomplete-item:hover,
+  .autocomplete-item.highlighted {
+    background: #f3f4f6;
+  }
+
+  :global(.dark) .autocomplete-item {
+    color: #e5e7eb;
+  }
+
+  :global(.dark) .autocomplete-item:hover,
+  :global(.dark) .autocomplete-item.highlighted {
+    background: #334155;
+  }
+
+  /* Sliders mejorados */
+  .slider-wrapper {
+    position: relative;
+    padding-top: 0.5rem;
+  }
+
+  .custom-slider {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #e5e7eb;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+  }
+
+  :global(.dark) .custom-slider {
+    background: #475569;
+  }
+
+  .custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
+    border: 2px solid white;
+    transition:
+      transform 0.2s,
+      box-shadow 0.2s;
+  }
+
+  .custom-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 10px rgba(99, 102, 241, 0.5);
+  }
+
+  .custom-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 6px rgba(99, 102, 241, 0.4);
+  }
+
+  .slider-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.625rem;
+  }
+
+  .slider-label {
+    font-size: 0.6875rem;
+    color: #6b7280;
+    text-align: center;
+    flex: 1;
+    cursor: pointer;
+    padding: 0.125rem;
+    border-radius: 0.25rem;
+    transition: all 0.2s;
+  }
+
+  .slider-label:hover {
+    color: #6366f1;
+  }
+
+  .slider-label.active {
+    color: #6366f1;
+    font-weight: 600;
+  }
+
+  :global(.dark) .slider-label {
+    color: #9ca3af;
+  }
+
+  :global(.dark) .slider-label.active {
+    color: #818cf8;
+  }
+
+  .slider-value-display {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #6366f1;
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    display: inline-block;
+    width: 100%;
+  }
+
+  :global(.dark) .slider-value-display {
+    color: #818cf8;
+    background: rgba(129, 140, 248, 0.15);
+  }
+
+  /* Submit button */
+  .form-submit {
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .form-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  }
+
+  .form-submit:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  .form-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .submit-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .form-disclaimer {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 1rem;
+  }
+
+  /* Message */
+  .form-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .form-message.success {
+    background-color: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+  }
+
+  .form-message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+  }
+
+  :global(.dark) .form-message.success {
+    background-color: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.3);
+  }
+
+  :global(.dark) .form-message.error {
+    background-color: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+  }
+
+  .animate-spin {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('astro:page-load', initLeadForm);
+  document.addEventListener('DOMContentLoaded', initLeadForm);
+
+  interface LeadFormData {
+    technologies: string[];
+    timelineLabels: { short: string; full: string }[];
+    budgetLabels: { short: string; full: string }[];
+  }
+
+  function initLeadForm() {
+    const form = document.getElementById('lead-form') as HTMLFormElement;
+    if (!form || form.dataset.initialized) return;
+    form.dataset.initialized = 'true';
+
+    const data = (window as unknown as { __LEAD_FORM_DATA__?: LeadFormData }).__LEAD_FORM_DATA__;
+    if (!data) return;
+
+    // ========== AUTOCOMPLETE CHIPS ==========
+    const techInput = document.getElementById('tech-input') as HTMLInputElement;
+    const dropdown = document.getElementById('autocomplete-dropdown') as HTMLElement;
+    const chipsContainer = document.getElementById('selected-chips') as HTMLElement;
+    const hiddenInput = document.getElementById('technologies') as HTMLInputElement;
+    const allTechs: string[] = data.technologies;
+    let selectedTechs: string[] = [];
+    let highlightedIndex = -1;
+
+    function updateHiddenInput() {
+      hiddenInput.value = selectedTechs.join(', ');
+    }
+
+    function renderChips() {
+      chipsContainer.innerHTML = selectedTechs
+        .map(
+          (tech) => `
+        <span class="chip">
+          ${tech}
+          <button type="button" class="chip-remove" data-tech="${tech}">&times;</button>
+        </span>
+      `
+        )
+        .join('');
+
+      chipsContainer.querySelectorAll('.chip-remove').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          const tech = (e.currentTarget as HTMLElement).dataset.tech!;
+          selectedTechs = selectedTechs.filter((t) => t !== tech);
+          renderChips();
+          updateHiddenInput();
+        });
+      });
+    }
+
+    function showDropdown(filter: string) {
+      const filtered = allTechs
+        .filter((t) => !selectedTechs.includes(t))
+        .filter((t) => t.toLowerCase().includes(filter.toLowerCase()))
+        .slice(0, 8);
+
+      if (filtered.length === 0) {
+        dropdown.classList.remove('show');
+        return;
+      }
+
+      highlightedIndex = -1;
+      dropdown.innerHTML = filtered
+        .map(
+          (tech, i) => `
+        <div class="autocomplete-item" data-tech="${tech}" data-index="${i}">${tech}</div>
+      `
+        )
+        .join('');
+
+      dropdown.querySelectorAll('.autocomplete-item').forEach((item) => {
+        item.addEventListener('click', () => {
+          const tech = (item as HTMLElement).dataset.tech!;
+          if (!selectedTechs.includes(tech)) {
+            selectedTechs.push(tech);
+            renderChips();
+            updateHiddenInput();
+          }
+          techInput.value = '';
+          dropdown.classList.remove('show');
+        });
+      });
+
+      dropdown.classList.add('show');
+    }
+
+    techInput.addEventListener('input', () => {
+      const value = techInput.value.trim();
+      if (value.length > 0) {
+        showDropdown(value);
+      } else {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    techInput.addEventListener('focus', () => {
+      if (techInput.value.trim().length > 0) {
+        showDropdown(techInput.value);
+      }
+    });
+
+    techInput.addEventListener('keydown', (e) => {
+      const items = dropdown.querySelectorAll('.autocomplete-item');
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        highlightedIndex = Math.min(highlightedIndex + 1, items.length - 1);
+        items.forEach((item, i) => item.classList.toggle('highlighted', i === highlightedIndex));
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        highlightedIndex = Math.max(highlightedIndex - 1, 0);
+        items.forEach((item, i) => item.classList.toggle('highlighted', i === highlightedIndex));
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (highlightedIndex >= 0 && items[highlightedIndex]) {
+          const tech = (items[highlightedIndex] as HTMLElement).dataset.tech!;
+          if (!selectedTechs.includes(tech)) {
+            selectedTechs.push(tech);
+            renderChips();
+            updateHiddenInput();
+          }
+          techInput.value = '';
+          dropdown.classList.remove('show');
+        } else if (techInput.value.trim()) {
+          // Add custom tech
+          const custom = techInput.value.trim();
+          if (!selectedTechs.includes(custom)) {
+            selectedTechs.push(custom);
+            renderChips();
+            updateHiddenInput();
+          }
+          techInput.value = '';
+          dropdown.classList.remove('show');
+        }
+      } else if (e.key === 'Escape') {
+        dropdown.classList.remove('show');
+      } else if (e.key === 'Backspace' && techInput.value === '' && selectedTechs.length > 0) {
+        selectedTechs.pop();
+        renderChips();
+        updateHiddenInput();
+      }
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target as Node) && e.target !== techInput) {
+        dropdown.classList.remove('show');
+      }
+    });
+
+    // ========== SLIDERS ==========
+    const timelineLabels = data.timelineLabels;
+    const budgetLabels = data.budgetLabels;
+
+    function setupSlider(
+      sliderId: string,
+      displayId: string,
+      hiddenId: string,
+      labels: { short: string; full: string }[]
+    ) {
+      const slider = document.getElementById(sliderId) as HTMLInputElement;
+      const display = document.getElementById(displayId) as HTMLElement;
+      const hidden = document.getElementById(hiddenId) as HTMLInputElement;
+      const wrapper = slider?.closest('.slider-group');
+      const labelEls = wrapper?.querySelectorAll('.slider-label');
+
+      if (!slider || !display || !hidden) return;
+
+      function update() {
+        const val = parseInt(slider.value);
+        display.textContent = labels[val].full;
+        hidden.value = labels[val].full;
+
+        labelEls?.forEach((el, i) => {
+          el.classList.toggle('active', i === val);
+        });
+      }
+
+      slider.addEventListener('input', update);
+
+      // Click on labels
+      labelEls?.forEach((el) => {
+        el.addEventListener('click', () => {
+          const index = parseInt((el as HTMLElement).dataset.index || '0');
+          slider.value = String(index);
+          update();
+        });
+      });
+
+      // Initial
+      update();
+    }
+
+    setupSlider('timeline', 'timeline-display', 'timeline_text', timelineLabels);
+    setupSlider('budget', 'budget-display', 'budget_text', budgetLabels);
+
+    // ========== FORM SUBMISSION ==========
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const submitText = submitBtn?.querySelector('.submit-text') as HTMLElement;
+    const submitLoading = submitBtn?.querySelector('.submit-loading') as HTMLElement;
+    const formMessage = document.getElementById('form-message') as HTMLElement;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!submitBtn || !submitText || !submitLoading || !formMessage) return;
+
+      submitBtn.disabled = true;
+      submitText.classList.add('hidden');
+      submitLoading.classList.remove('hidden');
+      formMessage.classList.add('hidden');
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch('/api/send-lead', {
+          method: 'POST',
+          body: formData,
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          formMessage.textContent = '¡Gracias! Hemos recibido tu mensaje. Te contactaremos en menos de 2 horas.';
+          formMessage.className = 'form-message success';
+          form.reset();
+          selectedTechs = [];
+          renderChips();
+          updateHiddenInput();
+
+          // Reset sliders
+          const timelineSlider = document.getElementById('timeline') as HTMLInputElement;
+          const budgetSlider = document.getElementById('budget') as HTMLInputElement;
+          if (timelineSlider) {
+            timelineSlider.value = '1';
+            timelineSlider.dispatchEvent(new Event('input'));
+          }
+          if (budgetSlider) {
+            budgetSlider.value = '2';
+            budgetSlider.dispatchEvent(new Event('input'));
+          }
+        } else {
+          throw new Error(result.message || 'Error al enviar el formulario');
+        }
+      } catch (error) {
+        formMessage.textContent =
+          error instanceof Error ? error.message : 'Error al enviar. Por favor intenta de nuevo.';
+        formMessage.className = 'form-message error';
+      } finally {
+        submitBtn.disabled = false;
+        submitText.classList.remove('hidden');
+        submitLoading.classList.add('hidden');
+        formMessage.classList.remove('hidden');
+      }
+    });
+  }
+</script>
